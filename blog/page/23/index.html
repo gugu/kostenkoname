@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="Если вы посмотрите налево направо, то увидите новый виджет с кнопочкой Facebook login. Это новая API от фейсбука. Буржуйский ответ коммунистическому &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/page/23/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/09/facebook-connect-d0b4d0bbd18f-wordpress/">Facebook Connect для Wordpress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-09T18:32:09+03:00" pubdate data-updated="true">Jan 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Если вы посмотрите <del>налево</del> направо, то увидите новый виджет с кнопочкой Facebook login.</p>
+
+<p>Это новая API от фейсбука. Буржуйский ответ коммунистическому Google Friend Connect. Мне фейсбук нравится больше, поэтому я решил посмотреть готовые решения для wordpress-а.</p>
+
+<p><a href="http://www.sociable.es/facebook-connect/">И оно таки нашлось.</a> Кривое, но чо поделаешь.</p>
+
+<h2>Инструкции по установке</h2>
+
+<ul>
+<li><p>Скачиваем плагин и устанавливаем его</p></li>
+<li><p>Заходим сюда: http://www.facebook.com/developers/</p></li>
+<li><p>Создаем новое приложение</p></li>
+<li><p>В Callback URL пишем URL сайта</p></li>
+<li><p>В своем блоге заходим в Settings => ‘Facebook Connector’</p></li>
+<li><p>Вводим API key и Secret key нового Facebook-приложения.</p></li>
+<li><p>На этой же странице заливаем темплейты для Facebook</p></li>
+<li><p>Добавляем в тему новый виджет Facebook Connector</p></li>
+</ul>
+
+
+<p>В теории - готово и должно работать. Но этот плагин почему-то не захотел поключать скрипты. Ладно. Сделаем сами:</p>
+
+<p>Берем в руки туториал по FBConnect: <a href="http://wiki.developers.facebook.com/index.php/Trying_Out_Facebook_Connect">http://wiki.developers.facebook.com/index.php/Trying_Out_Facebook_Connect</a></p>
+
+<p>Затем открываем тему в редакторе и добавляем в header.php такие строки:</p>
+
+<pre><code>&lt;html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+
+        &lt;script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/XdCommReceiver.js" type="text/javascript"&gt;&lt;/script&gt; 
+        &lt;script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>и в footer.php:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;  FB.init("YOUR_API_KEY_HERE", "&lt;your blog&gt;/fbconnect/wp-content/plugins/xd_receiver.htm"); &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>Должно работать</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/05/regression-test-sample-mysql/">Пример регрессионного теста в MySQL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-05T19:35:44+03:00" pubdate data-updated="true">Jan 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>DROP TABLE IF EXISTS expected_values, found_values;
+CREATE TABLE expected_values (
+    table_name varchar(30) not null primary key,
+    recs int not null,
+    crc_sha varchar(100) not null,
+    crc_md5 varchar(100) not null
+) ENGINE=MyISAM;
+CREATE TABLE found_values LIKE expected_values;
+
+INSERT INTO `expected_values` VALUES ('employees',   300024,'4d4aa689914d8fd41db7e45c2168e7dcb9697359', '4ec56ab5ba37218d187cf6ab09ce1aa1'),
+('departments',      9,'4b315afa0e35ca6649df897b958345bcb3d2b764', 'd1af5e170d2d1591d776d5638d71fc5f'),
+('dept_manager',    24,'9687a7d6f93ca8847388a42a6d8d93982a841c6c', '8720e2f0853ac9096b689c14664f847e'),
+('dept_emp',    331603,'f16f6ce609d032d6b1b34748421e9195c5083da8',  'c2c4fc7f0506e50959a6c67ad55cac31'),
+('titles',      443308,'d12d5f746b88f07e69b9e36675b6067abb01b60e', 'bfa016c472df68e70a03facafa1bc0a8'),
+('salaries',   2844047,'b5a1785c27d75e33a4173aaa22ccf41ebd7d4a9f', 'fd220654e95aea1b169624ffe3fca934');
+SELECT table_name, recs AS expected_records, crc_sha AS expected_crc FROM expected_values;
+SET @crc= '';
+
+INSERT INTO tchecksum 
+    SELECT @crc := sha(CONCAT_WS('#',@crc,
+                emp_no,birth_date,first_name,last_name,gender,hire_date)) 
+    FROM employees ORDER BY emp_no;
+INSERT INTO found_values VALUES ('employees', (SELECT COUNT(*) FROM employees), @crc,@crc);
+TRUNCATE tchecksum; -- if BlackHole is not available
+
+SELECT  
+    e.table_name, 
+    IF(e.recs=f.recs,'OK', 'not ok') AS records_match, 
+    IF(e.crc_sha=f.crc_sha,'ok','not ok') AS crc_match 
+from 
+    expected_values e INNER JOIN found_values f USING (table_name); 
+
+DROP TABLE expected_values,found_values;
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/05/world-database/">World Database</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-05T19:29:15+03:00" pubdate data-updated="true">Jan 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Иногда хочется поиграться с базой, в которой есть реальные данные. Для этих целей MySQL предлагает скачать 4 тестовых базы:</p>
+
+<ul>
+<li><p><a href="https://launchpad.net/test-db/">employee data (large dataset, includes data and test/verification suite)</a></p></li>
+<li><p><a href="http://downloads.mysql.com/docs/world.sql.gz">world database (used in MySQL certifications and training) </a></p></li>
+<li><p><a href="http://downloads.mysql.com/docs/sakila-db.tar.gz">sakila database</a></p></li>
+<li><p><a href="http://downloads.mysql.com/docs/menagerie-db.tar.gz">menagerie database</a></p></li>
+</ul>
+
+
+<p>За одно можно посмотреть как белые люди пишут SQL и юнит-тесты к нему</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/01/dnepropetrovsk/">Ну вот я и в Днепре</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-01T16:37:44+03:00" pubdate data-updated="true">Jan 1<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Новогодний идиотизм начался для меня вечером 31го декабря. Тогда я рискнул поехать на Красную Площадь. OMG&#8230; Каждый таджик считает долгом подарить своему другу мобильный телефон. Поэтому в Евросети была аццкая очередь :(</p>
+
+<ul>
+<li><p>В 12:00, когда я мирно спал в плацкарте меня разбудил громкий крик пьяных пассажиров - &#8220;С новым годом!&#8221;. Сволочи. Как оказалось, новый год я встретил где-то между Тулой и Орлом.
+После того как пассажири напились сами, они попытались напоить бедных китайцев, которые по воле случая тоже ехали с нами.</p></li>
+<li><p>5:00 - Белгород. Таможня. Андрей где-то посеял миграционную карту. Пришлось сделать пограничнику новогодний подарок - 500р. Отделался таки хорошо - официальный штраф составляет сумму в пять раз большую.</p></li>
+</ul>
+
+
+<p>А теперь вопрос. За что мне должен нравиться новый год?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/24/d0bed0b1d0bdd0bed0b2d0b8d0bbd181d18f-classc3/">Обновился Class::C3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-24T18:20:20+03:00" pubdate data-updated="true">Dec 24<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Сейчас Catalyst в perl 5.10 не пишет дурацкие warning-и при старте. Советую обновиться</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/17/paramsvalidate-d0b4d0bed0bbd0b6d0b5d0bd/">Params::Validate должен</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-17T12:46:52+03:00" pubdate data-updated="true">Dec 17<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>возвращать не хеш, а объект. с ридонли-методами доступа для всех переданных параметров. Но как реализовать анонимный класс нечерезжопным методом - не знаю(</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/11/wp-27/">WP 2.7</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-11T09:49:20+03:00" pubdate data-updated="true">Dec 11<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>вышел</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/10/google-native-client/">Google представила конкурента JRE, Flash и Silverlight</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-10T10:24:05+03:00" pubdate data-updated="true">Dec 10<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Google Native Client - это технология, позволяющая встраивать непосредственно в браузер полноценные приложения, использующие ресурсы клиентской машины. В частности, в качестве примера была представлена игра в жанре 3D шутера. При этом, не смотря на то, что код компилируется в инструкции x86 (технология доступна только для x86, про x86_64 и другие архитектуры пока никто не говорил), этот код исполняется в закрытой виртуальной среде, гарантируя, с одной стороны, высокую скорость исполнения, а с другой — безопасность. Также GNC гарантирует кросс-платформенность. Клиент дает Web-разработчикам возможность использовать стандартную библиотеку С++ от GNU, но в числе прочих предоставляет собственные функции для обработки мультимедиа и пр.</p>
+
+<p>В дальнейших планах выпуск GNC для других архитектур, включая PPC и ARM. Лицензия: BSD.
+(взято с <a href="http://linux.org.ru">ЛОРа</a>)
+<a href="http://google-code-updates.blogspot.com/2008/12/native-client-technology-for-running.html">http://google-code-updates.blogspot.com/2008/12/native-client-technology-for-running.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/05/ppp/">И ещё перед тем как пойти спать</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-05T02:32:54+03:00" pubdate data-updated="true">Dec 5<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Расскажу вам про очень полезную вешь. Которую я даже сам редко использую. Прочёл я о ней в книге Стива Макконнела &#8220;Совершенный код&#8221;. Это Библия программиста. Советую прочесть всем.</p>
+
+<h3>Псевдокод</h3>
+
+<p>Когда вам нужно создать метод, не нужно торопиться и писать кучу кода. Попробуйте начать работать по такой схеме:</p>
+
+<ul>
+<li><p>Обдумайте назначение метода, его название, параметры и то, что он будет возвращать</p></li>
+<li><p>Напишите к нему документацию</p></li>
+<li><p>Создайте каркас метода.</p></li>
+<li><p>В этот каркас на РОДНОМ для вас языке наиболее детально опишите то, что делает этот метод. Это описание должно отвечать на вопрос <strong>&#8220;Что делает этот метод?&#8221;</strong> а не &#8220;Каким образом?&#8221;. Например:</p>
+
+<ul>
+<li><p>проверяем параметры</p>
+
+<ul>
+<li>если нет логина или пароля, то выходим</li>
+</ul>
+</li>
+<li><p>получаем из базы пользователя с таким логином</p>
+
+<ul>
+<li>если пользователь не найден, по выходим</li>
+</ul>
+</li>
+<li><p>&#8230;</p></li>
+</ul>
+</li>
+<li><p>После этого превращаем это описание в комментарии</p></li>
+<li><p>И в соответствии с этими комментариями пишем код метода</p></li>
+</ul>
+
+
+<p>То что получилось бы, если бы я писал такой метод:</p>
+
+<pre><code>=head2 authenticate_user( login =&gt; $login, password =&gt; $password )
+
+Авторизация пользователя. Возвращает 1 в случае успеха.
+
+=cut
+
+sub authenticate_user {
+    my $self = shift;
+#проверяем параметры
+    my %params = validate( login =&gt; { type =&gt; SCALAR }, password =&gt; { type =&gt; SCALAR } );
+#если нет логина или пароля, то выходим
+    if ( ! $params{ login } || ! $params{ password } ) {
+         return;
+    }
+#получаем из базы пользователя с таким логином
+    my $user = Database-&gt;;instance-&gt;get_user( @params{ qw/login password/ } );
+#...
+}
+</code></pre>
+
+<p>Итого: мы получаем грамотный изначально документированный код</p>
+
+<p>OFFTOPIC: я спать. обещаю прийти на работу пораньше.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/04/oo-perl/">ООП в Perl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-04T22:07:10+03:00" pubdate data-updated="true">Dec 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>Мы все знаем прекрасно какое ООП в Perl (оно прикручено через задницу). Поэтому напишу немного букаф о том, как всё-таки научить Perl чему-то объектно-ориентированному.</p></blockquote>
+
+<h2>Методы доступа.</h2>
+
+<p>Писать $self->{attribute} - это конечно хорошо.</p>
+
+<p>Но при этом интерпретатор не проверяет правильность написания аттрибута. Т.е. если вы где-то напишете $self->{atribute}, то Perl создаст новое св-во atibute, а Вы будете долго трахаться в поисках этой ошибки.</p>
+
+<p>Также обращаться напрямую к аттрибутам не стоит по той причине, что если вы потом захотите сделать проверку значений, то вам это не удастся. Для более удобной работы с аттрибутами создаются методы доступа (accessors). В Perl методы доступа создаются модулем <a href="http://search.cpan.org/perldoc?Class::Accessor">Class::Accessor</a>:</p>
+
+<p><strong>Создание методов доступа:</strong></p>
+
+<pre><code>package MyClass;
+use Class::Accessor;
+__PACKAGE__-&gt;follow_best_pactice;
+__PACKAGE__-&gt;mk_accessors( qw/value1 value2/); #чтение/запись
+__PACKAGE__-&gt;mk_ro_accessors( qw/ro_data/); #можно только читать
+__PACKAGE__-&gt;mk_wo_accessors( qw/wo_data/); #можно только записывать. Даже автор модуля незнает нахрена это нужно (:
+</code></pre>
+
+<p>Class::Accessor автоматически создаёт конструктор, который устанавливает аттрибутам начальные значения.
+<strong>Использование:</strong></p>
+
+<pre><code>package main;
+use feature qw/say/;
+my $obj = MyClass-&gt;new( { 
+    value1 =&gt; 5, 
+    value2 =&gt; 'test', 
+    ro_data =&gt; 'you can't write me' 
+} );
+$obj-&gt;set_value1(6);
+$obj-&gt;set_ro_data( 'qwerty' ); # это выдаст ошибку
+say $obj-&gt;get_value2;
+</code></pre>
+
+<h2>Наследование</h2>
+
+<p>С наследованием от одного класса - всё просто: &#8220;use parent ModuleName&#8221;. Именно use parent. От use base хотят избавиться потому что он хреновый.
+Но вот с множественным наследованием у perl-а нелады. Если вы всё-таки решили воспользоваться множественным наследованием (и перед этим <strong>сто</strong> раз подумали. Потому что множественное наследование не рекомендуют использовать), то Perl преподносит вам неожиданный и неприятный сюрприз:
+возьмём вот такой код:</p>
+
+<pre><code>package A;
+sub method {
+    return __PACKAGE__;
+}
+
+package B;
+use parent -norequire, qw/A/;
+
+package C;
+use parent -norequire, qw/A/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package D;
+use parent -norequire, qw/B C/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package main;
+use feature qw/say/;
+say D-&gt;method
+</code></pre>
+
+<p>если его запустить, то он выведет строку &#8220;DA&#8221;, вместо правильной &#8220;DCA&#8221;. Это происходит потому что путь наследования определяется по масиву @ISA. В каком порядке модули запушились, в таком и вызываются.
+Чтобы множественное наследование работало как следует, в perl5.10 нужно написать</p>
+
+<pre><code>use mro
+</code></pre>
+
+<p>В Perl 5.8 для этого необходимо поставить модуль Class::C3 и написать</p>
+
+<pre><code>man Class::C3 #ибо нефиг старьём пользоваться
+</code></pre>
+
+<h2>Исключения</h2>
+
+<p>Про них я напишу попозже. Потому что Грабли закроют.
+<strong>UPD:</strong> в грабли не успел :-(</p>
+
+<p>Изначально в perl есть работа с исключениями с помощью eval/die. Исключения эти только строковые и отличить их от системных нельзя. Если нужны нормальные исключения - лезем в CPAN и устанавливаем модуль Exception::Class. До джавовских исключений ему далеко, но базовые функции он выполняет.</p>
+
+<pre><code>use Exception::Class (
+    'Exception',
+    'EHandsFromAss' =&gt; (
+        isa =&gt; 'Exception'
+    )
+);
+eval {
+    if ( $string == "" ) {
+        EHandsFromAss-&gt;throw('Использовать "==" для сравнения строк некошерно.')
+    }
+};
+if ( $e = Exception::Class-&gt;caught('Exception') { #наследники класса Exception
+    warn $e-&gt;error;
+} elsif ( $e == Exception::Class-&gt;caught ) { #все остальніе исключения
+    ref $e
+        ? $e-&gt;rethrow
+        : die $e; #это обычные die
+}
+</code></pre>
+
+<h2>Private/Protected методы</h2>
+
+<p>Perl не умеет создавать совсем приватные методы. Но метод, который начинается c подчеркивания:</p>
+
+<pre><code>sub _private {
+}
+</code></pre>
+
+<ul>
+<li>является private или protected. Это просто соглашение по использованию. Никто не мешает какому-то кретину вызвать его из другого объекта. Но для адекватных людей - отличная замена приватным методам.</li>
+</ul>
+
+
+<h2>Оффтопик</h2>
+
+<p>И ещё то, о чём нельзя забывать:</p>
+
+<ul>
+<li><p>Документирование кода с помощью POD</p></li>
+<li><p>Написание unit-тестов (Test::More)</p>
+
+<p>package MyClass;</p>
+
+<p>=head1 NAME</p>
+
+<p>MyClass</p>
+
+<p>=head1 DESCRIPTION</p>
+
+<p>описание того что метод делает</p>
+
+<p>=head1 SYNOPSIS</p>
+
+<p>пример использования</p>
+
+<p>  my $obj = MyClass->new();
+  &#8230;</p>
+
+<p>=head1 METHODS</p>
+
+<p>=head2 new()</p>
+
+<p>описание этого метода
+&#8230;
+=cut</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/24/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/22/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

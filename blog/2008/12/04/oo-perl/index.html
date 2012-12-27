@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ООП в Perl - Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="Мы все знаем прекрасно какое ООП в Perl (оно прикручено через задницу). Поэтому напишу немного букаф о том, как всё-таки научить Perl чему-то &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/2008/12/04/oo-perl/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ООП в Perl</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-04T22:07:10+03:00" pubdate data-updated="true">Dec 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><blockquote><p>Мы все знаем прекрасно какое ООП в Perl (оно прикручено через задницу). Поэтому напишу немного букаф о том, как всё-таки научить Perl чему-то объектно-ориентированному.</p></blockquote>
+
+<h2>Методы доступа.</h2>
+
+<p>Писать $self->{attribute} - это конечно хорошо.</p>
+
+<p>Но при этом интерпретатор не проверяет правильность написания аттрибута. Т.е. если вы где-то напишете $self->{atribute}, то Perl создаст новое св-во atibute, а Вы будете долго трахаться в поисках этой ошибки.</p>
+
+<p>Также обращаться напрямую к аттрибутам не стоит по той причине, что если вы потом захотите сделать проверку значений, то вам это не удастся. Для более удобной работы с аттрибутами создаются методы доступа (accessors). В Perl методы доступа создаются модулем <a href="http://search.cpan.org/perldoc?Class::Accessor">Class::Accessor</a>:</p>
+
+<p><strong>Создание методов доступа:</strong></p>
+
+<pre><code>package MyClass;
+use Class::Accessor;
+__PACKAGE__-&gt;follow_best_pactice;
+__PACKAGE__-&gt;mk_accessors( qw/value1 value2/); #чтение/запись
+__PACKAGE__-&gt;mk_ro_accessors( qw/ro_data/); #можно только читать
+__PACKAGE__-&gt;mk_wo_accessors( qw/wo_data/); #можно только записывать. Даже автор модуля незнает нахрена это нужно (:
+</code></pre>
+
+<p>Class::Accessor автоматически создаёт конструктор, который устанавливает аттрибутам начальные значения.
+<strong>Использование:</strong></p>
+
+<pre><code>package main;
+use feature qw/say/;
+my $obj = MyClass-&gt;new( { 
+    value1 =&gt; 5, 
+    value2 =&gt; 'test', 
+    ro_data =&gt; 'you can't write me' 
+} );
+$obj-&gt;set_value1(6);
+$obj-&gt;set_ro_data( 'qwerty' ); # это выдаст ошибку
+say $obj-&gt;get_value2;
+</code></pre>
+
+<h2>Наследование</h2>
+
+<p>С наследованием от одного класса - всё просто: &#8220;use parent ModuleName&#8221;. Именно use parent. От use base хотят избавиться потому что он хреновый.
+Но вот с множественным наследованием у perl-а нелады. Если вы всё-таки решили воспользоваться множественным наследованием (и перед этим <strong>сто</strong> раз подумали. Потому что множественное наследование не рекомендуют использовать), то Perl преподносит вам неожиданный и неприятный сюрприз:
+возьмём вот такой код:</p>
+
+<pre><code>package A;
+sub method {
+    return __PACKAGE__;
+}
+
+package B;
+use parent -norequire, qw/A/;
+
+package C;
+use parent -norequire, qw/A/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package D;
+use parent -norequire, qw/B C/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package main;
+use feature qw/say/;
+say D-&gt;method
+</code></pre>
+
+<p>если его запустить, то он выведет строку &#8220;DA&#8221;, вместо правильной &#8220;DCA&#8221;. Это происходит потому что путь наследования определяется по масиву @ISA. В каком порядке модули запушились, в таком и вызываются.
+Чтобы множественное наследование работало как следует, в perl5.10 нужно написать</p>
+
+<pre><code>use mro
+</code></pre>
+
+<p>В Perl 5.8 для этого необходимо поставить модуль Class::C3 и написать</p>
+
+<pre><code>man Class::C3 #ибо нефиг старьём пользоваться
+</code></pre>
+
+<h2>Исключения</h2>
+
+<p>Про них я напишу попозже. Потому что Грабли закроют.
+<strong>UPD:</strong> в грабли не успел :-(</p>
+
+<p>Изначально в perl есть работа с исключениями с помощью eval/die. Исключения эти только строковые и отличить их от системных нельзя. Если нужны нормальные исключения - лезем в CPAN и устанавливаем модуль Exception::Class. До джавовских исключений ему далеко, но базовые функции он выполняет.</p>
+
+<pre><code>use Exception::Class (
+    'Exception',
+    'EHandsFromAss' =&gt; (
+        isa =&gt; 'Exception'
+    )
+);
+eval {
+    if ( $string == "" ) {
+        EHandsFromAss-&gt;throw('Использовать "==" для сравнения строк некошерно.')
+    }
+};
+if ( $e = Exception::Class-&gt;caught('Exception') { #наследники класса Exception
+    warn $e-&gt;error;
+} elsif ( $e == Exception::Class-&gt;caught ) { #все остальніе исключения
+    ref $e
+        ? $e-&gt;rethrow
+        : die $e; #это обычные die
+}
+</code></pre>
+
+<h2>Private/Protected методы</h2>
+
+<p>Perl не умеет создавать совсем приватные методы. Но метод, который начинается c подчеркивания:</p>
+
+<pre><code>sub _private {
+}
+</code></pre>
+
+<ul>
+<li>является private или protected. Это просто соглашение по использованию. Никто не мешает какому-то кретину вызвать его из другого объекта. Но для адекватных людей - отличная замена приватным методам.</li>
+</ul>
+
+
+<h2>Оффтопик</h2>
+
+<p>И ещё то, о чём нельзя забывать:</p>
+
+<ul>
+<li><p>Документирование кода с помощью POD</p></li>
+<li><p>Написание unit-тестов (Test::More)</p>
+
+<p>package MyClass;</p>
+
+<p>=head1 NAME</p>
+
+<p>MyClass</p>
+
+<p>=head1 DESCRIPTION</p>
+
+<p>описание того что метод делает</p>
+
+<p>=head1 SYNOPSIS</p>
+
+<p>пример использования</p>
+
+<p>  my $obj = MyClass->new();
+  &#8230;</p>
+
+<p>=head1 METHODS</p>
+
+<p>=head2 new()</p>
+
+<p>описание этого метода
+&#8230;
+=cut</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrii Kostenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-04T22:07:10+03:00" pubdate data-updated="true">Dec 4<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kostenko.name/blog/2008/12/04/oo-perl/" data-via="kostenko" data-counturl="http://kostenko.name/blog/2008/12/04/oo-perl/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/11/29/d0bed0bad0b0d0b7d18bd0b2d0b0d0b5d182d181d18f/" title="Previous Post: оказывается">&laquo; оказывается</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/12/05/ppp/" title="Next Post: И ещё перед тем как пойти спать">И ещё перед тем как пойти спать &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

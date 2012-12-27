@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Bash shortcuts - Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="!! - Last command !foo - Run most recent command starting with 'foo...' (ex. !ps, !mysqladmin) !foo:p - Print command that !foo would run, and add it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/2008/09/06/bash-shortcuts/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Bash Shortcuts</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-06T23:34:20+04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>!! - Last command</p>
+
+<pre><code>  !foo - Run most recent command starting with 'foo...' (ex. !ps, !mysqladmin)
+  !foo:p - Print command that !foo would run, and add it as the latest to
+  command history
+  !$ - Last 'word' of last command ('/path/to/file' in the command 'ls -lAFh
+  /path/to/file', '-uroot' in 'mysql -uroot')
+  !$:p - Print word that !$ would substitute
+  !* - All but first word of last command ('-lAFh /path/to/file' in the command
+  'ls -lAFh /path/to/file', '-uroot' in 'mysql -uroot')
+  !*:p - Print words that !* would substitute
+
+  ^foo^bar - Replace 'foo' in last command with 'bar', print the result, then
+  run. ('mysqladmni -uroot', run '^ni^in', results in 'mysqladmin -uroot')
+
+  {a,b,c} passes words to the command, substituting a, b, and c sequentially
+  (`cp file{.bk}` runs `cp file file.bk`)
+
+  Ctrl + a - Jump to the start of the line
+  Ctrl + b - Move back a char
+  Ctrl + c - Terminate the command
+  Ctrl + d - Delete from under the cursor
+  Ctrl + e - Jump to the end of the line
+  Ctrl + f - Move forward a char
+  Ctrl + k - Delete to EOL
+  Ctrl + l - Clear the screen
+  Ctrl + r - Search the history backwards
+  Ctrl + R - Search the history backwards with multi occurrence
+  Ctrl + t - Transpose the current char with the previous
+  Ctrl + u - Delete backward from cursor
+  Ctrl + w - Delete backward a word
+  Ctrl + xx - Move between EOL and current cursor position
+  Ctrl + x @ - Show possible hostname completions
+  Ctrl + z - Suspend/ Stop the command
+
+  Alt + &lt; - Move to the first line in the history
+  Alt + &gt; - Move to the last line in the history
+  Alt + ? - Show current completion list
+  Alt + * - Insert all possible completions
+  Alt + / - Attempt to complete filename
+  Alt + . - Yank last argument to previous command
+  Alt + b - Move backward
+  Alt + c - Capitalize the word
+  Alt + d - Delete word
+  Alt + f - Move forward
+  Alt + l - Make word lowercase
+  Alt + n - Search the history forwards non-incremental
+  Alt + p - Search the history backwards non-incremental
+  Alt + r - Recall command
+  Alt + t - Transpose the current word with the previous
+  Alt + u - Make word uppercase
+  Alt + back-space - Delete backward from cursor
+
+  (Here "2T" means Press TAB twice)
+  $ 2T - All available commands(common)
+  $ (string)2T - All available commands starting with (string)
+  $ /2T - Entire directory structure including Hidden one
+  $ (dir)2T - Only Sub Dirs inside (dir) including Hidden one
+  $ *2T - Only Sub Dirs inside without Hidden one
+  $ ~2T - All Present Users on system from "/etc/passwd"
+  $ $2T - All Sys variables
+  $ @2T - Entries from "/etc/hosts"
+  $ =2T - Output like ls or dir
+  .bash_profile = sourced by login shell,
+  .bashrc = sourced by all shells,
+  .bash_aliases = should be sourced by .bashrc
+
+Run something:
+  for i in a b c; do $i 'hello'; done
+
+Do something on a bunch of files:
+  for i in *.rb; do echo $i; done
+
+If syntax:
+  if [ -e .ssh ]; then echo "hi"; fi
+
+file check flags:
+  -e:  file exists
+  -f:  regular file (non directory)
+  -d:  directory
+  -s:  non-zero file
+  -x:  execute permission
+
+Avoid duplicates in your history:
+  export HISTIGNORE="&amp;:ls:ls *:[bf]g:exit"
+
+more here:
+  &lt;a href="http://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/fto.html  "&gt;http://www.linuxtopia.org/online_books/advanced_bash_scripting_guide/fto.html&lt;/a&gt;
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrii Kostenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-06T23:34:20+04:00" pubdate data-updated="true">Sep 6<span>th</span>, 2008</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kostenko.name/blog/2008/09/06/bash-shortcuts/" data-via="kostenko" data-counturl="http://kostenko.name/blog/2008/09/06/bash-shortcuts/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2008/09/01/birthday/" title="Previous Post: С Рождеством вас...">&laquo; С Рождеством вас...</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2008/09/07/google-chrome-ubuntu/" title="Next Post: Google Chrome в Ubuntu">Google Chrome в Ubuntu &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

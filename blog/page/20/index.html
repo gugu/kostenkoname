@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="Простейший трейс включается переменной окружения DBIC_TRACE=1. Сейчас каждый запрос будет выводиться на STDERR перед выполнением. Но что, если нам &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/page/20/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/17/d0bed182d0bbd0b0d0b4d0bad0b0-d0b2-dbixclass/">Отладка в DBIx::Class</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-17T01:00:16+04:00" pubdate data-updated="true">Apr 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Простейший трейс включается переменной окружения <code>DBIC_TRACE=1</code>. Сейчас каждый запрос будет выводиться на STDERR перед выполнением.</p>
+
+<p>Но что, если нам его недостаточно? Посмотрим, что нам даёт DBIx::Class. А даёт он нам класс <a href="http://search.cpan.org/~ash/DBIx-Class-0.08013/lib/DBIx/Class/Storage/Statistics.pm">DBIx::Class::Storage::Statistics</a>.
+Методы этого класса вызываются до и после каждого запроса, либо транзакции.</p>
+
+<p>Попробуем после каждого запроса выводить время, которое он исполнялся. Это описано в DBIx::Class::Manual::Cookbook.</p>
+
+<p>Добавляем схему:</p>
+
+<pre><code>  __PACKAGE__-&gt;storage-&gt;debugobj(new My::Profiler());
+  __PACKAGE__-&gt;storage-&gt;debug(1);
+</code></pre>
+
+<p>И создаём модуль:</p>
+
+<pre><code>  package My::Profiler;
+  use strict;
+
+  use base 'DBIx::Class::Storage::Statistics';
+
+  use Time::HiRes qw(time);
+
+  my $start;
+
+  sub query_start {
+    my $self = shift();
+    my $sql = shift();
+    my $params = @_;
+
+    $self-&gt;print("Executing $sql: ".join(', ', @params)."\n");
+    $start = time();
+  }
+
+  sub query_end {
+    my $self = shift();
+    my $sql = shift();
+    my @params = @_;
+
+    my $elapsed = sprintf("%0.4f", time() - $start);
+    $self-&gt;print("Execution took $elapsed seconds.\n");
+    $start = undef;
+  }
+
+  1;
+</code></pre>
+
+<p>Отлично. Сейчас после каждого запроса пишется время выполнения. Если мы в My::Profile::print мы заменим <code>print</code> на <code>carp</code>, то после каждого SQL-запроса мы получим место его выполнения.</p>
+
+<p>Но время выполнения запроса - это средняя температура по больнице, потому что может быть много быстрых запросов. Хотелось бы получить более красивую статистику. И она есть - <a href="http://search.cpan.org/~gphat/DBIx-Class-QueryLog-1.1.5/lib/DBIx/Class/QueryLog.pm">DBIx::Class::QueryLog</a></p>
+
+<p>Этот модуль сохраняет статистику по каждому выполненному запросу, группирует одинаковые запросы и сортирует по суммарному времени выполнения. Как им пользоваться - написано в документации. Свою задачу - ткнуть Вас носом в интересную фичу DBIx::Class - я выполнил.
+Удачной Вам разработки.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/16/d181d181d18bd0bbd0bed187d0bad0be/">ссылочко&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-16T12:21:10+04:00" pubdate data-updated="true">Apr 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/31/d181d0bfd0b0d0bcd0b5d180d18b-d0b2d0bed182-d0bed0bdd0be/">Спамеры!!! Вот оно!!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-31T21:44:51+04:00" pubdate data-updated="true">Mar 31<span>st</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>savemymind@gmail.com</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/25/gentoo/">Gentoo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-25T00:39:22+03:00" pubdate data-updated="true">Mar 25<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://cs1941.vkontakte.ru/u7853372/931/x_b458d380.jpg"><img src="http://cs1941.vkontakte.ru/u7853372/931/x_b458d380.jpg" alt="" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/24/system-update/">Обновление системы</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-24T01:43:41+03:00" pubdate data-updated="true">Mar 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>По-перше - обновил себе Ubuntu до 9.04. Абсолютно юзабельна, удобна и красива. Не смотря на то, что бета. Пока ни одного бага не заметил
+<a href="http://kostenko.name/wp-content/uploads/2009/03/screenshot-3.png"><img src="http://kostenko.name/wp-content/uploads/2009/03/screenshot-3-300x187.png" alt="9.04" /></a>
+Поставил себе нативный Google Chrome. Это сообщение пишу из него, рискуя тем, что он вылетит к чертям. Он падает в кору, если что-то вставить из буфера обмена, или если попадёшь на автодополнения. Ни вкладки, ни настройки не работают. Но для демонстрации фич он отлично подходит. Всё работает очень-очень быстро.
+[caption id=&#8221;attachment_388&#8221; align=&#8221;alignnone&#8221; width=&#8221;300&#8221; caption=&#8221;Chrome&#8221;]<a href="http://kostenko.name/wp-content/uploads/2009/03/screenshot-4.png"><img src="http://kostenko.name/wp-content/uploads/2009/03/screenshot-4-300x187.png" alt="Chrome" /></a>[/caption]
+Поставил Synapse. Почему-то в среде linux спра&#8230; ( ну нихрена себе, хром даже орфографию проверяет ) справедливо такое утверждение - чем лучше Jabber-клиент, тем более уёбищный у него интерфейс. Буду надеяться, что Synapse нарушит эту традицию. Интерфейс у него - лучший из всех клиентов, которые я когда-либо видел. Если сделают обещаную поддержку твиттера - он займёт прочное место у меня на десктопе.
+[caption id=&#8221;attachment_389&#8221; align=&#8221;alignnone&#8221; width=&#8221;236&#8221; caption=&#8221;Synapse&#8221;]<a href="http://kostenko.name/wp-content/uploads/2009/03/synapse.jpg"><img src="http://kostenko.name/wp-content/uploads/2009/03/synapse.jpg" alt="Synapse" /></a>[/caption]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/17/chrome-linux-alpha/">Выпущена альфа Google Chrome под Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-17T11:55:37+03:00" pubdate data-updated="true">Mar 17<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Он написан на Gtk (придурки IMHO) и похож на свою виндовую версию.</p>
+
+<p>Сегодня вечером поставлю и расскажу что и как</p>
+
+<p>Пакет под Debian лежит здесь:
+<a href="https://launchpad.net/~chromium-daily/+archive/ppa"> https://launchpad.net/~chromium-daily/+archive/ppa</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/15/facebook/">У фейсбука новый дизайн!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-15T19:03:02+03:00" pubdate data-updated="true">Mar 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Во-первых он стал очень похож на твиттер (что не может не радовать)</p>
+
+<p>Во-вторых он просто стал удобным</p>
+
+<p><a href="http://kostenko.name/wp-content/uploads/2009/03/fb1.png"><img src="http://kostenko.name/wp-content/uploads/2009/03/fb1-300x194.png" alt="facebook" /></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/15/374/">&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-15T15:45:20+03:00" pubdate data-updated="true">Mar 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Сегодня был в церквях прикремлевских&#8230; Заметил, что на старых иконах Иисус больше похож на хладнокровного ублюдка, чем на спасителя всея человеческой расы. На новых - все ок. Он стал добрым, белым и пушистым). Попробовал почитать старославянский&#8230; Почти ничего не понял)
+в оружейной палате понравился турецкий кинжал&#8230; XV-го века&#8230; хочу себе такой же ^_^
+и вообще&#8230; старое оружие сделано красиво и с любовью&#8230; тогда хорошее оружие было престижней мягкого трона&#8230; а 17-18-й век - пошло уёбищное гавно&#8230;
+PS: IMHO</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/14/calculator-update/">Обновление калькулятора</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-14T16:38:35+03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>Избавился от prototype и scipt.aculo.us - сейчас грузится только один 90килобайтный YUI</p></li>
+<li><p>Исправил форматирование вывода. Правильно показываются скобки, производится оптимизация результата</p></li>
+<li><p>Подправил советы. Они тоже начали отображать более красивый результат</p></li>
+<li><p>Изменил примеры, сделал их посложнее, чтобы они могли охватить больше функций калькулятора</p></li>
+<li><p>Добавил поддержку истории. Заработал opensearch</p></li>
+<li><p>Исправил другие мелкие баги</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/13/new-calculator-release/">Новый релиз калькулятора</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-13T11:53:35+03:00" pubdate data-updated="true">Mar 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Из изменений:</p>
+
+<ul>
+<li><p>Собственный парсер результата. Сейчас правильно показывается степень, подсвечиваются неизвестные.</p></li>
+<li><p>Правильно понимаются валюты. У них отображается название, научился понимать знак $</p></li>
+<li><p>При наборе подсказка не только парсит и расставляет функции, а ещё и показывает помощь по аргументам</p></li>
+<li><p>Поправил мелкие баги, связанные с показом несуществующих ошибок</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/21/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/19/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

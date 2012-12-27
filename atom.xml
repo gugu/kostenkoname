@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Андрей Костенко]]></title>
+  <link href="http://kostenko.name/atom.xml" rel="self"/>
+  <link href="http://kostenko.name/"/>
+  <updated>2012-12-28T03:18:22+04:00</updated>
+  <id>http://kostenko.name/</id>
+  <author>
+    <name><![CDATA[Andrii Kostenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Где меня найти]]></title>
+    <link href="http://kostenko.name/blog/2012/12/28/gdie-mienia-naiti/"/>
+    <updated>2012-12-28T03:08:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/12/28/gdie-mienia-naiti</id>
+    <content type="html"><![CDATA[<p>Так получается (почему-то), что в месяц я совершаю 6-8 перелетов по нашей необъятной родине (и вашей) и некоторым совершенно непонятно, где я шляюсь и можно ли меня увидеть. Поэтому я сделал вот такой календарь, который будет обновляться того, как я буду покупать куда-то билеты. Если кому-то нужно меня поколотить, передать деньги или посылку, то идите по <a href="webcal://p04-calendarws.icloud.com/ca/subscribe/1/kxtoPXSizSqDRig5gY6LHMLFj4V4zIfY6PyrCcwTlNwsx_hDEEXuL2snTgkA3tfOnHGLdzILIaFBMiZB3hUhHM91I_krUfWelMmK0yN-NJI">ссылке</a></p>
+
+<!--more-->
+
+
+
+
+<iframe src="http://30boxes.com/external/widget?refer=ff&url=webcal%3A%2F%2Fp04-calendarws.icloud.com%2Fca%2Fsubscribe%2F1%2FkxtoPXSizSqDRig5gY6LHMLFj4V4zIfY6PyrCcwTlNwsx_hDEEXuL2snTgkA3tfOnHGLdzILIaFBMiZB3hUhHM91I_krUfWelMmK0yN-NJI" width="100%" height="450" frameborder="0"></iframe>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cached URLs for sass]]></title>
+    <link href="http://kostenko.name/blog/2012/09/08/cached-urls-for-sass/"/>
+    <updated>2012-09-08T16:00:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/09/08/cached-urls-for-sass</id>
+    <content type="html"><![CDATA[<p>Yesterday I wrote plugin for sass to support cached files for django. It requires django-compress and django-staticutils to work.</p>
+
+<p>To enable it you need to modify sass options:</p>
+
+<figure class='code'><figcaption><span>settings.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">COMPRESS_PRECOMPILERS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;text/x-scss&#39;</span><span class="p">,</span> <span class="s1">&#39;PYTHON_EXECUTABLE_NAME=%s sass -r ./static_sass.rb --scss {infile} {outfile}&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">),</span>
+</span><span class='line'>    <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also it requires rubypython and contains shitty code.</p>
+
+<p>Usage:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.class</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">background</span><span class="o">:</span> <span class="n">staticurl</span><span class="p">(</span><span class="s1">&#39;i/tagcloud.png&#39;</span><span class="p">)</span> <span class="k">no-repeat</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Source:</p>
+
+<div><script src='https://gist.github.com/3674195.js'></script>
+<noscript><pre><code>require &quot;rubypython&quot;
+
+ENV[&quot;DJANGO_SETTINGS_MODULE&quot;] = &quot;settings&quot;
+ENV[&quot;PYTHONPATH&quot;] = &quot;.&quot;
+print ENV[&quot;PYTHON_EXECUTABLE_NAME&quot;]
+RubyPython.start(:python_exe =&gt; ENV[&quot;PYTHON_EXECUTABLE_NAME&quot;])
+RubyPython.import('imp').load_source(&quot;activate_this&quot;,File.join(File.dirname(RubyPython::Runtime.python), &quot;activate_this.py&quot;))
+$versioning = RubyPython.import(&quot;staticutils.versioning&quot;)
+$settings = RubyPython.import(&quot;django.conf&quot;).settings
+$storage = RubyPython.import(&quot;django.core.files.storage&quot;)
+$fs_storage = $storage.FileSystemStorage(location=$settings.VERSIONED_STATIC_ROOT)
+module Sass::Script::Functions
+  def staticurl(url)
+    assert_type url, :String
+    path, hash = url.value.split('#')
+    version = $versioning.get_file_version(path, $fs_storage)
+    prefixed_path = $versioning.get_versioned_path(path, version)
+    Sass::Script::String.new('url(/static/' + prefixed_path.rubify + (hash ? '#' + hash : '') + ')')
+  end
+  declare :staticurl, :args =&gt; [:string]
+end</code></pre></noscript></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Самолетопоклонники]]></title>
+    <link href="http://kostenko.name/blog/2012/08/23/samolietostroitieli/"/>
+    <updated>2012-08-23T02:26:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/08/23/samolietostroitieli</id>
+    <content type="html"><![CDATA[<p>В книге Фейнмана была последняя глава о самолетопоклонниках. В Тихом Океане есть племя, которое встретилось с белыми колонизаторами и начало верить в волшебные корабли и самолеты с небес. Корабли, по легенде, привезут все вещи, никто не будет ни в чем нуждаться и наступит рай. Туземцы молиться начали и даже построили аэропорт. В деревянной наблюдательной вышке сидят медиумы в деревянных &#8220;наушниках&#8221;, провода из которых обмотаны вокруг них же и ждут волшебного самолета. А самолет все не летит.</p>
+
+<p>Вот примерно то же самое получается и у нас. Сделали в Сбербанке отделения как в других банках, услуги скопировали один к одному и даже наняли техподдержку. А все равно банк дерьмо.</p>
+
+<p>И демократию мы так же строим – скопировали законы у Франции, а живём почему-то как в Нигерии.</p>
+
+<p>И для того, чтобы все вокруг изменилось, нужно лишь перестать быть туземцами.</p>
+
+<p><a href="http://lurkmore.to/index.php?title=%D0%9A%D1%83%D0%BB%D1%8C%D1%82_%D0%BA%D0%B0%D1%80%D0%B3%D0%BE&amp;stable=1">wiki</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Почему я не люблю Яндекс]]></title>
+    <link href="http://kostenko.name/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/"/>
+    <updated>2012-08-16T19:28:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks</id>
+    <content type="html"><![CDATA[<p>Как известно, человеку на зарплату обычно плевать на успех собственной компании. Бывают исключения, но среднестатистическому человеку плевать. Основной стимул работы – чтобы не уволили и платили зарплату. И расстояние от владельца компании до различных исполнителей обратно пропорционально качеству их работы.</p>
+
+<p>На днях Яндекс-Деньги показали отличный пример того, как можно делать работу &#8220;на отъебись&#8221;. <!--more--> Я взял код Яндекс-Пожертвований, скопировал, вставил в страницу (пример можно увидеть вот здесь: <a href="https://bankingstats.com/static/yandex.html">https://bankingstats.com/static/yandex.html</a>). Нажимаем &#8220;Пожертвовать&#8221;, &#8220;Продолжить оплату&#8221; и получаем информативное сообщение &#8220;Ошибка данных&#8221;.</p>
+
+<p><img src="http://kostenko.name/images/yad-fail.png"></p>
+
+<p>Очевидное решение — написать в ТП и все починят.</p>
+
+<p><img src="http://kostenko.name/images/yandex-tp.png"></p>
+
+<p>Сюрприиз! Но я человек опытный, пару раз потыкал – заработало.</p>
+
+<p>После чего произошел прекрасный диалог с ТП:</p>
+
+<blockquote><p>Здравствуйте.</p><p>Попробуйте провести операцию, используя другой браузер.</p><p>С уважением,</p></blockquote>
+
+
+<p>Отлично, меня послали в жопу. Ошибка серверная, последний Chrome на MacOS X. Но я ради приличия проверил в Firefox и попытался воззвать к разуму (мне казалось, что если нормально описать багу и добавить волшебное слово <a href="http://xkcd.com/806/">shibboleet</a>, то проблему решат. Написал второе письмо:</p>
+
+<blockquote><p>Попробовал. У вас поддержка пользователей или отшивание пользователей? Ошибка серверная. В Firefox не работает, в Chrome не работает, в Mosaic тоже работать не будет.</p><p>Был бы признателен, если бы эта ошибка была передана программистам.</p><p>Ошибка воспроизводится по адресу <a href="https://bankingstats.com/static/yandex.html">https://bankingstats.com/static/yandex.html</a>. Код скопирован из Яндекса и не модифицировался. Получатель платежа andrii-kostenko, я зарегистрирован под пользователем visamap</p><p>Shibboleet.</p></blockquote>
+
+
+<p>После чего получил чудесный ответ:</p>
+
+<blockquote><p>Здравствуйте.</p><p>Сервис работает корректно. Судя по тому, что ошибка единичная, проблема в браузере.</p><p>С уважением,</p></blockquote>
+
+
+<p>У нас все работает, а если вам выдает ошибку, то проблема в браузере. Чтоб им пожарники так отвечали: &#8220;Судя по тому, что пожар единичный, проблема в вашей квартире. Спасибо за запрос.&#8221;</p>
+
+<p>К чему это я. Кто может починить эту багу? Воспроизводится, судя по всему, для любого аккаунта (как получателя, так и отправителя).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Phishing]]></title>
+    <link href="http://kostenko.name/blog/2012/08/10/phishing/"/>
+    <updated>2012-08-10T19:36:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/08/10/phishing</id>
+    <content type="html"><![CDATA[<p>Случайно заглянул в папку спам и увидел письмо от &#8220;PayPal&#8221; с текстом &#8220;Ваш аккаунт заблокирован, откройте HTML из аттача, включите javascript и ActiveX&#8221;.
+Как послушный пользователь я открыл HTML (в текстовом редакторе) посмотрел на аттрибут action у формы, убрал имя файла из URL&#8230; И оказалось, что в директории со скриптом был включен листинг. А рядом лежит robots2.txt с 50-ю валидными кредитными картами, CVV, IP, Имя, Телефон, Страна, Expiration Date.</p>
+
+<p>Другой бы взял и обчистил кредитки. Но я не такой. Я поржал и положил файл на место.</p>
+
+<p>Из этого можно сделать два вывода:</p>
+
+<ol>
+<li>некоторые люди вообще мозгами не думают</li>
+<li>иногда бывает полезно открывать письма из спама</li>
+</ol>
+
+
+<p><img src="http://kostenko.name/images/proof.jpg"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Zen coding]]></title>
+    <link href="http://kostenko.name/blog/2012/07/30/zen-coding/"/>
+    <updated>2012-07-30T22:30:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/30/zen-coding</id>
+    <content type="html"><![CDATA[<p>Я давно не писал о важном. Политика хуитика, но нужно вспоминать и о работе.</p>
+
+<p>Поэтому сегодня я расскажу о редакторе Sublime и отличном плагине к нему. О Sublime расскажу в двух словах – как TextMate, но более удобная навигация по функциям, более удобный интерфейс и при этом не требует покупки.</p>
+
+<p>А вот Zen Coding приятно порадовал. Все писали HTML, не так ли?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;html&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;body&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;table&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;tr&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/table&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Может быть HTML и удобно читать, но писать – куча впустую потраченного времени. Zen Coding решает проблему геморроя с кодингом. Вышестоящий пример кода можно написать вот такой строкой:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>html&gt;body&gt;div.name&gt;table+
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pussy Riot]]></title>
+    <link href="http://kostenko.name/blog/2012/07/20/pussy-riot/"/>
+    <updated>2012-07-20T17:12:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/20/pussy-riot</id>
+    <content type="html"><![CDATA[<p>Осуждение Pussy Riot меня особенно печалит. С детства я привык к тому, что если полезешь в политику (бизнес) и ошибешься, то твой труп без головы найдут в чьем-то бассейне. К этому я привык и воспринимаю как данность.</p>
+
+<p>А вот тюремное заключение за мелкое хулиганство, которое &#8220;попрало ценности христиан&#8221;&#8230; за этот поступок страну должны исключать из списка цивилизовнных стран, отбирать электричество, воду и интернет. Более правильно для страны отправлять в психиатрическую лечебницу тех, кому такие поступки наносят душевные травмы. Это же психиатрия (вообще я считаю, что христианство – это тоже по части психиатров, но не об этом речь).</p>
+
+<p>Меня печалит то, что я должен знать и считаться с ценностями душевнобольных людей. Вы общались с душевнобольными? Они выводятся из равновесия тремя фразами. И за эти три фразы можно получить срок? Я не хочу жить в этой стране =(</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Языки. Еще]]></title>
+    <link href="http://kostenko.name/blog/2012/07/16/iazyki-ieshchie/"/>
+    <updated>2012-07-16T20:30:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/16/iazyki-ieshchie</id>
+    <content type="html"><![CDATA[<p>Вспомнил, почему в Украине правильно поступили с законом о языках, а человек-Путин – неправильно.</p>
+
+<p>Ограничивать какую-либо языковую группу в России и Украине (да и вообще ограничивать в чем-либо законопослушных граждан) довольно тупо. Наши страны являются, мягко говоря, дерьмовыми для жизни. Количество образованных специалистов, которые свалили на тракторе из стран исчисляется миллионами. Каждый глупый закон увеличивает это число. Уезжают не все, гопников из Бутово вряд ли куда-то возьмут. А вот людей с высшим образованием и знаниями нормальные страны собирают пачками.</p>
+
+<p>К чему это я. В следующем году Путин решил ввести обязательный экзамен по русскому для иностранных работников. Я сдам экзамен, конечно же. TOEFL. Потому что требования на получение рабочей визы в Британию и Россию теперь для меня одинаковы. Так же поступят гастарбайтеры из Европы (Чехии, например) которые работают в России. Кто останется? Догадайтесь. Да-да, и экзамены на пятерки сдадут</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Маты в офисе]]></title>
+    <link href="http://kostenko.name/blog/2012/07/16/maty-v-ofisie/"/>
+    <updated>2012-07-16T20:13:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/16/maty-v-ofisie</id>
+    <content type="html"><![CDATA[<p>Как у вас в офисе относятся к потокам нецензурной брани, которая льется изо рта программистов в уши гуманитариям и всяким человекам?</p>
+
+<p>Пытаются ли у вас с ней бороться? Какими методами?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Первый пост на octopress]]></title>
+    <link href="http://kostenko.name/blog/2012/07/08/piervyi-post-na-octopress/"/>
+    <updated>2012-07-08T22:10:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/08/piervyi-post-na-octopress</id>
+    <content type="html"><![CDATA[<p>Наслушавшись плохого на Radio-T, решил поставить себе Octopress вместо Wordpress-а.</p>
+
+<p>В отличие от Wordspress, Octo генерирует статические файлы, которые я выкладываю на Github pages. Соответственно, мне не нужно сейчас держать на сервере богомерзкий PHP и MySQL, да и надобности в сервере нет. Посты пишутся в VIM-е, в оффлайне и в формате markdown.</p>
+
+<p>А еще Octopress написан на правильном Ruby и вообще торт</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[О языках]]></title>
+    <link href="http://kostenko.name/blog/2012/07/06/d0be-d18fd0b7d18bd0bad0b0d185/"/>
+    <updated>2012-07-06T13:19:16+04:00</updated>
+    <id>http://kostenko.name/blog/2012/07/06/d0be-d18fd0b7d18bd0bad0b0d185</id>
+    <content type="html"><![CDATA[<p>Задолбали. Сначала мое мнение – я рад, что я проебал выборы и мой голос подрисовали Партии Регионов. Спасибо директору нашей школы, а по совместительству депутату от Партии Регионов.</p>
+
+<p>Кто-нибудь из вас читал закон? Почитайте</p>
+
+<p>Вкратце произошли такие изменения:</p>
+
+<ul>
+<li>В Раде Азаров может читать по-русски, Тягнибок по-украински, а Тигипко по-молдавски. А переводиться в итоге будет на украинский. Больше не будет Йолки и депутаты больше не будут страдать хуйней и займутся делом</li>
+<li>У студентов/родителей школьников будут спрашивать, какой язык предпочтительней. И если из 500 студентов 470 хочет учиться на татарском, то обучение будет по-татарски. Но для остальных тридцати студентов должны выделить группу, где обучение будет по-украински</li>
+<li>Официальные заявления будут проводиться на украинском и региональном языке. Остальные программы/передачи/фильмы будут на том языке, который вздумается владельцам компании. Хоть на эсператно</li>
+</ul>
+
+
+<p>И все протесты, которые я вижу – это протесты в защиту фашизма.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Как срезать пароль с PDF]]></title>
+    <link href="http://kostenko.name/blog/2012/05/09/d0bad0b0d0ba-d181d180d0b5d0b7d0b0d182d18c-d0bfd0b0d180d0bed0bbd18c-d181-pdf/"/>
+    <updated>2012-05-09T16:11:47+04:00</updated>
+    <id>http://kostenko.name/blog/2012/05/09/d0bad0b0d0ba-d181d180d0b5d0b7d0b0d182d18c-d0bfd0b0d180d0bed0bbd18c-d181-pdf</id>
+    <content type="html"><![CDATA[<p>Некоторые PDF бывают &#8220;защищены от редактирования&#8221;. Но мы-то знаем, чего такая защита стоит. Срезать owner password можно командой</p>
+
+<pre><code>gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=unencrypted.pdf -c .setpdfwrite -f output.pdf
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Валидность паспорта]]></title>
+    <link href="http://kostenko.name/blog/2012/04/10/d0b2d0b0d0bbd0b8d0b4d0bdd0bed181d182d18c-d0bfd0b0d181d0bfd0bed180d182d0b0/"/>
+    <updated>2012-04-10T14:02:00+04:00</updated>
+    <id>http://kostenko.name/blog/2012/04/10/d0b2d0b0d0bbd0b8d0b4d0bdd0bed181d182d18c-d0bfd0b0d181d0bfd0bed180d182d0b0</id>
+    <content type="html"><![CDATA[<blockquote><p><a href="http://services.fms.gov.ru/info-service.htm?sid=2000">Тут</a> можно проверить паспорт на валидность. Также следует помнить, что первые две цифры паспорта — код ОКАТО для региона, где был напечатан бланк. Если паспорт выдан в Самаре, а напечатан в Красноярске — очевидно есть все причины не доверять. В твоем случае, 41 — Ленинградская область. Дальше — год рождения, 1983, паспорт получают в 14 лет, меняют в 20 и в 45, то есть, получен он должен быть в 1997, 2003 или 2028 году. Можно использовать как дополнительный знак, но у нас народ любит проебываться и получать паспорт не вовремя или терять его. Дальше — в паспорте есть печать, на ней первые две цифры — код региона(как автомобильный — не ебу как называется), для Томской Области — 70, Москва — 77 итд. По нему тоже можно смотреть — с серией он разный, но конечный регион совпадать должен. Например, как раньше сказал, для Томской области код — 70, серия(код ОКАТО) — 69, если эти цифры разные — пахнет наебаловом.
+Вроде всё. Самого заебали подделки.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paypal приходит в Россию]]></title>
+    <link href="http://kostenko.name/blog/2012/03/26/paypal-d0bfd180d0b8d185d0bed0b4d0b8d182-d0b2-d180d0bed181d181d0b8d18e/"/>
+    <updated>2012-03-26T16:48:14+04:00</updated>
+    <id>http://kostenko.name/blog/2012/03/26/paypal-d0bfd180d0b8d185d0bed0b4d0b8d182-d0b2-d180d0bed181d181d0b8d18e</id>
+    <content type="html"><![CDATA[<p><img src="http://i.imgur.com/xRGoO.gif" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Богосрач]]></title>
+    <link href="http://kostenko.name/blog/2012/03/25/d0b1d0bed0b3d0bed181d180d0b0d187/"/>
+    <updated>2012-03-25T20:38:12+04:00</updated>
+    <id>http://kostenko.name/blog/2012/03/25/d0b1d0bed0b3d0bed181d180d0b0d187</id>
+    <content type="html"><![CDATA[<p>Только что в твиттере доспорились до такой штуки. <strong>Почему религиозные лидеры не отвечают за поступки своих подопечных?</strong></p>
+
+<p>Когда сотрудник полиции насилует бутылкой коньяка гражданина, министра МВД вызывают на ковер в Госдуму. Он принимает меры и к чертям разгоняет переименовывает отдел полиции, в котором это все произошло. Если какое-то подразделение компании совершает проеб, то ее руководитель отплевывается за всех и выгоняет всех нахуй из такого подразделения.</p>
+
+<p>Но если религиозные деятели накаляют обстановку на грани статьи об экстремизме, промывают мозги своим бестолковым адептам, а потом адепты избивают или убивают девушек (это касается не только муслимов, но и Гундяевской Православной Церкви), то эти люди считаются религиозными фанатиками и хуй с ними.</p>
+
+<p>Почему имама или священника, которые вложили в головы своих адептов идиотские мысли не заставляют публично извиняться и проводить воспитательную работу? Почему РПЦ не выгоняет к чертям того священника, в чью церковь ходит адепт, который избивает девушек?</p>
+
+<p>Я понимаю, на кавказе сильно трогать  религиозных деятелей опасно, но хотя бы намекнуть им о том, что следует говорить, а что – нет. Сейчас единственный источник религиозности – это семья, церковь и государство. И ответственность за своих долбоёбов должны нести они.</p>
+
+<p>РПЦ и РМЦ и так подчиняются государству, так как имеют налоговые льготы и готовы за эти льготы на любые поступки. И их <strong>можно</strong> заставить отвечать за действия адептов, проблема лишь в том, что всем похуй [x].</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django hints]]></title>
+    <link href="http://kostenko.name/blog/2011/11/01/django-hints/"/>
+    <updated>2011-11-01T00:16:49+04:00</updated>
+    <id>http://kostenko.name/blog/2011/11/01/django-hints</id>
+    <content type="html"><![CDATA[<h3>South</h3>
+
+<p>./manage.py syncdb создает только новые таблицы, а вот если вы добавляете или удаляете столбцы, то syncdb вам не поможет. А вот добавление south в список приложений позволяет автоматически создавать миграции, применять-откатывать их и следить, какой SQL был выполнен, а какой – нет.</p>
+
+<h3>django-denorm</h3>
+
+<p>Этот модуль автоматически создает триггеры на счетчики и вообще очень упрощает работу с денормализованными структурами БД</p>
+
+<h3>django-social-auth</h3>
+
+<p>Запомните название. Есть django-SocialAuth – редкостная шляпа.</p>
+
+<h3>django-mobile</h3>
+
+<p>Определение мобильного телефона и отображение разных шаблонов в зависимости от типа устройства.</p>
+
+<h3>django-compressor</h3>
+
+<p>все, что между тегами &#123;% compress %} &#123;% endcompress %} парсится, находятся теги &lt;script&gt; и &lt;link rel=&#8221;stylesheet&#8221; /&gt;, склеиваются, сжимаются или препроцессятся при необходимости</p>
+
+<h3>sentry</h3>
+
+<p>Добавляет интерфейс статистики по ошибкам, по количеству, дате последнего появления. Очень много фич, все описывать не буду.</p>
+
+<h3>django-admin-toolbar</h3>
+
+<p>Конфигурируемая админка. Кастомные темы, модули, меню. Everything is possible.</p>
+
+<h3>django-piston</h3>
+
+<p>Генерация API по модели.</p>
+
+<h3>jinja2/coffin</h3>
+
+<p>Шаблонный движок с синтаксисом django и с производительность 10x от django-шаблонов</p>
+
+<h3>django-celery</h3>
+
+<p>Удобный интерфейс к системе очередей. Из коробки есть worker-ы, аналог крона (задачи по расписанию), поддержка кучи очередей: beanstalkd, AMQP и т.д. Есть удобный error-reporting.</p>
+
+<h3>django-haystack</h3>
+
+<p>Обертка над системами полнотекстового поиска. Поддерживаются Solr, elasticsearch, xapian и whoosh</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[В шоке от ООН]]></title>
+    <link href="http://kostenko.name/blog/2011/10/01/d0b2-d188d0bed0bad0b5-d0bed182-d0bed0bed0bd/"/>
+    <updated>2011-10-01T23:15:41+04:00</updated>
+    <id>http://kostenko.name/blog/2011/10/01/d0b2-d188d0bed0bad0b5-d0bed182-d0bed0bed0bd</id>
+    <content type="html"><![CDATA[<p>Давно я сюда ничего не писал. Поэтому в двух словах - работаю я сейчас в <a href="http://kinohod.ru/">http://kinohod.ru/</a>, в данный момент в отпуске в NYC.</p>
+
+<p>Так вот, о чем я хотел написать.</p>
+
+<p>Я сейчас нахожусь в UN Visitor Center. Там проходит фотовыставка &#8220;Stateless people&#8221;, в которой среди Cote d&#8217;Ivoire, Мьянмы и африканских стран присутствует выставка про Украину. Там рассказывается про миллионы людей, которые после распада СССР остались без гражданства, про их притеснения и так далее.</p>
+
+<p>И я в растерянности. Насколько я знаю, люди с паспортом СССР - это те, кто просто не захотел принимать Украинское гражданство? Или те, кому за шесть лет было лень один раз сходить в паспортный стол?</p>
+
+<p>И почему статья именно об Украине? Ведь такая ситуация возникла во всех пост-советских странах, а в Латвии все обстоит намного хуже.</p>
+
+<p>В общем, я не понимаю, почему представительство Украины в ООН не надрало еще задницу авторам выставки.</p>
+
+<p>Eсть 1000 причин, по которым Украина заслуживает доски позора. Но это – это неправильно и несправедливо как-то.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django-declension]]></title>
+    <link href="http://kostenko.name/blog/2011/07/31/django-declension/"/>
+    <updated>2011-07-31T22:34:48+04:00</updated>
+    <id>http://kostenko.name/blog/2011/07/31/django-declension</id>
+    <content type="html"><![CDATA[<p>Решил поделиться одним модулем, который используется у меня на <a href="http://www.visamap.net/">VisaMap</a></p>
+
+<p>Занимается он простой вещью - склоняет существительные: Вася, Васи, Васе и так далее.</p>
+
+<p>Принцип работы прост - он ходит на Яндекс-Склонятор и кэширует результаты в базе (если не кэшировать, то они меня банят). Если Яндекс не осилил склонение слова, то этот fail тоже кэшируется в базе.</p>
+
+<p>Синтаксис прост:</p>
+
+<pre><code>&gt;&gt;&gt; from django_declension import declension
+&gt;&gt;&gt; declension(u'говняшка').genitive
+u'говняшки'
+</code></pre>
+
+<p>Забрать его можно здесь: <a href="http://github.com/gugu/django-declension/">http://github.com/gugu/django-declension/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Извините]]></title>
+    <link href="http://kostenko.name/blog/2011/05/31/d0b8d0b7d0b2d0b8d0bdd0b8d182d0b5/"/>
+    <updated>2011-05-31T14:00:29+04:00</updated>
+    <id>http://kostenko.name/blog/2011/05/31/d0b8d0b7d0b2d0b8d0bdd0b8d182d0b5</id>
+    <content type="html"><![CDATA[<blockquote><p>Добрый день  Виктор Сергеевич!</p></blockquote>
+
+<p>Меня зовут Юлия, я представляю рекрутинговую компанию «Персонал-Бизнес-Центр», которая  основана с целью оказания услуг поиска и подбора персонала. Наш главный офис находится в Днепропетровске. Качественным преимуществом нашей компании является то, что мы работаем только с проверенными компаниями, которые имеют репутацию надежных и справедливых работодателей. А также то, что мы работаем, соблюдая интересы, как заказчиков, так и кандидатов, гарантируя им конфиденциальность и предоставляя все возможную информацию о работодателе. Более подробную информацию о нас вы можете получить на нашем сайте http://www.bizcenter.dp.ua/
+&#8230;</p>
+
+<p>Резюме высылайте по почте busines-personal@mail.ru  В теме письма указывайте  вакансию «Java  программист ». Контактный тел: 372 80 54</p>
+
+<blockquote><p>Мне кажется, вашей рекрутинговой компании следует уволить рекрутера Юлию и взять на работу кого-то более квалифицированного.</p></blockquote>
+
+<p>С уважением, Андрей Анатольевич.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[django-compressor]]></title>
+    <link href="http://kostenko.name/blog/2011/05/26/django-compressor/"/>
+    <updated>2011-05-26T23:27:07+04:00</updated>
+    <id>http://kostenko.name/blog/2011/05/26/django-compressor</id>
+    <content type="html"><![CDATA[<p>Что умеет:</p>
+
+<ol>
+<li>Собирать несколько CSS и JS в одну без уродования веб-страницы.</li>
+<li>Сжимать CSS и JavaScript</li>
+<li>Процессить CoffeeScript и SASS</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

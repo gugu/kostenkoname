@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Moose - Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="Moose - это альтернативная объектная система для Perl 5. Она прячет от вас хитрые манипуляции с хэшами и &#8220;благословление&#8221; объектов и &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/2009/08/07/moose/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Moose</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-07T09:01:02+04:00" pubdate data-updated="true">Aug 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Moose - это альтернативная объектная система для Perl 5. Она прячет от вас хитрые манипуляции с хэшами и &#8220;благословление&#8221; объектов и превращает Perl в язык с хорошим ООП.</p>
+
+<h2>Начинаем работу</h2>
+
+<p>Итак, что же нам даёт строчкa &#8220;use Moose&#8221;?</p>
+
+<p>Во-первых она включает &#8220;use strict&#8221; и &#8220;use warnings&#8221;, потому что программа на Perl без этих директив заслуженно считается гавном.</p>
+
+<p>Во-вторых - добавляет в тело пакета несколько ключевых слов, о которых я напишу чуть позже.</p>
+
+<h2>Атрибуты</h2>
+
+<p>Думаю, все знакомы с объектной системой Perl. Чтобы указатель превратился в объект, его нужно благословить (bless). Все аттрибуты являются ключами хэша, а валидации нет и в помине. Moose прячет от вас все эти хитрые подробности и позволяет работать с объектами примерно так же, как это делается в C# и Ruby.</p>
+
+<p>Для начала давайте напишем простой класс без Moose, а потом с его помощью:</p>
+
+<pre><code>#Без Moose
+package MyRecordsCache;
+use warnings;
+use strict;
+use Scalar::Util qw(looks_like_number);
+
+sub new {
+  my $class = shift;
+  my $args = shift;
+  $args{cache_size} //= 0;
+  if ( ref $args-&gt;{cache_size} || int( $args-&gt;{cache_size} ) != $args-&gt;{cache_size} ) {
+    die "cache_size must be integer";
+  }
+  my $self = { %$args };
+  bless $class, $self;
+  return $self;
+}
+
+sub cache_size {
+  my $self = shift;
+  $self-&gt;{cache_size};
+}
+1;
+</code></pre>
+
+<p>И версия с использованием Moose:</p>
+
+<pre><code>package MyRecordsCache;
+use Moose;
+has 'cache_size' =&gt; ( 
+  is =&gt; 'ro', #только для чтения.
+  isa =&gt; 'Int', #только целые числа
+  default =&gt; 0, #по умолчанию будет 0
+);
+__PACKAGE__-&gt;meta-&gt;make_immutable;
+1;
+</code></pre>
+
+<p>С Moose получилось очень мало кода, а в исходнике появилось новое ключевое слово - <em>has</em>. Именно этим ключевым словом мы и создаём аттрибут. О его параметрах будет рассказано ниже. Как вы могли заметить, метода <em>new</em> у нас нет - Moose создаст его автоматически.</p>
+
+<p>Итак, мы описали целочисленный аттрибут только для чтения с дефолтным значением. Ничего сложного, ага?</p>
+
+<p>Но это лишь базовые возможности has. Ниже будет небольшая докуметация по параметрам <em>has</em>, а потом рассмотрим пример посложнее.</p>
+
+<h3>Параметры ключевого слова has</h3>
+
+<h4>is</h4>
+
+<p>Обязательный параметр - тип аттрибута. &#8216;rw&#8217; или &#8216;ro&#8217;. <strong>r</strong>ead-<strong>o</strong>nly - изменение аттрибута невозможно. <strong>r</strong>ead-<strong>w</strong>rite - возможно как чтение, так и изменение объекта.</p>
+
+<h4>isa</h4>
+
+<p>Проверка устанавливаемых данных. Есть встроенный набор типов (Int, Bool, Str, Array, Array[Int],&#8230;), можно указать любой класс, либо создать свой тип с блекджеком и шлюхами. Тогда экземпляры этого класса и его наследников будут проходить валидацию.</p>
+
+<h4>required</h4>
+
+<p>Передаем его, если установка аттрибута обязательна при создании объектов</p>
+
+<h4>default</h4>
+
+<p>Значение по умолчанию. Здесь может быть либо скаляр (не ссылка), либо анонимная функция, которая возвращает значение аттрибута. Это нужно для того, чтобы у каждого объекта была собственная копия значения. Вот что было бы без этого ограничения:</p>
+
+<pre><code>package A;
+has 'attr' =&gt; ( is =&gt; 'rw', default=&gt; { test =&gt; 1 } );
+package main;
+my $v1 = A-&gt;new;
+my $v2 = A-&gt;new;
+$v1-&gt;attr-&gt;{test} = 2;
+print $v1-&gt;attr-&gt;{test} . "\n"; # получаем "2"
+print $v2-&gt;attr-&gt;{test} . "\n"; # вернёт "2" а не "1"
+</code></pre>
+
+<h4>clearer</h4>
+
+<p>Создаёт вспомогательный метод, который очищает значение аттрибута.</p>
+
+<h4>predicate</h4>
+
+<p>Создаёт вспомогательный метод, который возвращает истину, если аттрибут установлен.</p>
+
+<p>Пример:</p>
+
+<pre><code>has 'owner' =&gt; ( 
+  is =&gt; 'ro', 
+  predicate =&gt; 'has_owner', 
+  clearer =&gt; 'clear_owner' 
+);
+#затем
+$obj-&gt;has_owner;#false
+$obj-&gt;owner($owner);
+$obj-&gt;has_owner;#true
+$obj-&gt;owner(undef);
+$obj-&gt;has_owner;# да-да, всё ещё true!
+$obj-&gt;clear_owner;
+$obj-&gt;has_owner; #ага, а вот сейчас false
+</code></pre>
+
+<h2>Делегация методов</h2>
+
+<p>Делегация методов - это перекладывание задачи на другой класс. Или, если посмотреть с другой стороны, shortcut-ы. Пример делегации можно найти в LWP: В HTTP::Request есть метод headers, который возвращает класс HTTP::Headers. Но вместо <code>$req-&gt;headers-&gt;header('Content-Type' =&gt; 'text/html')</code> можно запросто написать <code>$req-&gt;header('Content-Type' =&gt; 'text/html');</code>
+Если бы LWP писали на Moose, то реализация выглядела бы так:</p>
+
+<pre><code>  package HTTP::Message;
+  has 'headers' =&gt; ( #создаём аттрибут headers
+    is =&gt; 'rw',
+    isa =&gt; 'HTTP::Headers',
+    default =&gt; sub { HTTP::Headers-&gt;new },
+    handles =&gt; { #и делегируем выполнение нескольких наших методов ему
+      header =&gt; 'header',
+      headers_as_string =&gt; 'as_string'
+      ...
+    }
+  );
+  package main;
+  my $msg = LWP::Message-&gt;new();
+  $msg-&gt;headers-&gt;header( Location =&gt; 'http://127.0.0.1' );
+  $msg-&gt;header( Location =&gt; 'http://127.0.0.1' );
+  $msg-&gt;header_as_string;
+</code></pre>
+
+<p>Согласитесь, это лучше семи (а там 7 методов делегируется) процедур по 3 строки.</p>
+
+<h2>Наследование</h2>
+
+<p>В общем про наследование я расскажу в следующей телепередаче, а пока только про аттрибуты. Если вы напишете так:</p>
+
+<pre><code>package A;
+use Moose;
+has attr =&gt; ( is =&gt; 'rw' );
+package B;
+use Moose;
+extends 'A';
+has attr =&gt; ( is =&gt; 'ro', default =&gt; 1 );
+</code></pre>
+
+<p>То Perl пошлёт вас в жопу аж два раза подряд. Во-первых, если вы хотите переопределить аттрибут, то вы должны это сказать явно:</p>
+
+<pre><code>has '+attr' =&gt; ( default =&gt; 1 )
+</code></pre>
+
+<p>А во-вторых переопределять можно не все свойства. А только эти:</p>
+
+<ul>
+<li><p>default</p></li>
+<li><p>coerce</p></li>
+<li><p>required</p></li>
+<li><p>documentation</p></li>
+<li><p>lazy</p></li>
+<li><p>isa</p></li>
+<li><p>handles</p></li>
+<li><p>builder</p></li>
+<li><p>metaclass</p></li>
+<li><p>traits</p></li>
+</ul>
+
+
+<p>Сделано это для защиты от извращенцев. В свободное время я посоветовал бы вам подумать о том, что извращенцы могли натворить без этих ограничений.</p>
+
+<h2>Билдеры</h2>
+
+<p>Билдеры - методы, которые вызываются для установки значения по умолчанию для аттрибута.
+Конечно, значение аттрибута по умолчанию, равное пяти, можно и установить с помощью <code>( default =&gt; 5 )</code>. Но что если нужно что-либо посложнее?
+Если нужно за этим значением сходить в базу, скачать файл, или позвонить бабушке в Крыжополь?
+Вот для этого нам понадобятся билдеры.</p>
+
+<pre><code>has attr =&gt; (
+ is =&gt; 'ro',
+ isa =&gt; 'Str',
+ builder =&gt; '_build_attr'
+);
+sub _build_attr {
+  my $self = shift;
+  $self-&gt;dbh-&gt;selectrow_array('SELECT data FROM table');
+}
+</code></pre>
+
+<p>Метод <code>_build_attr</code> может быть не только в этом же классе, но и в наследниках, и в ролях. В любом случае, он вызовется при создании объекта и установит наш аттрибут.</p>
+
+<p>Но если наш аттрибут никогда не получается, на кой чёрт мы должны звонить бабушке ходить в базу?</p>
+
+<pre><code>has attr =&gt; (
+ is =&gt; 'ro',
+ isa =&gt; 'Str',
+ builder =&gt; '_build_attr',
+ lazy_build =&gt; 1
+);
+</code></pre>
+
+<p>Благодаря параметру lazy_build, аттрибут появится только при первом доступе к нему.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrii Kostenko</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-07T09:01:02+04:00" pubdate data-updated="true">Aug 7<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/perl/'>perl</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kostenko.name/blog/2009/08/07/moose/" data-via="kostenko" data-counturl="http://kostenko.name/blog/2009/08/07/moose/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2009/08/01/d0bdd0b5d0bcd0bdd0bed0b3d0be-d0be-d0b2d0b0d188d0b8d185-d0b8d0b4d0b5d0b0d0bbd0b0d185/" title="Previous Post: немного о ваших идеалах">&laquo; немного о ваших идеалах</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2009/08/19/d0b1d0b5d0bbd0bed180d183d181d181d0b8d18f-d181d0b4d0b5d0bbd0b0d0bbd0b0-d0b2d181d0b5d185/" title="Next Post: Белоруссия сделала всех">Белоруссия сделала всех &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

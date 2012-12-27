@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | Андрей Костенко]]></title>
+  <link href="http://kostenko.name/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://kostenko.name/"/>
+  <updated>2012-12-28T03:18:22+04:00</updated>
+  <id>http://kostenko.name/</id>
+  <author>
+    <name><![CDATA[Andrii Kostenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Django hints]]></title>
+    <link href="http://kostenko.name/blog/2011/11/01/django-hints/"/>
+    <updated>2011-11-01T00:16:49+04:00</updated>
+    <id>http://kostenko.name/blog/2011/11/01/django-hints</id>
+    <content type="html"><![CDATA[<h3>South</h3>
+
+<p>./manage.py syncdb создает только новые таблицы, а вот если вы добавляете или удаляете столбцы, то syncdb вам не поможет. А вот добавление south в список приложений позволяет автоматически создавать миграции, применять-откатывать их и следить, какой SQL был выполнен, а какой – нет.</p>
+
+<h3>django-denorm</h3>
+
+<p>Этот модуль автоматически создает триггеры на счетчики и вообще очень упрощает работу с денормализованными структурами БД</p>
+
+<h3>django-social-auth</h3>
+
+<p>Запомните название. Есть django-SocialAuth – редкостная шляпа.</p>
+
+<h3>django-mobile</h3>
+
+<p>Определение мобильного телефона и отображение разных шаблонов в зависимости от типа устройства.</p>
+
+<h3>django-compressor</h3>
+
+<p>все, что между тегами &#123;% compress %} &#123;% endcompress %} парсится, находятся теги &lt;script&gt; и &lt;link rel="stylesheet" /&gt;, склеиваются, сжимаются или препроцессятся при необходимости</p>
+
+<h3>sentry</h3>
+
+<p>Добавляет интерфейс статистики по ошибкам, по количеству, дате последнего появления. Очень много фич, все описывать не буду.</p>
+
+<h3>django-admin-toolbar</h3>
+
+<p>Конфигурируемая админка. Кастомные темы, модули, меню. Everything is possible.</p>
+
+<h3>django-piston</h3>
+
+<p>Генерация API по модели.</p>
+
+<h3>jinja2/coffin</h3>
+
+<p>Шаблонный движок с синтаксисом django и с производительность 10x от django-шаблонов</p>
+
+<h3>django-celery</h3>
+
+<p>Удобный интерфейс к системе очередей. Из коробки есть worker-ы, аналог крона (задачи по расписанию), поддержка кучи очередей: beanstalkd, AMQP и т.д. Есть удобный error-reporting.</p>
+
+<h3>django-haystack</h3>
+
+<p>Обертка над системами полнотекстового поиска. Поддерживаются Solr, elasticsearch, xapian и whoosh</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django-declension]]></title>
+    <link href="http://kostenko.name/blog/2011/07/31/django-declension/"/>
+    <updated>2011-07-31T22:34:48+04:00</updated>
+    <id>http://kostenko.name/blog/2011/07/31/django-declension</id>
+    <content type="html"><![CDATA[<p>Решил поделиться одним модулем, который используется у меня на <a href="http://www.visamap.net/">VisaMap</a></p>
+
+<p>Занимается он простой вещью - склоняет существительные: Вася, Васи, Васе и так далее.</p>
+
+<p>Принцип работы прост - он ходит на Яндекс-Склонятор и кэширует результаты в базе (если не кэшировать, то они меня банят). Если Яндекс не осилил склонение слова, то этот fail тоже кэшируется в базе.</p>
+
+<p>Синтаксис прост:</p>
+
+<pre><code>&gt;&gt;&gt; from django_declension import declension
+&gt;&gt;&gt; declension(u'говняшка').genitive
+u'говняшки'
+</code></pre>
+
+<p>Забрать его можно здесь: <a href="http://github.com/gugu/django-declension/">http://github.com/gugu/django-declension/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

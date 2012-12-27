@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Андрей Костенко</title>
+  <meta name="author" content="Andrii Kostenko">
+
+  
+  <meta name="description" content="К сожалению, я не Единственный с фамилией Костенко. Таких как я чёрти сколько. Есть даже Шлёма Костенко
+Но это оффтопик. К тому времени, как я решил &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kostenko.name/blog/page/18/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Андрей Костенко" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6026113-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Андрей Костенко</a></h1>
+  
+    <h2>TODO: добавить умный комментарий</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/09/d0bfd180d0b8d0b1d0b0d180d0b0d185d0bbd0b8d0bbd181d18f/">Прибарахлился.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-09T00:04:41+04:00" pubdate data-updated="true">Jul 9<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>К сожалению, я не Единственный с фамилией Костенко. Таких как я чёрти сколько. Есть даже <a href="http://www.myspace.com/shlomokostenko">Шлёма Костенко</a>
+Но это оффтопик. К тому времени, как я решил зарегать себе сайт, некий Роберт Костенко зарегистрировал себе http://kostenko.com, а Джон Костенко - http://kostenko.net. Проклятые америкосы, подумал я и решил подождать, пока домены просрочатся&#8230;
+Первым просрочился http://kostenko.com, но его заняли <a href="http://kostenko.com">пидарасы</a>. А сегодня у меня появился домен http://kostenko.net/. Скоро там будет какая-то хуйня. Ждите.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/08/dbi-profiling/">Профилирование SQL-запросов в DBI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-08T22:30:29+04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Как недавно оказалось, у DBI есть отличный профайлер. Включается он очень просто.</p>
+
+<pre><code>DBI_PROFILE=1 perl test.pl
+DBI::Profile: 27.088730s 58.89% (52900 calls) test.pl @ 2009-07-08 23:08:39
+</code></pre>
+
+<p>Как видите, он краток. А кратк. сестр. тал. Он показывает, стоит ли нам вообще оптимизировать SQL.
+он говорит, что на базу потрачено 60% времени.
+Если нужно оптимизировать базу, то запускаем скрипт с DBI_PROFILE=2
+Тогда нам покажется подробный отчёт о времени, затраченном на каждый тип запроса.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/08/d0b2d18bd188d0bbd0b0-d0bdd0bed0b2d0b0d18f-d0b2d0b5d180d181d0b8d18f-classaccessorsgrouped/">Вышла новая версия Class::Accessors::Grouped</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-08T22:13:14+04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Альфа версия (не доступна из CPAN)
+Она умеет работать с XS-ным Class::XSAccessors, что ускоряет работу DBIx::Class-овых приложений процентов на 10-20.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/08/private/">Небольшой пост о моей личной жизни&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-08T00:15:56+04:00" pubdate data-updated="true">Jul 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Сегодня заметил, что прошёл уже год, как Я работаю в <a href="http://rambler.ru/">Рамблере</a>&#8230;</p>
+
+<p>По этому поводу я напишу немного букав. Как сейчас помню фразу, сказанную моим начальником, АП Витязем:</p>
+
+<blockquote><ul>
+<li>Пока у вас нет семьи и детей, вы не привязаны ни к чему. Можете в любой момент взять и уехать куда-то.</li>
+</ul>
+</blockquote>
+
+<p>Может быть я не передал фразу дословно, но смысл был таким. Через пару месяцев я поехал на UA Web в Киев, где с отвисшей челюстью слушал о том, как у Яндекса и других компаний всё охуенно. И подумал, а не отправить ли мне резюме в Яндекс.</p>
+
+<p>Отправил. Для симметрии его же послал в Рамблер и Mail.ru. Кто-то из этой счастливой тройки (скорее всего Mail.ru) позвонил моему начальнику из Приватбанка, за что я получил изрядных пиздюлей :-)</p>
+
+<p>Когда я ехал в Маскву, я надеялся, что мне удастся найти работу в Яндексе. Ну и собеседование в Рамблере для галочки пройти стоило. :-) Тогда же я устроил аукцион прикольный. В стиле &#8220;пойду к тем, кто больше заплатит&#8221;. Яндексоиды предложили больше, но мне уже хотелось в Рамблер. Ведь в Рамблере был мой любимый Catalyst и DBIx::Class :-)</p>
+
+<p>И я ни разу не пожалел об этом решении&#8230; К чему это я? Да ни к чему, просто понос мыслей.</p>
+
+<p>Но если вы такой зануда, что не заснули, читая мой пост, то я задам вам вопрос:</p>
+
+<p>Пригодилось ли вам реально в жизни высшее образование? С реальными историями, желательно.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/30/d0be-d0bdd0b5d0b4d0b0d0b2d0bdd0b5d0bc/">О недавнем</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T23:51:28+04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[caption id=&#8221;&#8221; align=&#8221;alignnone&#8221; width=&#8221;504&#8221; caption=&#8221;%людей, которые терпеть не могли Майкла Джексона&#8221;]<a href="http://graphjam.files.wordpress.com/2009/06/song-chart-memes-michael-jackson.jpg?w=504&amp;h=497"><img src="http://graphjam.files.wordpress.com/2009/06/song-chart-memes-michael-jackson.jpg?w=504&amp;h=497" alt="%людей, которые терпеть не могли Майкла Джексона" /></a>[/caption]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/30/d181d0b0d0bc-d0bdd0b5-d0b4d0bed187d0b8d182d0b0d0bb-d0bdd0be-d180d0b0d181d0bfd0b8d181d0b0d0bdd0be-d0bed187d0b5d0bdd18c-d185d0bed180d0be/">Сам не дочитал, но расписано очень хорошо</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-30T13:24:43+04:00" pubdate data-updated="true">Jun 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.slideshare.net/quipo/trees-in-the-database-advanced-data-structures?type=presentation">Trees In The Database - Advanced data structures</a></p>
+
+<p>View more <a href="http://www.slideshare.net/">documents</a> from <a href="http://www.slideshare.net/quipo">Lorenzo Alberton</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/29/education/">о нашем высшем образовании (:</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-29T17:39:36+04:00" pubdate data-updated="true">Jun 29<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/15/d0b4d0bbd18f-d182d0b5d185-d0bad182d0be-d0b2-d182d0b0d0bdd0bad0b5/">Для тех, кто в танке</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-15T08:47:11+04:00" pubdate data-updated="true">Jun 15<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>На Facebook появилась возможность зарегить себе  красивые урлы вида:
+http://facebook.com/%username%/</p>
+
+<p><a href="http://facebook.com/username/">здесь</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/13/d0b2d18bd188d0b5d0bb-wordpress-2-8/">Вышел Wordpress 2.8</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-13T09:30:07+04:00" pubdate data-updated="true">Jun 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Из новшеств замечено только одно - админка перестала работать под IE6. В остальном всё так же. Настоятельно советую обновиться лишь тем, кому совсем нехер делать</p>
+
+<p>PD: обновился)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/30/shit/">Здравствуйте, меня зовут Лошара</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-30T15:34:46+04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://img.gazeta.ru/files1/2226286/zode1.jpg"><img src="http://img.gazeta.ru/files1/2226286/zode1.jpg" alt="" /></a> Зря я в предыдущем посте написал &#8220;далi буде&#8221; :-(</p>
+
+<p>Приключения снова нашли мою задницу. В этот раз они приняли форму сотрудников патрульно-постовой службы.</p>
+
+<p>Как и в прошлый раз&#8230; в полпервого ночи ничего не подозревающий Андрей направлялся домой. Он уже почти добрался, до дома оставалось метров сто. Но тут&#8230; из-за кустов  выскочила машина с ППСниками. Из неё выползло штуки четыре Защитника Российской Федерации.</p>
+
+<ul>
+<li>Документики, уважаемый. Не наркоман случайно? Что-то вы каким-то обдолбаным выглядите.</li>
+</ul>
+
+
+<p>Ну, не они первые меня за наркомана принимают. Я уже на это и обижаться перестал.</p>
+
+<p>Порывшись в них, они не нашли у меня регистрации. С вопросами в стиле &#8220;какого хуя ты ночью без регистрации шляешься?&#8221; они усадили меня в ментовозку и повезли в отделение. По пути, угрожая депортацией, которая стоит 5000р и штрафом в 2500р они вынудили растерявшегося мальчика дать им взятку в 2500р&#8230; До отделения я, естественно, не доехал. Лишь потом я осознал, какую хуйню я натворил:</p>
+
+<ol>
+<li><p>Не попросил их преставиться. И сейчас я не могу на блоге написать Фамилия И. О. мудак</p></li>
+<li><p>Официальный штраф даёт мне возможность выбора: оплатить его или смыть его в унитаз.</p></li>
+<li><p>Какая нахрен депортация за отсутствие регистрации? И какие нахер 5000р? Это ж, блять, билет аэрофлотом столько стоит.</p></li>
+<li><p>Ну и собственно я бы мог поторговаться. Когда я потерял миграционку, я заплатил только 500р и рассказал историю о том, какой я бедный и несчастный.</p></li>
+</ol>
+
+
+<p>Так что вот такая история. Из выводов - не нужно теряться. ППСники такие же мудаки, как и многие другие госслужащие. И относиться к ним нужно соответственно.</p>
+
+<p>PS: а Лошара я потому, что эта регистрация у меня в кошельке лежала. Скрытая под кучей старых невыброшенных чеков.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/19/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/17/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/08/cached-urls-for-sass/">Cached URLs for sass</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gugu">@gugu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gugu',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("kostenko", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/kostenko" class="twitter-follow-button" data-show-count="false">Follow @kostenko</a>
+  
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/108023428314804771773?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Andrii Kostenko -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'gugu';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: perl | Андрей Костенко]]></title>
+  <link href="http://kostenko.name/blog/categories/perl/atom.xml" rel="self"/>
+  <link href="http://kostenko.name/"/>
+  <updated>2012-12-28T03:18:22+04:00</updated>
+  <id>http://kostenko.name/</id>
+  <author>
+    <name><![CDATA[Andrii Kostenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ещё два события, в которых поучавствовали мои кривые ручки]]></title>
+    <link href="http://kostenko.name/blog/2010/02/05/two-new-releases/"/>
+    <updated>2010-02-05T17:26:39+03:00</updated>
+    <id>http://kostenko.name/blog/2010/02/05/two-new-releases</id>
+    <content type="html"><![CDATA[<p>Вышла новая версия <a href="http://search.cpan.org/dist/DBIx-Class-Schema-Loader/">DBIx::Class::Schema::Loader</a> с множеством изменений. Одно из этих изменений - генерация POD-документации для автоматически созданных классов. Пользователи PostgreSQL получат ещё одну вкусняшку - все комментарии к их таблицам и столбцам автоматически переедут в документацию. Не буду показывать на автора этого патча пальцем, так как это неприлично.</p>
+
+<p>И второе. <a href="http://search.cpan.org/dist/Test-Pod-Coverage-Permissive">Test::Pod::Coverage::Permissive</a>. Принцип работы такой же, как и у Test::Pod::Coverage, только тесты валятся лишь в том случае, если <strong>появилась ещё одна не­за­до­ку­мен­ти­ро­ван­ная фунция</strong>.
+Т.е. при первом запуске у вас тесты пройдут в любом случае. Задокументируете функцию -- тесты пройдут. Напишете ещё одну незадокументированную функцию -- обвалятся.</p>
+
+<p>Это очень удобно, когда есть незадокументированный проект, который хочется дальше вести с документацией.</p>
+
+<p>К чему это я -- пользуйтесь и пишите баги.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[perl2port]]></title>
+    <link href="http://kostenko.name/blog/2009/12/03/perl2port/"/>
+    <updated>2009-12-03T16:17:29+03:00</updated>
+    <id>http://kostenko.name/blog/2009/12/03/perl2port</id>
+    <content type="html"><![CDATA[<p>Странно, что этого до сих пор никто не написал: <a href="http://search.cpan.org/~gugu/App-Pm2Port-0.23/">App::Pm2Port</a></p>
+
+<p>Создаёт порт из перлового модуля и отправляет его разработчикам FreeBSD.</p>
+
+<p>Как работать:</p>
+
+<pre><code>pm2port CSS::Croco
+</code></pre>
+
+<p>Тестируем и находим баги.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Moose]]></title>
+    <link href="http://kostenko.name/blog/2009/08/07/moose/"/>
+    <updated>2009-08-07T09:01:02+04:00</updated>
+    <id>http://kostenko.name/blog/2009/08/07/moose</id>
+    <content type="html"><![CDATA[<p>Moose - это альтернативная объектная система для Perl 5. Она прячет от вас хитрые манипуляции с хэшами и "благословление" объектов и превращает Perl в язык с хорошим ООП.</p>
+
+<h2>Начинаем работу</h2>
+
+<p>Итак, что же нам даёт строчкa "use Moose"?</p>
+
+<p>Во-первых она включает "use strict" и "use warnings", потому что программа на Perl без этих директив заслуженно считается гавном.</p>
+
+<p>Во-вторых - добавляет в тело пакета несколько ключевых слов, о которых я напишу чуть позже.</p>
+
+<h2>Атрибуты</h2>
+
+<p>Думаю, все знакомы с объектной системой Perl. Чтобы указатель превратился в объект, его нужно благословить (bless). Все аттрибуты являются ключами хэша, а валидации нет и в помине. Moose прячет от вас все эти хитрые подробности и позволяет работать с объектами примерно так же, как это делается в C# и Ruby.</p>
+
+<p>Для начала давайте напишем простой класс без Moose, а потом с его помощью:</p>
+
+<pre><code>#Без Moose
+package MyRecordsCache;
+use warnings;
+use strict;
+use Scalar::Util qw(looks_like_number);
+
+sub new {
+  my $class = shift;
+  my $args = shift;
+  $args{cache_size} //= 0;
+  if ( ref $args-&gt;{cache_size} || int( $args-&gt;{cache_size} ) != $args-&gt;{cache_size} ) {
+    die "cache_size must be integer";
+  }
+  my $self = { %$args };
+  bless $class, $self;
+  return $self;
+}
+
+sub cache_size {
+  my $self = shift;
+  $self-&gt;{cache_size};
+}
+1;
+</code></pre>
+
+<p>И версия с использованием Moose:</p>
+
+<pre><code>package MyRecordsCache;
+use Moose;
+has 'cache_size' =&gt; ( 
+  is =&gt; 'ro', #только для чтения.
+  isa =&gt; 'Int', #только целые числа
+  default =&gt; 0, #по умолчанию будет 0
+);
+__PACKAGE__-&gt;meta-&gt;make_immutable;
+1;
+</code></pre>
+
+<p>С Moose получилось очень мало кода, а в исходнике появилось новое ключевое слово - <em>has</em>. Именно этим ключевым словом мы и создаём аттрибут. О его параметрах будет рассказано ниже. Как вы могли заметить, метода <em>new</em> у нас нет - Moose создаст его автоматически.</p>
+
+<p>Итак, мы описали целочисленный аттрибут только для чтения с дефолтным значением. Ничего сложного, ага?</p>
+
+<p>Но это лишь базовые возможности has. Ниже будет небольшая докуметация по параметрам <em>has</em>, а потом рассмотрим пример посложнее.</p>
+
+<h3>Параметры ключевого слова has</h3>
+
+<h4>is</h4>
+
+<p>Обязательный параметр - тип аттрибута. 'rw' или 'ro'. <strong>r</strong>ead-<strong>o</strong>nly - изменение аттрибута невозможно. <strong>r</strong>ead-<strong>w</strong>rite - возможно как чтение, так и изменение объекта.</p>
+
+<h4>isa</h4>
+
+<p>Проверка устанавливаемых данных. Есть встроенный набор типов (Int, Bool, Str, Array, Array[Int],...), можно указать любой класс, либо создать свой тип с блекджеком и шлюхами. Тогда экземпляры этого класса и его наследников будут проходить валидацию.</p>
+
+<h4>required</h4>
+
+<p>Передаем его, если установка аттрибута обязательна при создании объектов</p>
+
+<h4>default</h4>
+
+<p>Значение по умолчанию. Здесь может быть либо скаляр (не ссылка), либо анонимная функция, которая возвращает значение аттрибута. Это нужно для того, чтобы у каждого объекта была собственная копия значения. Вот что было бы без этого ограничения:</p>
+
+<pre><code>package A;
+has 'attr' =&gt; ( is =&gt; 'rw', default=&gt; { test =&gt; 1 } );
+package main;
+my $v1 = A-&gt;new;
+my $v2 = A-&gt;new;
+$v1-&gt;attr-&gt;{test} = 2;
+print $v1-&gt;attr-&gt;{test} . "\n"; # получаем "2"
+print $v2-&gt;attr-&gt;{test} . "\n"; # вернёт "2" а не "1"
+</code></pre>
+
+<h4>clearer</h4>
+
+<p>Создаёт вспомогательный метод, который очищает значение аттрибута.</p>
+
+<h4>predicate</h4>
+
+<p>Создаёт вспомогательный метод, который возвращает истину, если аттрибут установлен.</p>
+
+<p>Пример:</p>
+
+<pre><code>has 'owner' =&gt; ( 
+  is =&gt; 'ro', 
+  predicate =&gt; 'has_owner', 
+  clearer =&gt; 'clear_owner' 
+);
+#затем
+$obj-&gt;has_owner;#false
+$obj-&gt;owner($owner);
+$obj-&gt;has_owner;#true
+$obj-&gt;owner(undef);
+$obj-&gt;has_owner;# да-да, всё ещё true!
+$obj-&gt;clear_owner;
+$obj-&gt;has_owner; #ага, а вот сейчас false
+</code></pre>
+
+<h2>Делегация методов</h2>
+
+<p>Делегация методов - это перекладывание задачи на другой класс. Или, если посмотреть с другой стороны, shortcut-ы. Пример делегации можно найти в LWP: В HTTP::Request есть метод headers, который возвращает класс HTTP::Headers. Но вместо <code>$req-&gt;headers-&gt;header('Content-Type' =&gt; 'text/html')</code> можно запросто написать <code>$req-&gt;header('Content-Type' =&gt; 'text/html');</code>
+Если бы LWP писали на Moose, то реализация выглядела бы так:</p>
+
+<pre><code>  package HTTP::Message;
+  has 'headers' =&gt; ( #создаём аттрибут headers
+    is =&gt; 'rw',
+    isa =&gt; 'HTTP::Headers',
+    default =&gt; sub { HTTP::Headers-&gt;new },
+    handles =&gt; { #и делегируем выполнение нескольких наших методов ему
+      header =&gt; 'header',
+      headers_as_string =&gt; 'as_string'
+      ...
+    }
+  );
+  package main;
+  my $msg = LWP::Message-&gt;new();
+  $msg-&gt;headers-&gt;header( Location =&gt; 'http://127.0.0.1' );
+  $msg-&gt;header( Location =&gt; 'http://127.0.0.1' );
+  $msg-&gt;header_as_string;
+</code></pre>
+
+<p>Согласитесь, это лучше семи (а там 7 методов делегируется) процедур по 3 строки.</p>
+
+<h2>Наследование</h2>
+
+<p>В общем про наследование я расскажу в следующей телепередаче, а пока только про аттрибуты. Если вы напишете так:</p>
+
+<pre><code>package A;
+use Moose;
+has attr =&gt; ( is =&gt; 'rw' );
+package B;
+use Moose;
+extends 'A';
+has attr =&gt; ( is =&gt; 'ro', default =&gt; 1 );
+</code></pre>
+
+<p>То Perl пошлёт вас в жопу аж два раза подряд. Во-первых, если вы хотите переопределить аттрибут, то вы должны это сказать явно:</p>
+
+<pre><code>has '+attr' =&gt; ( default =&gt; 1 )
+</code></pre>
+
+<p>А во-вторых переопределять можно не все свойства. А только эти:</p>
+
+<ul>
+<li><p>default</p></li>
+<li><p>coerce</p></li>
+<li><p>required</p></li>
+<li><p>documentation</p></li>
+<li><p>lazy</p></li>
+<li><p>isa</p></li>
+<li><p>handles</p></li>
+<li><p>builder</p></li>
+<li><p>metaclass</p></li>
+<li><p>traits</p></li>
+</ul>
+
+
+<p>Сделано это для защиты от извращенцев. В свободное время я посоветовал бы вам подумать о том, что извращенцы могли натворить без этих ограничений.</p>
+
+<h2>Билдеры</h2>
+
+<p>Билдеры - методы, которые вызываются для установки значения по умолчанию для аттрибута.
+Конечно, значение аттрибута по умолчанию, равное пяти, можно и установить с помощью <code>( default =&gt; 5 )</code>. Но что если нужно что-либо посложнее?
+Если нужно за этим значением сходить в базу, скачать файл, или позвонить бабушке в Крыжополь?
+Вот для этого нам понадобятся билдеры.</p>
+
+<pre><code>has attr =&gt; (
+ is =&gt; 'ro',
+ isa =&gt; 'Str',
+ builder =&gt; '_build_attr'
+);
+sub _build_attr {
+  my $self = shift;
+  $self-&gt;dbh-&gt;selectrow_array('SELECT data FROM table');
+}
+</code></pre>
+
+<p>Метод <code>_build_attr</code> может быть не только в этом же классе, но и в наследниках, и в ролях. В любом случае, он вызовется при создании объекта и установит наш аттрибут.</p>
+
+<p>Но если наш аттрибут никогда не получается, на кой чёрт мы должны звонить бабушке ходить в базу?</p>
+
+<pre><code>has attr =&gt; (
+ is =&gt; 'ro',
+ isa =&gt; 'Str',
+ builder =&gt; '_build_attr',
+ lazy_build =&gt; 1
+);
+</code></pre>
+
+<p>Благодаря параметру lazy_build, аттрибут появится только при первом доступе к нему.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Асинхронность в DBD::Pg]]></title>
+    <link href="http://kostenko.name/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg/"/>
+    <updated>2009-07-15T01:14:02+04:00</updated>
+    <id>http://kostenko.name/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg</id>
+    <content type="html"><![CDATA[<p>Все мы привыкли работать с базой в стиле:</p>
+
+<ol>
+<li><p>выполнить запрос</p></li>
+<li><p>дождаться ответа</p></li>
+<li><p>продолжить выполнение</p></li>
+</ol>
+
+
+<p>Но пока работает длинный запрос, мы в приложении можем выполнить что-то полезное. Не простаивать же процессорному времени.</p>
+
+<p>Для PostgreSQL в DBD::Pg есть некоторое подобие асинхронности. И иногда оно таки нам помогает.</p>
+
+<p>Вы можете продолжить выполнять приложение, не дожидаясь выполнения запроса. Включается это параметром pg_async к prepare-запросу:</p>
+
+<pre><code>  use strict;
+  use warnings;
+  use Time::HiRes 'sleep';
+  use DBD::Pg ':async';
+
+  my $dbh = DBI-&gt;connect('dbi:Pg:dbname=postgres', 'postgres', '', {AutoCommit=&gt;0,RaiseError=&gt;1});
+
+  ## Запустить длинный запрос
+  my $sth = $dbh-&gt;prepare("SELECT pg_sleep(5)", {pg_async =&gt; PG_ASYNC});
+  $sth-&gt;execute(5);
+
+  ## Пока работает, мы можем что-то сделать
+  print "Your query is processing. Thanks for waiting\n";
+  check_on_the_kids();
+
+  while (!$dbh-&gt;pg_ready) {
+    check_on_the_kids();
+    ## и подождём чуть-чуть
+    sleep 0.1;
+  }
+
+  print "The query has finished. Gathering results\n";
+  my $result = $sth-&gt;pg_result;
+  print "Result: $result\n";
+  my $info = $sth-&gt;fetchall_arrayref();
+</code></pre>
+
+<p>Для pg_async есть три константы:</p>
+
+<ul>
+<li><p>PG_ASYNC - выполнение запроса в асинхронном режиме</p></li>
+<li><p>PG_OLDQUERY_CANCEL - если в этот момент работал предыдущий запроса, то он отменяется</p></li>
+<li><p>PG_OLDQUERY_WAIT - блокируемся для ожидания предыдущего запроса и только потом начинаем выполнять новый</p></li>
+</ul>
+
+
+<p>Так же есть три вспомогательных метода -
+<strong>pg_cancel</strong> - отменить запрос. Реально открывается ещё одно соединение, в котором посылается SELECT pg_cancel_backend(?);
+<strong>pg_ready</strong> - возвращает true, если запрос выполнился.
+<strong>pg_result</strong> - блокируется до момента выполнения запроса, после чего возвращает то же, что и ->execute в стандартном режиме.</p>
+
+<p>Из минусов - нельзя установить callback на момент исполнения запроса. Нужно постоянно проверять.
+Так же в один момент  времени в одном соединением можно выполнять только один запрос. Но что мешает открыть десяток соединений и по очереди посылать в них запросы?)</p>
+
+<p>Попробую рассказать о применениях этой технологии:</p>
+
+<ul>
+<li><p>тяжёлые запросы + сложная логика. Равномерно загружаем свой сервер и сервер БД.</p>
+
+<p>while (){
+my $foo = compute_foo();#тяжёлая функция</p>
+
+<h1>блокируемся до тех пор, пока не выполнится предыдущий</h1>
+
+<p>$dbh->do('UPDATE stats SET foo=foo+1', { pg_async => PG_ASYNC + PG_OLDQUERY_WAIT });
+}</p></li>
+<li><p>работа с несколькими серверами БД</p>
+
+<p>$first_dbh->do('DELETE FROM old_data', { pg_async => PG_ASYNC });
+$second_dbh->do('UPDATE new_data SET status=0', { pg_async => PG_ASYNC })</p></li>
+<li><p>таймауты. вы можете убить запрос по таймауту, если он ещё не отработал</p></li>
+<li><p>конкуррентные запросы. посылаем один и тот же запрос двум серверам и отдаём данные с того сервера, который ответил быстрее.</p></li>
+<li><p>запросы, результат выполнения которых вам абсолютно безразличен</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Профилирование SQL-запросов в DBI]]></title>
+    <link href="http://kostenko.name/blog/2009/07/08/dbi-profiling/"/>
+    <updated>2009-07-08T22:30:29+04:00</updated>
+    <id>http://kostenko.name/blog/2009/07/08/dbi-profiling</id>
+    <content type="html"><![CDATA[<p>Как недавно оказалось, у DBI есть отличный профайлер. Включается он очень просто.</p>
+
+<pre><code>DBI_PROFILE=1 perl test.pl
+DBI::Profile: 27.088730s 58.89% (52900 calls) test.pl @ 2009-07-08 23:08:39
+</code></pre>
+
+<p>Как видите, он краток. А кратк. сестр. тал. Он показывает, стоит ли нам вообще оптимизировать SQL.
+он говорит, что на базу потрачено 60% времени.
+Если нужно оптимизировать базу, то запускаем скрипт с DBI_PROFILE=2
+Тогда нам покажется подробный отчёт о времени, затраченном на каждый тип запроса.</p>
+]]></content>
+  </entry>
+  
+</feed>
