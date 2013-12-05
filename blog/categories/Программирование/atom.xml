@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Программирование | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/Программирование/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/Программирование/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django hints]]></title>
-    <link href="http://kostenko.name/blog/2011/11/01/django-hints/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2011/11/01/django-hints/"/>
     <updated>2011-11-01T00:16:49+04:00</updated>
-    <id>http://kostenko.name/blog/2011/11/01/django-hints</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2011/11/01/django-hints</id>
     <content type="html"><![CDATA[<h3>South</h3>
 
 <p>./manage.py syncdb создает только новые таблицы, а вот если вы добавляете или удаляете столбцы, то syncdb вам не поможет. А вот добавление south в список приложений позволяет автоматически создавать миграции, применять-откатывать их и следить, какой SQL был выполнен, а какой – нет.</p>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[VIM. Tags]]></title>
-    <link href="http://kostenko.name/blog/2010/09/10/vim-tags/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/09/10/vim-tags/"/>
     <updated>2010-09-10T17:57:24+04:00</updated>
-    <id>http://kostenko.name/blog/2010/09/10/vim-tags</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/09/10/vim-tags</id>
     <content type="html"><![CDATA[<p>Решил разобраться получше с vim и ctags. Для справки: ctags - это команда, которая сканирует ваш проект и собирает информацию о классах, методах, функциях и переменных, после чего вы можете перейти на нужную вам функцию.</p>
 
 <p>В vim это делается так. В корне проекта пишем:</p>
@@ -94,9 +94,9 @@ vim -t MyClassName
   
   <entry>
     <title type="html"><![CDATA[perl2port]]></title>
-    <link href="http://kostenko.name/blog/2009/12/03/perl2port/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port/"/>
     <updated>2009-12-03T16:17:29+03:00</updated>
-    <id>http://kostenko.name/blog/2009/12/03/perl2port</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port</id>
     <content type="html"><![CDATA[<p>Странно, что этого до сих пор никто не написал: <a href="http://search.cpan.org/~gugu/App-Pm2Port-0.23/">App::Pm2Port</a></p>
 
 <p>Создаёт порт из перлового модуля и отправляет его разработчикам FreeBSD.</p>
@@ -112,9 +112,9 @@ vim -t MyClassName
   
   <entry>
     <title type="html"><![CDATA[Это двадцатый пост с названием "Заебали"]]></title>
-    <link href="http://kostenko.name/blog/2009/11/13/optimization/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/11/13/optimization/"/>
     <updated>2009-11-13T00:31:27+03:00</updated>
-    <id>http://kostenko.name/blog/2009/11/13/optimization</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/11/13/optimization</id>
     <content type="html"><![CDATA[<p>Постоянно от программистов слышу жуткую заботу о производительности приложений. Поэтому я попросил Капитана Очевидность прояснить ситуацию:</p>
 
 <p> -- Капитан, что вы думаете об оптимизации производительности?

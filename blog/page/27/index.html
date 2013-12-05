@@ -9,7 +9,7 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="можно сказать, выспался&#8230; :-) много думал&#8230; нихрена не понял&#8230; но хотя бы попытался
+  <meta name="description" content="&#8230;но и весело. Его перевели на белорусский язык. Хочу ещё казахский&#8230;
 ">
   
 
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kostenko.name/blog/page/27/">
+  <link rel="canonical" href="http://gugu.github.com/kostenkoname/blog/page/27/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,7 +62,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input type="hidden" name="q" value="site:gugu.github.com/kostenkoname" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -77,6 +77,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/23/d0bdd0b0-d0b2d0bad0bed0bdd182d0b0d0bad182d0b5-d181d0b5d0b9d187d0b0d181-d0bdd0b5-d182d0bed0bbd18cd0bad0be-d0b8d0bdd182d0b5d180d0b5d181/">На вконтакте сейчас не только интересно сидеть&#8230;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-23T15:50:38+04:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&#8230;но и весело. Его перевели на белорусский язык. Хочу ещё казахский&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -443,60 +479,6 @@ cp -rf /tmp/wordpress/* /var/www/kostenko.name/
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/09/08/ssh-tricks/">SSH Tricks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-09-08T20:23:51+04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Авторизация у меня везде по ключикам, а вот создавать туннели я не умею :-[</p>
-
-<p><a href="http://clipmarks.com/clip-to-blog/"><img src="http://content.clipmarks.com/blog_icon/99857d0b-854c-4f38-8360-dd45f1ef0c54/CA67A6D9-09A9-451A-A5D7-417D2C8DA0F0/" alt="" /></a>clipped from <a href="http://habrahabr.ru/blogs/linux/39277/">habrahabr.ru</a></p>
-
-<p><code>vi ~/.ssh/config</code></p>
-
-<p>Если у вас на машине Linux и вам часто приходится ходить по ssh на разные хосты, то будет полезен небольшой трюк позволяющий не вводить пароль если вы в новом окне соединяетесь с хостом с которым уже есть соединение:</p>
-
-<p><code>host *
-controlmaster auto
-controlpath /tmp/ssh-%r@%h:%p</code></p>
-
-<p>Так же частенько бывает ситуация когда нужно соединить 2 машины находящиеся в разных сетях. Например одна машина использует для тестов базу которая находится на сервере в другой сети разделённой интернетом. В таких случаях очень удобно использовать ssh туннели.</p>
-
-<p>ssh -p22 -2 -N -C -f -L 6632:192.168.100.72:66320 tunnel@88.88.88.88</p>
-
-<p>tunnel@88.88.88.88 — имя пользователя и ИП адрес сервера который находится в удалённой сети и смотрит в интернет через него мы собственно и прокидываем туннель.</p>
-
-<p><a href="http://clipmarks.com/share/CA67A6D9-09A9-451A-A5D7-417D2C8DA0F0/blog/"><img src="http://content6.clipmarks.com/images/c2b-foot.png" alt="blog it" /></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/28/">&larr; Older</a>
@@ -514,6 +496,10 @@ controlpath /tmp/ssh-%r@%h:%p</code></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/17/dokazatiel%27stvo-togho/">Доказательство того</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -527,10 +513,6 @@ controlpath /tmp/ssh-%r@%h:%p</code></p>
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
@@ -601,7 +583,7 @@ controlpath /tmp/ssh-%r@%h:%p</code></p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Andrii Kostenko -
+  Copyright &copy; 2013 - Andrii Kostenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

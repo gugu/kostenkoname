@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: VisaMap | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/visamap/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/visamap/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[VisaMap. API.]]></title>
-    <link href="http://kostenko.name/blog/2010/07/28/visamap-api/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/07/28/visamap-api/"/>
     <updated>2010-07-28T07:44:12+04:00</updated>
-    <id>http://kostenko.name/blog/2010/07/28/visamap-api</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/07/28/visamap-api</id>
     <content type="html"><![CDATA[<p>Сейчас информация о правилах получения виз есть на каждом туристическом портале. Своя и очень часто устаревшая.</p>
 
 <p>А так как <a href="http://visamap.net/">VisaMap</a> превращается в открытую базу визовых правил то я решил открыть эту базу и на скачивание.</p>

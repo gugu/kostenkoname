@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Рамблер | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/Рамблер/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/Рамблер/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[perl2port]]></title>
-    <link href="http://kostenko.name/blog/2009/12/03/perl2port/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port/"/>
     <updated>2009-12-03T16:17:29+03:00</updated>
-    <id>http://kostenko.name/blog/2009/12/03/perl2port</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port</id>
     <content type="html"><![CDATA[<p>Странно, что этого до сих пор никто не написал: <a href="http://search.cpan.org/~gugu/App-Pm2Port-0.23/">App::Pm2Port</a></p>
 
 <p>Создаёт порт из перлового модуля и отправляет его разработчикам FreeBSD.</p>
@@ -33,9 +33,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ускоряем свой HTTP-сервер]]></title>
-    <link href="http://kostenko.name/blog/2009/11/05/accept-filters/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/11/05/accept-filters/"/>
     <updated>2009-11-05T22:17:38+03:00</updated>
-    <id>http://kostenko.name/blog/2009/11/05/accept-filters</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/11/05/accept-filters</id>
     <content type="html"><![CDATA[<p>Для начала расскажу, как обычно работают сервера:</p>
 
 <ol>
@@ -116,9 +116,9 @@
   
   <entry>
     <title type="html"><![CDATA[LeechBlock]]></title>
-    <link href="http://kostenko.name/blog/2009/10/05/leechblock/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/10/05/leechblock/"/>
     <updated>2009-10-05T20:14:15+04:00</updated>
-    <id>http://kostenko.name/blog/2009/10/05/leechblock</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/10/05/leechblock</id>
     <content type="html"><![CDATA[<p>Этот пост посвящен распиздяям, которые не могут заставить себя работать. Я из таких людей. Ведь кроме исправления говна, которое  я накодировал, есть всякие вконтактики, фейсбуки, твиттеры и остальные убивалки времени. И я нихрена не успеваю.</p>
 
 <p>Как только я пришёл в Рамблер, я осознал, что из-за постоянного распиздяйства в Приватбанке, я вконец разленился. И начал заставлять себя работать. В этом мне помог отличный плагин к Firefox - <a href="https://addons.mozilla.org/en-US/firefox/addon/4476">LeechBlock</a>.</p>
@@ -139,9 +139,9 @@
   
   <entry>
     <title type="html"><![CDATA[Небольшой пост о моей личной жизни...]]></title>
-    <link href="http://kostenko.name/blog/2009/07/08/private/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/07/08/private/"/>
     <updated>2009-07-08T00:15:56+04:00</updated>
-    <id>http://kostenko.name/blog/2009/07/08/private</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/07/08/private</id>
     <content type="html"><![CDATA[<p>Сегодня заметил, что прошёл уже год, как Я работаю в <a href="http://rambler.ru/">Рамблере</a>...</p>
 
 <p>По этому поводу я напишу немного букав. Как сейчас помню фразу, сказанную моим начальником, АП Витязем:</p>
@@ -167,9 +167,9 @@
   
   <entry>
     <title type="html"><![CDATA[Андрею нехуй нечего было делать делать в 5 утра]]></title>
-    <link href="http://kostenko.name/blog/2008/11/04/algorithm-floodcontro/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2008/11/04/algorithm-floodcontro/"/>
     <updated>2008-11-04T06:08:41+03:00</updated>
-    <id>http://kostenko.name/blog/2008/11/04/algorithm-floodcontro</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2008/11/04/algorithm-floodcontro</id>
     <content type="html"><![CDATA[<p>Для начала расскажу историю. В далёком 2004-м году чувак по имени <a href="http://cade.datamax.bg/">Vladi Belperchinov-Shabanski "Cade"</a> написал модуль Algorithm::FloodControl. В те дремучие века люди не знали, что такое ООП и их заботила поддержка Perl4 :-)</p>
 
 <p>Сделал апгрейд этому модулю. Сделал его ООП-шным, добавил поддержку backend-ов для Cache::Memcached::Fast, Cache::FastMmap. Сделал и для Cache::Memcached, ибо не сложно три строки написать, но когда 15 процессов инкрементят запись, то срабатывает от силы 10% инкрементов. Ниипу почему.</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Web2 | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/web2/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/web2/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[DNS для самых маленьких]]></title>
-    <link href="http://kostenko.name/blog/2010/12/21/dns-first-steps/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/12/21/dns-first-steps/"/>
     <updated>2010-12-21T01:27:15+03:00</updated>
-    <id>http://kostenko.name/blog/2010/12/21/dns-first-steps</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/12/21/dns-first-steps</id>
     <content type="html"><![CDATA[<p>В силу некоторых обстоятельств мне приходится часто работать с DNS.</p>
 
 <p>Документации (кроме манов по bind и rfc) я практически не нашёл, разбирался ручками. Поэтому я сначала расскажу, как всё работает. Кому-то это будет интересно, а кто-то меня поправит.</p>
@@ -151,9 +151,9 @@ GRANT ALL ON records_id_seq TO pdns;
   
   <entry>
     <title type="html"><![CDATA[Ускоряем свой HTTP-сервер]]></title>
-    <link href="http://kostenko.name/blog/2009/11/05/accept-filters/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/11/05/accept-filters/"/>
     <updated>2009-11-05T22:17:38+03:00</updated>
-    <id>http://kostenko.name/blog/2009/11/05/accept-filters</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/11/05/accept-filters</id>
     <content type="html"><![CDATA[<p>Для начала расскажу, как обычно работают сервера:</p>
 
 <ol>
@@ -234,9 +234,9 @@ GRANT ALL ON records_id_seq TO pdns;
   
   <entry>
     <title type="html"><![CDATA[Вышел wordpress 2.8]]></title>
-    <link href="http://kostenko.name/blog/2009/06/13/d0b2d18bd188d0b5d0bb-wordpress-2-8/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/06/13/d0b2d18bd188d0b5d0bb-wordpress-2-8/"/>
     <updated>2009-06-13T09:30:07+04:00</updated>
-    <id>http://kostenko.name/blog/2009/06/13/d0b2d18bd188d0b5d0bb-wordpress-2-8</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/06/13/d0b2d18bd188d0b5d0bb-wordpress-2-8</id>
     <content type="html"><![CDATA[<p>Из новшеств замечено только одно - админка перестала работать под IE6. В остальном всё так же. Настоятельно советую обновиться лишь тем, кому совсем нехер делать</p>
 
 <p>PD: обновился)</p>
@@ -245,9 +245,9 @@ GRANT ALL ON records_id_seq TO pdns;
   
   <entry>
     <title type="html"><![CDATA[Новый релиз калькулятора]]></title>
-    <link href="http://kostenko.name/blog/2009/03/13/new-calculator-release/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/03/13/new-calculator-release/"/>
     <updated>2009-03-13T11:53:35+03:00</updated>
-    <id>http://kostenko.name/blog/2009/03/13/new-calculator-release</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/03/13/new-calculator-release</id>
     <content type="html"><![CDATA[<p>Из изменений:</p>
 
 <ul>
@@ -262,9 +262,9 @@ GRANT ALL ON records_id_seq TO pdns;
   
   <entry>
     <title type="html"><![CDATA[Wordpress 2.7 beta1]]></title>
-    <link href="http://kostenko.name/blog/2008/11/04/wordpress-27-beta1/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2008/11/04/wordpress-27-beta1/"/>
     <updated>2008-11-04T06:57:34+03:00</updated>
-    <id>http://kostenko.name/blog/2008/11/04/wordpress-27-beta1</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2008/11/04/wordpress-27-beta1</id>
     <content type="html"><![CDATA[<p>это первый пост, который я пишу из WP-2.7beta1.</p>
 
 <p>Изменился весь дизайн админки. Она стала лучше с точки зрения юзабилити (всё перед глазами, а добавить пост можно вообще в один клик), но дизайн стал каким-то серым и угрюмым. Есть много замечательных людей, которые и без дизайна мне настроение портят. Не хватало ещё, чтобы WordPress этим занимался.</p>

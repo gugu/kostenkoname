@@ -9,7 +9,8 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Attention would-be clever Perl writers (including Younger RJBS): This does not do what you think: sub do_something { ... sub do_subprocess &hellip;">
+  <meta name="description" content="В чём смысл этого слова? Что оно значит?
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kostenko.name/blog/page/13/">
+  <link rel="canonical" href="http://gugu.github.com/kostenkoname/blog/page/13/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,7 +62,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input type="hidden" name="q" value="site:gugu.github.com/kostenkoname" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -76,6 +77,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/16/d0bfd180d0bed189d0b5d0bdd0b8d0b5/">Прощение</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-16T20:45:04+03:00" pubdate data-updated="true">Dec 16<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>В чём смысл этого слова? Что оно значит?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -498,64 +535,6 @@ write your subs without nesting or use anonymous code references.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/17/source-code-management/">Source Code Management</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-17T18:21:29+03:00" pubdate data-updated="true">Nov 17<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Иногда нам приходится собирать приложения из исходников. Причин для этого море - старая версия в репозитории, это приложение в репозиторий не попало, или нам нужно его пропатчить. Не важно&#8230;</p>
-
-<p>У сборки из исходников есть один очевидный минус - удалить приложение практически нереально. В некоторых мы можем написать <code>make uninstall</code>, но таких приложений не так уж много.</p>
-
-<p>В linux для этого существует утилита checkinstall &#8211; она создаёт пакет из архива с исходниками, который корректно ставится и удаляется. И работает она очень просто:</p>
-
-<pre><code>    sudo apt-get install checkinstall
-    ./configure
-    make
-    sudo checkinstall -D #создать deb-пакет
-    # или sudo checkinstall -R (RPM)
-    # sudo checkinstall -S (Slackware)
-</code></pre>
-
-<p>После чего он порадует вас сообщением:</p>
-
-<pre><code>**********************************************************************
- Done. The new package has been installed and saved to
- /home/gugu/doodb/tokyotyrant-1.1.34/tokyotyrant_1.1.34-1_amd64.deb
- You can remove it from your system anytime using:
-      dpkg -r tokyotyrant
-**********************************************************************
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/14/">&larr; Older</a>
@@ -573,6 +552,10 @@ write your subs without nesting or use anonymous code references.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/17/dokazatiel%27stvo-togho/">Доказательство того</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -586,10 +569,6 @@ write your subs without nesting or use anonymous code references.</p>
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
@@ -660,7 +639,7 @@ write your subs without nesting or use anonymous code references.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Andrii Kostenko -
+  Copyright &copy; 2013 - Andrii Kostenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

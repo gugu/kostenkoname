@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: perl | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/perl/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/perl/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ещё два события, в которых поучавствовали мои кривые ручки]]></title>
-    <link href="http://kostenko.name/blog/2010/02/05/two-new-releases/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/02/05/two-new-releases/"/>
     <updated>2010-02-05T17:26:39+03:00</updated>
-    <id>http://kostenko.name/blog/2010/02/05/two-new-releases</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/02/05/two-new-releases</id>
     <content type="html"><![CDATA[<p>Вышла новая версия <a href="http://search.cpan.org/dist/DBIx-Class-Schema-Loader/">DBIx::Class::Schema::Loader</a> с множеством изменений. Одно из этих изменений - генерация POD-документации для автоматически созданных классов. Пользователи PostgreSQL получат ещё одну вкусняшку - все комментарии к их таблицам и столбцам автоматически переедут в документацию. Не буду показывать на автора этого патча пальцем, так как это неприлично.</p>
 
 <p>И второе. <a href="http://search.cpan.org/dist/Test-Pod-Coverage-Permissive">Test::Pod::Coverage::Permissive</a>. Принцип работы такой же, как и у Test::Pod::Coverage, только тесты валятся лишь в том случае, если <strong>появилась ещё одна не­за­до­ку­мен­ти­ро­ван­ная фунция</strong>.
@@ -31,9 +31,9 @@
   
   <entry>
     <title type="html"><![CDATA[perl2port]]></title>
-    <link href="http://kostenko.name/blog/2009/12/03/perl2port/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port/"/>
     <updated>2009-12-03T16:17:29+03:00</updated>
-    <id>http://kostenko.name/blog/2009/12/03/perl2port</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/12/03/perl2port</id>
     <content type="html"><![CDATA[<p>Странно, что этого до сих пор никто не написал: <a href="http://search.cpan.org/~gugu/App-Pm2Port-0.23/">App::Pm2Port</a></p>
 
 <p>Создаёт порт из перлового модуля и отправляет его разработчикам FreeBSD.</p>
@@ -49,9 +49,9 @@
   
   <entry>
     <title type="html"><![CDATA[Moose]]></title>
-    <link href="http://kostenko.name/blog/2009/08/07/moose/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/08/07/moose/"/>
     <updated>2009-08-07T09:01:02+04:00</updated>
-    <id>http://kostenko.name/blog/2009/08/07/moose</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/08/07/moose</id>
     <content type="html"><![CDATA[<p>Moose - это альтернативная объектная система для Perl 5. Она прячет от вас хитрые манипуляции с хэшами и "благословление" объектов и превращает Perl в язык с хорошим ООП.</p>
 
 <h2>Начинаем работу</h2>
@@ -262,9 +262,9 @@ sub _build_attr {
   
   <entry>
     <title type="html"><![CDATA[Асинхронность в DBD::Pg]]></title>
-    <link href="http://kostenko.name/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg/"/>
     <updated>2009-07-15T01:14:02+04:00</updated>
-    <id>http://kostenko.name/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg</id>
     <content type="html"><![CDATA[<p>Все мы привыкли работать с базой в стиле:</p>
 
 <ol>
@@ -350,9 +350,9 @@ $second_dbh->do('UPDATE new_data SET status=0', { pg_async => PG_ASYNC })</p></l
   
   <entry>
     <title type="html"><![CDATA[Профилирование SQL-запросов в DBI]]></title>
-    <link href="http://kostenko.name/blog/2009/07/08/dbi-profiling/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/07/08/dbi-profiling/"/>
     <updated>2009-07-08T22:30:29+04:00</updated>
-    <id>http://kostenko.name/blog/2009/07/08/dbi-profiling</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/07/08/dbi-profiling</id>
     <content type="html"><![CDATA[<p>Как недавно оказалось, у DBI есть отличный профайлер. Включается он очень просто.</p>
 
 <pre><code>DBI_PROFILE=1 perl test.pl

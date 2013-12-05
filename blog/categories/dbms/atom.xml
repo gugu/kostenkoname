@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: DBMS | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/dbms/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/dbms/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Пример регрессионного теста в MySQL]]></title>
-    <link href="http://kostenko.name/blog/2009/01/05/regression-test-sample-mysql/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/01/05/regression-test-sample-mysql/"/>
     <updated>2009-01-05T19:35:44+03:00</updated>
-    <id>http://kostenko.name/blog/2009/01/05/regression-test-sample-mysql</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/01/05/regression-test-sample-mysql</id>
     <content type="html"><![CDATA[<pre><code>DROP TABLE IF EXISTS expected_values, found_values;
 CREATE TABLE expected_values (
     table_name varchar(30) not null primary key,

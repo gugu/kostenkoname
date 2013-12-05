@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: личное | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/личное/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/личное/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Посмеемся]]></title>
-    <link href="http://kostenko.name/blog/2010/10/14/d0bfd0bed181d0bcd0b5d0b5d0bcd181d18f/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/10/14/d0bfd0bed181d0bcd0b5d0b5d0bcd181d18f/"/>
     <updated>2010-10-14T17:38:10+04:00</updated>
-    <id>http://kostenko.name/blog/2010/10/14/d0bfd0bed181d0bcd0b5d0b5d0bcd181d18f</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/10/14/d0bfd0bed181d0bcd0b5d0b5d0bcd181d18f</id>
     <content type="html"><![CDATA[<p>Сегодня я мастерски (за пять минут) завалил два собеседования.</p>
 
 <p>Но обо всё по порядку. В 16:00 у меня было собеседование в Mail.ru. В 17:30 должны были позвонить из Booking.com.</p>
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[Почему не любят ботанов]]></title>
-    <link href="http://kostenko.name/blog/2009/09/06/d0bfd0bed187d0b5d0bcd183-d0bdd0b5-d0bbd18ed0b1d18fd182-d0b1d0bed182d0b0d0bdd0bed0b2/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2009/09/06/d0bfd0bed187d0b5d0bcd183-d0bdd0b5-d0bbd18ed0b1d18fd182-d0b1d0bed182d0b0d0bdd0bed0b2/"/>
     <updated>2009-09-06T19:07:13+04:00</updated>
-    <id>http://kostenko.name/blog/2009/09/06/d0bfd0bed187d0b5d0bcd183-d0bdd0b5-d0bbd18ed0b1d18fd182-d0b1d0bed182d0b0d0bdd0bed0b2</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2009/09/06/d0bfd0bed187d0b5d0bcd183-d0bdd0b5-d0bbd18ed0b1d18fd182-d0b1d0bed182d0b0d0bdd0bed0b2</id>
     <content type="html"><![CDATA[<p>Я это понял в классе в десятом.
 Некоторые этого не поняли до сих пор.
 Им и посвящается

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: linux | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[VIM Encryption]]></title>
-    <link href="http://kostenko.name/blog/2011/03/12/vim-encryption/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2011/03/12/vim-encryption/"/>
     <updated>2011-03-12T00:49:33+03:00</updated>
-    <id>http://kostenko.name/blog/2011/03/12/vim-encryption</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2011/03/12/vim-encryption</id>
     <content type="html"><![CDATA[<p>Знаете ли вы, что VIM из коробки умеет шифровать файлы?</p>
 
 <p>Не верите? Напишите :X в VIM, введите пароль. Когда вы сохраните файл, он будет выглядеть как непонятный набор символов.</p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[su или sudo?]]></title>
-    <link href="http://kostenko.name/blog/2010/09/26/su-d0b8d0bbd0b8-sudo/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/09/26/su-d0b8d0bbd0b8-sudo/"/>
     <updated>2010-09-26T21:24:43+04:00</updated>
-    <id>http://kostenko.name/blog/2010/09/26/su-d0b8d0bbd0b8-sudo</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/09/26/su-d0b8d0bbd0b8-sudo</id>
     <content type="html"><![CDATA[<p>Вообще, и ослу ясно, что использовать лучше sudo, а su - забросить в черный ящик.</p>
 
 <p>Вкратце преимущество sudo:</p>
@@ -58,9 +58,9 @@
   
   <entry>
     <title type="html"><![CDATA[VIM. Tags]]></title>
-    <link href="http://kostenko.name/blog/2010/09/10/vim-tags/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/09/10/vim-tags/"/>
     <updated>2010-09-10T17:57:24+04:00</updated>
-    <id>http://kostenko.name/blog/2010/09/10/vim-tags</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/09/10/vim-tags</id>
     <content type="html"><![CDATA[<p>Решил разобраться получше с vim и ctags. Для справки: ctags - это команда, которая сканирует ваш проект и собирает информацию о классах, методах, функциях и переменных, после чего вы можете перейти на нужную вам функцию.</p>
 
 <p>В vim это делается так. В корне проекта пишем:</p>
@@ -86,9 +86,9 @@ vim -t MyClassName
   
   <entry>
     <title type="html"><![CDATA[Roverbook NEO/800x480]]></title>
-    <link href="http://kostenko.name/blog/2010/06/25/roverbook-neo800x480/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/06/25/roverbook-neo800x480/"/>
     <updated>2010-06-25T03:30:01+04:00</updated>
-    <id>http://kostenko.name/blog/2010/06/25/roverbook-neo800x480</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/06/25/roverbook-neo800x480</id>
     <content type="html"><![CDATA[<p>Я больше трех месяцев в пассивном режиме пытался настроить правильное разрешение на моём RoverBook Neo U800. Правильное -- это 800x480.</p>
 
 <p>Сейчас нехуевенько так погуглил и нашёл решение:</p>
@@ -132,9 +132,9 @@ EndSection
   
   <entry>
     <title type="html"><![CDATA[VIM]]></title>
-    <link href="http://kostenko.name/blog/2010/03/17/vim/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2010/03/17/vim/"/>
     <updated>2010-03-17T14:46:45+03:00</updated>
-    <id>http://kostenko.name/blog/2010/03/17/vim</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2010/03/17/vim</id>
     <content type="html"><![CDATA[<p>Пару шорткатов:</p>
 
 <ol>

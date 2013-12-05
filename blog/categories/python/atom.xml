@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: python | Андрей Костенко]]></title>
-  <link href="http://kostenko.name/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://kostenko.name/"/>
-  <updated>2012-12-28T03:18:22+04:00</updated>
-  <id>http://kostenko.name/</id>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2013-12-06T00:24:25+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django hints]]></title>
-    <link href="http://kostenko.name/blog/2011/11/01/django-hints/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2011/11/01/django-hints/"/>
     <updated>2011-11-01T00:16:49+04:00</updated>
-    <id>http://kostenko.name/blog/2011/11/01/django-hints</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2011/11/01/django-hints</id>
     <content type="html"><![CDATA[<h3>South</h3>
 
 <p>./manage.py syncdb создает только новые таблицы, а вот если вы добавляете или удаляете столбцы, то syncdb вам не поможет. А вот добавление south в список приложений позволяет автоматически создавать миграции, применять-откатывать их и следить, какой SQL был выполнен, а какой – нет.</p>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django-declension]]></title>
-    <link href="http://kostenko.name/blog/2011/07/31/django-declension/"/>
+    <link href="http://gugu.github.com/kostenkoname/blog/2011/07/31/django-declension/"/>
     <updated>2011-07-31T22:34:48+04:00</updated>
-    <id>http://kostenko.name/blog/2011/07/31/django-declension</id>
+    <id>http://gugu.github.com/kostenkoname/blog/2011/07/31/django-declension</id>
     <content type="html"><![CDATA[<p>Решил поделиться одним модулем, который используется у меня на <a href="http://www.visamap.net/">VisaMap</a></p>
 
 <p>Занимается он простой вещью - склоняет существительные: Вася, Васи, Васе и так далее.</p>

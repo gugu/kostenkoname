@@ -9,7 +9,7 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Сегодня была мегаконференция от Приватбанка &#8211; PrivatCode. Мы отлично провели время, было очень-очень весело. Покушали пиццу и узнали много &hellip;">
+  <meta name="description" content="Я больше трех месяцев в пассивном режиме пытался настроить правильное разрешение на моём RoverBook Neo U800. Правильное &#8211; это 800x480. Сейчас &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kostenko.name/blog/page/9/">
+  <link rel="canonical" href="http://gugu.github.com/kostenkoname/blog/page/9/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,7 +61,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:kostenko.name" />
+    <input type="hidden" name="q" value="site:gugu.github.com/kostenkoname" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -76,6 +76,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/06/25/roverbook-neo800x480/">Roverbook NEO/800x480</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-25T03:30:01+04:00" pubdate data-updated="true">Jun 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Я больше трех месяцев в пассивном режиме пытался настроить правильное разрешение на моём RoverBook Neo U800. Правильное &#8211; это 800x480.</p>
+
+<p>Сейчас нехуевенько так погуглил и нашёл решение:</p>
+
+<pre><code>Section "Monitor"
+    Identifier "Monitor0"
+    VendorName "Monitor Vendor"
+    ModelName "Generic monitor"
+    HorizSync 25 - 50
+    VertRefresh 50.0 - 75.0
+    Modeline "800x480"   33.45 800 840 968 1056 480 490 492 525 -hsync -vsync
+    Option "dpms"
+EndSection
+
+Section "Device"
+    Identifier "Videocard0"
+    VendorName "Videocard vendor"
+    BoardName "AMD Geode LX Video"
+    Driver "geode"
+    BusID "PCI:0:1:1"
+        # Specify Panel size for Geode LX, corresponds with ModeLine above:
+    Option "PanelMode" "33450 800 840 968 1056 480 490 492 525"
+EndSection
+
+Section "Screen"
+    Identifier "screen1"
+    Device "Videocard0"
+    Monitor "Monitor0"
+    DefaultDepth 16
+    Subsection "Display"
+            Depth 16
+            Modes   "800x480"
+            Viewport 0 0
+    EndSubsection
+EndSection
+</code></pre>
+
+<p>Я ниибацца щаслив</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -404,7 +477,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/05/24/d0bcd0bed18f-d0b0d0bdd182d0b8d180d0b5d0bad0bbd0b0d0bcd0b0/">Моя антиреклама</a></h1>
+      <h1 class="entry-title"><a href="/blog/2010/05/24/d0bcd0bed18f-d0b0d0bdd182d0b8d180d0b5d0bad0bbd0b0d0bcd0b0/">Баги</a></h1>
     
     
       <p class="meta">
@@ -429,7 +502,7 @@
 
   <div class="entry-content"><p>Иногда я совершаю баги. Некоторые баги бывают смешными, от некоторых хочется плакать. Этот баг относится к обеим категориям.
 Так получилось, что когда мы писали интернет-киоски в Приватбанке, для работы с принтером я сделал такой отладочный код: если мой метод печати чека высывается без параметров, то он печатает сообщение по умолчанию. Сделал и забыл. Через месяц  <a href="http://lyabah.com/">человек-одуван</a> забыл обновить базу для киоска в доме губернатора и мой метод вызывался без параметров. К чему это привело &#8211; смотрим ниже:
-<a href="http://kostenko.name/wp-content/uploads/2010/05/56446.jpg"><img src="http://kostenko.name/wp-content/uploads/2010/05/56446.jpg" alt="" /></a></p>
+<a href="http://kostenko.name/wp-content/uploads/2010/05/56446.jpg"><img src="http://img.kostenko.name/wp-content/uploads/2010/05/56446.jpg" alt="" /></a></p>
 </div>
   
   
@@ -549,48 +622,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/05/17/last-news/">Предпоследние новости</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-05-17T16:27:07+04:00" pubdate data-updated="true">May 17<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Давно здесь не писал &#8211; слишком много еботни вокруг. Сейчас появилось немного свободного времени, поэтому я сижу в Кофе Хаузе, пью капучино и сру на свой гавнобложик.</p>
-
-<p>Основная новость &#8211; я ебанулся конкретно и уволился из Рамблера. Не потому, что там меня что-то не устраивало. Скорее наоборот &#8211; слишком хорошо. А когда в жизни всё хорошо, вокруг ничего не происходит, я начинаю сходить с ума, а жопа начинает скучать по приключениям.</p>
-
-<p>Пару слов о Рамблере. Лучшая компания, в которой я работал. Хорошее руководство, отличные сотрудники и большая зарплата. А ещё там есть кофейный автомат и X-Box. Так что если вы знаете Perl/Python/C++ &#8211; пиздуйте на <a href="http://hr.rambler.ru/">Рамблер-Зарплату</a> и отправляйте свое резюме.</p>
-
-<p>Сейчас я как ни странно, жив. Сделал прививку от гепатита А и желтой лихорадки и 1-го июня улетаю на Йух. Уже точно. Виза, авиабилеты и бронь готова. Может быть даже будет бизнес-виза, потому что консул сказал, что если буду заниматься бизнесом по туристической визе, то сгнию в тюрьме. А это неприкольно.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -608,6 +639,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/17/dokazatiel%27stvo-togho/">Доказательство того</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -621,10 +656,6 @@
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
@@ -695,7 +726,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Andrii Kostenko -
+  Copyright &copy; 2013 - Andrii Kostenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
