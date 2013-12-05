@@ -9,8 +9,7 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="Если вы посмотрите налево направо, то увидите новый виджет с кнопочкой Facebook login. Это новая API от фейсбука. Буржуйский ответ коммунистическому &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,42 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/01/10/321/">None</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-01-10T19:55:48+03:00" pubdate data-updated="true">Jan 10<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://pepyaka.su/fonts/lobster/a.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/space.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_96.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/e.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_06.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_45.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_22.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/h.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_93.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/space.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_70.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/space.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font2_29.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/e.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_33.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_93.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/space.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_99.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/o.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/p.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_45.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_80.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_24.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_24.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/space.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/h.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_15.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/c.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_68.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_36.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_45.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/e.gif" alt="" /><img src="http://pepyaka.su/fonts/wd/font_33.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/rus_i.gif" alt="" /><img src="http://pepyaka.su/fonts/lobster/e.gif" alt="" /></p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -591,6 +554,190 @@ sub authenticate_user {
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/12/04/oo-perl/">ООП в Perl</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-12-04T22:07:10+03:00" pubdate data-updated="true">Dec 4<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><blockquote><p>Мы все знаем прекрасно какое ООП в Perl (оно прикручено через задницу). Поэтому напишу немного букаф о том, как всё-таки научить Perl чему-то объектно-ориентированному.</p></blockquote>
+
+<h2>Методы доступа.</h2>
+
+<p>Писать $self->{attribute} - это конечно хорошо.</p>
+
+<p>Но при этом интерпретатор не проверяет правильность написания аттрибута. Т.е. если вы где-то напишете $self->{atribute}, то Perl создаст новое св-во atibute, а Вы будете долго трахаться в поисках этой ошибки.</p>
+
+<p>Также обращаться напрямую к аттрибутам не стоит по той причине, что если вы потом захотите сделать проверку значений, то вам это не удастся. Для более удобной работы с аттрибутами создаются методы доступа (accessors). В Perl методы доступа создаются модулем <a href="http://search.cpan.org/perldoc?Class::Accessor">Class::Accessor</a>:</p>
+
+<p><strong>Создание методов доступа:</strong></p>
+
+<pre><code>package MyClass;
+use Class::Accessor;
+__PACKAGE__-&gt;follow_best_pactice;
+__PACKAGE__-&gt;mk_accessors( qw/value1 value2/); #чтение/запись
+__PACKAGE__-&gt;mk_ro_accessors( qw/ro_data/); #можно только читать
+__PACKAGE__-&gt;mk_wo_accessors( qw/wo_data/); #можно только записывать. Даже автор модуля незнает нахрена это нужно (:
+</code></pre>
+
+<p>Class::Accessor автоматически создаёт конструктор, который устанавливает аттрибутам начальные значения.
+<strong>Использование:</strong></p>
+
+<pre><code>package main;
+use feature qw/say/;
+my $obj = MyClass-&gt;new( { 
+    value1 =&gt; 5, 
+    value2 =&gt; 'test', 
+    ro_data =&gt; 'you can't write me' 
+} );
+$obj-&gt;set_value1(6);
+$obj-&gt;set_ro_data( 'qwerty' ); # это выдаст ошибку
+say $obj-&gt;get_value2;
+</code></pre>
+
+<h2>Наследование</h2>
+
+<p>С наследованием от одного класса - всё просто: &#8220;use parent ModuleName&#8221;. Именно use parent. От use base хотят избавиться потому что он хреновый.
+Но вот с множественным наследованием у perl-а нелады. Если вы всё-таки решили воспользоваться множественным наследованием (и перед этим <strong>сто</strong> раз подумали. Потому что множественное наследование не рекомендуют использовать), то Perl преподносит вам неожиданный и неприятный сюрприз:
+возьмём вот такой код:</p>
+
+<pre><code>package A;
+sub method {
+    return __PACKAGE__;
+}
+
+package B;
+use parent -norequire, qw/A/;
+
+package C;
+use parent -norequire, qw/A/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package D;
+use parent -norequire, qw/B C/;
+sub method {
+    __PACKAGE__ .shift-&gt;SUPER::method();
+}
+package main;
+use feature qw/say/;
+say D-&gt;method
+</code></pre>
+
+<p>если его запустить, то он выведет строку &#8220;DA&#8221;, вместо правильной &#8220;DCA&#8221;. Это происходит потому что путь наследования определяется по масиву @ISA. В каком порядке модули запушились, в таком и вызываются.
+Чтобы множественное наследование работало как следует, в perl5.10 нужно написать</p>
+
+<pre><code>use mro
+</code></pre>
+
+<p>В Perl 5.8 для этого необходимо поставить модуль Class::C3 и написать</p>
+
+<pre><code>man Class::C3 #ибо нефиг старьём пользоваться
+</code></pre>
+
+<h2>Исключения</h2>
+
+<p>Про них я напишу попозже. Потому что Грабли закроют.
+<strong>UPD:</strong> в грабли не успел :-(</p>
+
+<p>Изначально в perl есть работа с исключениями с помощью eval/die. Исключения эти только строковые и отличить их от системных нельзя. Если нужны нормальные исключения - лезем в CPAN и устанавливаем модуль Exception::Class. До джавовских исключений ему далеко, но базовые функции он выполняет.</p>
+
+<pre><code>use Exception::Class (
+    'Exception',
+    'EHandsFromAss' =&gt; (
+        isa =&gt; 'Exception'
+    )
+);
+eval {
+    if ( $string == "" ) {
+        EHandsFromAss-&gt;throw('Использовать "==" для сравнения строк некошерно.')
+    }
+};
+if ( $e = Exception::Class-&gt;caught('Exception') { #наследники класса Exception
+    warn $e-&gt;error;
+} elsif ( $e == Exception::Class-&gt;caught ) { #все остальніе исключения
+    ref $e
+        ? $e-&gt;rethrow
+        : die $e; #это обычные die
+}
+</code></pre>
+
+<h2>Private/Protected методы</h2>
+
+<p>Perl не умеет создавать совсем приватные методы. Но метод, который начинается c подчеркивания:</p>
+
+<pre><code>sub _private {
+}
+</code></pre>
+
+<ul>
+<li>является private или protected. Это просто соглашение по использованию. Никто не мешает какому-то кретину вызвать его из другого объекта. Но для адекватных людей - отличная замена приватным методам.</li>
+</ul>
+
+
+<h2>Оффтопик</h2>
+
+<p>И ещё то, о чём нельзя забывать:</p>
+
+<ul>
+<li><p>Документирование кода с помощью POD</p></li>
+<li><p>Написание unit-тестов (Test::More)</p>
+
+<p>package MyClass;</p>
+
+<p>=head1 NAME</p>
+
+<p>MyClass</p>
+
+<p>=head1 DESCRIPTION</p>
+
+<p>описание того что метод делает</p>
+
+<p>=head1 SYNOPSIS</p>
+
+<p>пример использования</p>
+
+<p>  my $obj = MyClass->new();
+  &#8230;</p>
+
+<p>=head1 METHODS</p>
+
+<p>=head2 new()</p>
+
+<p>описание этого метода
+&#8230;
+=cut</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/24/">&larr; Older</a>
@@ -608,10 +755,6 @@ sub authenticate_user {
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/01/17/dokazatiel%27stvo-togho/">Доказательство того</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -625,6 +768,10 @@ sub authenticate_user {
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
