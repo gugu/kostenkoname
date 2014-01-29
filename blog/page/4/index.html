@@ -9,7 +9,7 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Я решил смотреть не только на картины, но и на людей. Они делятся на три варианта: парень, который хотел предложить девушке поебаться, а предложил &hellip;">
+  <meta name="description" content="Покупаю часто, успел собрать маленькую статистику: сайты авиакомпаний — не всегда дешево, сложно найти хорошую цену. При бронировании криво работает &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/03/d0b3d0b4d0b5-d0bfd0bed0bad183d0bfd0b0d182d18c-d0b1d0b8d0bbd0b5d182d18b-d0bdd0b0-d181d0b0d0bcd0bed0bbd0b5d182/">Где покупать билеты на самолет?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-03T02:29:21+03:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Покупаю часто, успел собрать маленькую статистику:</p>
+
+<ol>
+<li><p>сайты авиакомпаний — не всегда дешево, сложно найти хорошую цену. При бронировании криво работает только Приватбанк</p></li>
+<li><p>поднять задницу и купить билеты в кассе — недостатков полно, но самый стабильный способ</p></li>
+<li><p><a href="http://anywayanyday.com">anywayanyday.com</a> работает хорошо до тех пор, пока вы не захотите сдать билет. Если захотите, то минимальный срок сдачи билетов — 48 часов. Вернуть деньги за билет — это как забрать свои деньги у цыганки, которая вам только что погадала. Справедливости ради замечу, что все возвраты были произведены. Один раз даже без штрафов.</p></li>
+<li><p><a href="http://airtickets24.com">Airtickets24</a> не смог снять деньги с моей карты, за что был сразу послан в жопу</p></li>
+<li><p><a href="http://ozon.travel">ozon.travel</a> —  вы платите деньги, а потом курицы-операторы пытаются купить вам билет. Иногда им это не удается и они идут спать. Деньги с карты при этом списаны. Короче, с ozon.travel вы можете остаться не только без билеты, а и без денег.</p></li>
+</ol>
+
+
+<p>Итог? все сервисы — говно, но anywayanyday — лучший сорт.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -655,169 +702,6 @@ Excerpt of the catalogue of criteria</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/21/dns-first-steps/">DNS для самых маленьких</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-21T01:27:15+03:00" pubdate data-updated="true">Dec 21<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>В силу некоторых обстоятельств мне приходится часто работать с DNS.</p>
-
-<p>Документации (кроме манов по bind и rfc) я практически не нашёл, разбирался ручками. Поэтому я сначала расскажу, как всё работает. Кому-то это будет интересно, а кто-то меня поправит.</p>
-
-<p>Так, у нас есть доменное имя. При его регистрации у нас попросят указать два адреса DNS-сервера, которые будут отдавать всю информацию о домене. Если вы регистрируете домен example.com, то у вас есть два варианта - дать адрес nameserverов в другом домене, который уже работает (например, ns1.kostenko.name и ns2.kostenko.name) и настроить их. Во втором варианте - при вводе ns1.example.com и ns2.example.com вам нужно будет указать их IP.</p>
-
-<p>Теперь основное:</p>
-
-<p>Для вашего домена вам потребуется указать записи SOA и A (или AAAA для IPv6). SOA - start of authority содержит базовую информацию о доменном имени. A - IPv4 адрес</p>
-
-<pre><code>example.com.    SOA ns1.example.com. ns2.example.com. your_email.google.com.
-example.com.    A   89.115.99.125
-ns1             A   89.115.99.125
-ns2             A   89.115.99.125
-</code></pre>
-
-<p>Домен должен заработать. Обратите внимание на точки в конце. Они означают в bind, что это корневой домен. Домен без точки в конце - поддомен нашего example.com. @ - это alias для example.com.</p>
-
-<p>Теперь о том, что вы можете сделать.</p>
-
-<h2>Почта</h2>
-
-<p>Если вы хотите получать почту на этот домен, а почтовый сервер находится на другом сервере, то мы прописываем такие
-строчки:</p>
-
-<pre><code>example.com.    MX  aspmx.google.com.   10 ;(for example)
-example.com.    MX  aspmx2.google.com.  20 ; 20 - это приоритет, по порядку приоритета SMTP-сервера будут пытаться
-отправлять сообщения.
-</code></pre>
-
-<h2>Поддомены</h2>
-
-<p>Опять ситуация. У вас есть домен greate.st, на котором вы рассказываете о том, какой вы охуенный. Вы хотите создать
-домен wikileaks.greate.st, на котором захостить зеркало пока ещё живого Wikileaks. Если это у вас тот же IP, то
-нужно создать запись</p>
-
-<pre><code>wikileaks    CNAME   greate.st.   ;wikileaks - это alias на greate.st
-</code></pre>
-
-<p>Если другой IP, то пишем</p>
-
-<pre><code>wikileaks    A       4.82.18.192
-</code></pre>
-
-<p>Если хотите отправить все поддомены куда-то, то для этого вместо имени поддомена пишем *</p>
-
-<pre><code>*            CNAME      buynow.only.for.4.99.dollars.greate.st.
-*            A          127.0.0.1; так тоже можно))
-</code></pre>
-
-<h2>Всякая хуита</h2>
-
-<p>Много для чего полезно использовать DNS (SPF, подписывание писем, XMPP&#8230;). Можно даже войну и мир там в транслите
-хранить. Авторам RFC было впадлу переписывать RFC под
-каждого, поэтому есть ещё TXT записи, которые используются под всякую фигню.</p>
-
-<p>90% DNS серверов используют ISC Bind. Он старый, а значит - надёжный и стабильный. Но насколько же он уёбищен&#8230;
-Документации нормальной нет. Та, что есть - неправильна. Статическая линковка, которая выебала мне весь мозг при
-подключении DLZ. Поэтому я хочу рассказать о DNS-сервере, с которым работать куда приятней.</p>
-
-<h2>PowerDNS</h2>
-
-<pre><code>apt-get install pdns-server pdns-backend-bind pdns-backend-pgsql
-</code></pre>
-
-<p>Чем он отличается от bind? Он младше моего дедушки. И это главное.</p>
-
-<p>Из второстепенных - у него есть веб-интерфейс статистики, динамическая линковка, которая позволяет вам в binary-based
-дистрибутивах поставить поддержку postgreSQL/MySQL без перекомпиляции, более приятный интерфейс.</p>
-
-<p>Свой велосипед в powerdns изобретать не стали, поэтому вы можете переехать с bind на powerdns без правки конфигов. Если
-у вас всё уже лежит в bind. Если хотите положить настройки в базу и дать доступ к ним из админки - пожалуйста.</p>
-
-<pre><code>zone2sql /etc/bind/named.conf | mysql
-</code></pre>
-
-<p>Скрипт для создания базы записей выглядит так:</p>
-
-<pre><code>create table domains (
- id      SERIAL PRIMARY KEY,
- name        VARCHAR(255) NOT NULL,
- master      VARCHAR(128) DEFAULT NULL,
- last_check  INT DEFAULT NULL,
- type        VARCHAR(6) NOT NULL,
- notified_serial INT DEFAULT NULL, 
- account         VARCHAR(40) DEFAULT NULL
-);
-CREATE UNIQUE INDEX name_index ON domains(name);
-
-CREATE TABLE records (
-        id              SERIAL PRIMARY KEY,
-        domain_id       INT DEFAULT NULL,
-        name            VARCHAR(255) DEFAULT NULL,
-        type            VARCHAR(6) DEFAULT NULL,
-        content         VARCHAR(255) DEFAULT NULL,
-        ttl             INT DEFAULT NULL,
-        prio            INT DEFAULT NULL,
-        change_date     INT DEFAULT NULL, 
-        CONSTRAINT domain_exists 
-        FOREIGN KEY(domain_id) REFERENCES domains(id)
-        ON DELETE CASCADE
-);
-
-CREATE INDEX rec_name_index ON records(name);
-CREATE INDEX nametype_index ON records(name,type);
-CREATE INDEX domain_id ON records(domain_id);
-
-create table supermasters (
-      ip VARCHAR(25) NOT NULL, 
-      nameserver VARCHAR(255) NOT NULL, 
-      account VARCHAR(40) DEFAULT NULL
-);
-
-GRANT SELECT ON supermasters TO pdns;
-GRANT ALL ON domains TO pdns;
-GRANT ALL ON domains_id_seq TO pdns;
-GRANT ALL ON records TO pdns;
-GRANT ALL ON records_id_seq TO pdns;
-</code></pre>
-
-<h2>Клиентский софт</h2>
-
-<p>Ну настроили мы всё. А как проверить? Про стандартную nslookup знают все. Показывается &#8220;резолвится/не резолвится&#8221;.</p>
-
-<p>Для более детальной информации есть команда dig из bind-utils. Попробуйте, например &#8220;dig mx rambler.ru&#8221;</p>
-
-<p>Ну а для поиска косяков есть <a href="http://intodns.com/">IntoDNS</a>.
-Вот так выглядит обзор моего <a href="http://www.intodns.com/greate.st">greate.st</a>, а так -  <a href="http://www.intodns.com/rambler.ru">нормальный сайт</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -835,6 +719,10 @@ GRANT ALL ON records_id_seq TO pdns;
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -848,10 +736,6 @@ GRANT ALL ON records_id_seq TO pdns;
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
@@ -922,7 +806,7 @@ GRANT ALL ON records_id_seq TO pdns;
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Andrii Kostenko -
+  Copyright &copy; 2014 - Andrii Kostenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: город | Андрей Костенко]]></title>
+  <link href="http://gugu.github.com/kostenkoname/blog/categories/город/atom.xml" rel="self"/>
+  <link href="http://gugu.github.com/kostenkoname/"/>
+  <updated>2014-01-29T13:34:46+04:00</updated>
+  <id>http://gugu.github.com/kostenkoname/</id>
+  <author>
+    <name><![CDATA[Andrii Kostenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Отличная инфографика об общественном транспорте]]></title>
+    <link href="http://gugu.github.com/kostenkoname/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/"/>
+    <updated>2014-01-29T13:31:00+04:00</updated>
+    <id>http://gugu.github.com/kostenkoname/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie</id>
+    <content type="html"><![CDATA[<p><img src="http://ic.pics.livejournal.com/maxkatz/10449899/151605/151605_original.jpg" title="В Днепропетровске это вообще не понимают" ></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Андрей Костенко]]></title>
   <link href="http://gugu.github.com/kostenkoname/atom.xml" rel="self"/>
   <link href="http://gugu.github.com/kostenkoname/"/>
-  <updated>2013-12-06T00:34:07+04:00</updated>
+  <updated>2014-01-29T13:34:46+04:00</updated>
   <id>http://gugu.github.com/kostenkoname/</id>
   <author>
     <name><![CDATA[Andrii Kostenko]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Отличная инфографика об общественном транспорте]]></title>
+    <link href="http://gugu.github.com/kostenkoname/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/"/>
+    <updated>2014-01-29T13:31:00+04:00</updated>
+    <id>http://gugu.github.com/kostenkoname/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie</id>
+    <content type="html"><![CDATA[<p><img src="http://ic.pics.livejournal.com/maxkatz/10449899/151605/151605_original.jpg" title="В Днепропетровске это вообще не понимают" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Где меня найти]]></title>
@@ -446,22 +455,6 @@ u'говняшки'
 <blockquote><p>Мне кажется, вашей рекрутинговой компании следует уволить рекрутера Юлию и взять на работу кого-то более квалифицированного.</p></blockquote>
 
 <p>С уважением, Андрей Анатольевич.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[django-compressor]]></title>
-    <link href="http://gugu.github.com/kostenkoname/blog/2011/05/26/django-compressor/"/>
-    <updated>2011-05-26T23:27:07+04:00</updated>
-    <id>http://gugu.github.com/kostenkoname/blog/2011/05/26/django-compressor</id>
-    <content type="html"><![CDATA[<p>Что умеет:</p>
-
-<ol>
-<li>Собирать несколько CSS и JS в одну без уродования веб-страницы.</li>
-<li>Сжимать CSS и JavaScript</li>
-<li>Процессить CoffeeScript и SASS</li>
-</ol>
-
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Версия Хрома под Linux ещё не готова, но потестировать хром можно и в Wine. Нужна последняя весию Wine (на данный момент это 1.1.4). О том, как &hellip;">
+  <meta name="description" content="Авторизация у меня везде по ключикам, а вот создавать туннели я не умею :-[ clipped from habrahabr.ru vi ~/.ssh/config Если у вас на машине Linux и &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +76,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/08/ssh-tricks/">SSH Tricks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-08T20:23:51+04:00" pubdate data-updated="true">Sep 8<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Авторизация у меня везде по ключикам, а вот создавать туннели я не умею :-[</p>
+
+<p><a href="http://clipmarks.com/clip-to-blog/"><img src="http://content.clipmarks.com/blog_icon/99857d0b-854c-4f38-8360-dd45f1ef0c54/CA67A6D9-09A9-451A-A5D7-417D2C8DA0F0/" alt="" /></a>clipped from <a href="http://habrahabr.ru/blogs/linux/39277/">habrahabr.ru</a></p>
+
+<p><code>vi ~/.ssh/config</code></p>
+
+<p>Если у вас на машине Linux и вам часто приходится ходить по ssh на разные хосты, то будет полезен небольшой трюк позволяющий не вводить пароль если вы в новом окне соединяетесь с хостом с которым уже есть соединение:</p>
+
+<p><code>host *
+controlmaster auto
+controlpath /tmp/ssh-%r@%h:%p</code></p>
+
+<p>Так же частенько бывает ситуация когда нужно соединить 2 машины находящиеся в разных сетях. Например одна машина использует для тестов базу которая находится на сервере в другой сети разделённой интернетом. В таких случаях очень удобно использовать ssh туннели.</p>
+
+<p>ssh -p22 -2 -N -C -f -L 6632:192.168.100.72:66320 tunnel@88.88.88.88</p>
+
+<p>tunnel@88.88.88.88 — имя пользователя и ИП адрес сервера который находится в удалённой сети и смотрит в интернет через него мы собственно и прокидываем туннель.</p>
+
+<p><a href="http://clipmarks.com/share/CA67A6D9-09A9-451A-A5D7-417D2C8DA0F0/blog/"><img src="http://content6.clipmarks.com/images/c2b-foot.png" alt="blog it" /></a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -557,73 +611,6 @@ more here:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/08/07/frederic-brown-answer/">Фредерик Браун. Ответ</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-07T20:30:19+04:00" pubdate data-updated="true">Aug 7<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Двар Эв торжественно запаял золотом последний контакт.  Двенадцать телекамер неотрывно следили за каждым его движением - трансляция  шла  на всю галактику.</p>
-
-<p>Он выпрямился и кивнул Двар Реину. Затем  подошел  к  выключателю, который скоро замкнет цепь. К выключателю, соединяющему одновременно все компьютеры всех обитаемых планет - девяносто шесть миллионов миров - в суперсеть, которая объединит их в один суперкомпьютер, единую кибернетическую машину, собравшую мудрость всех известных миров.</p>
-
-<p>Двар Реин обратился с короткой, вступительной  речью  к  биллионам телезрителей и затем, после короткой паузы, он произнес:
-- Пора, Двар Эв!</p>
-
-<p>Двар Эв нажал выключатель. Раздалось мощное гудение, пошла энергия девяноста шести миллионов планет. На бесконечно длинном  пульте замигали разноцветные огоньки. Он отошел назад и громко провозгласил:</p>
-
-<ul>
-<li><p>Честь задать первый вопрос принадлежит вам, Двар  Реин!</p></li>
-<li><p>Благодарю, - ответил Двар Реин, - Это  будет  вопрос, на который не мог ответить ни один компьютер.</p></li>
-</ul>
-
-
-<p>Он повернулся к пульту.</p>
-
-<ul>
-<li>Есть ли бог?</li>
-</ul>
-
-
-<p>Могущественный голос раздался сразу.</p>
-
-<ul>
-<li>ДА. ТЕПЕРЬ БОГ ЕСТЬ!</li>
-</ul>
-
-
-<p>Двар  Эв понял не сразу, но  потом  страх  исказил  его  лицо - он бросился к выключателю&#8230;</p>
-
-<p>Молния сорвалась с безоблачного неба и испепелила  его  на  месте, намертво запаяв соединение.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/29/">&larr; Older</a>
@@ -641,6 +628,10 @@ more here:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/28/gdie-mienia-naiti/">Где меня найти</a>
       </li>
     
@@ -654,10 +645,6 @@ more here:
     
       <li class="post">
         <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/10/phishing/">Phishing</a>
       </li>
     
   </ul>
@@ -728,7 +715,7 @@ more here:
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Andrii Kostenko -
+  Copyright &copy; 2014 - Andrii Kostenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
