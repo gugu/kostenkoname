@@ -9,7 +9,9 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="
+  <meta name="description" content="Лебедев до него ещё не доехал. А как доедет - срань какую-то небось напишет.
+А у нас, между прочим, европейский город
+фотки
 ">
   
 
@@ -77,6 +79,44 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/08/26/d0b4d0bdd0b5d0bfd180d0bed0bfd0b5d182d180d0bed0b2d181d0ba/">Днепропетровск</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-26T01:15:17+04:00" pubdate data-updated="true">Aug 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Лебедев до него ещё не доехал. А как доедет - срань какую-то небось напишет.
+А у нас, между прочим, европейский город
+<a href="http://picasaweb.google.com/dn010989kaa/DP">фотки</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -840,121 +880,6 @@ sub _build_attr {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/07/15/d0b0d181d0b8d0bdd185d180d0bed0bdd0bdd0bed181d182d18c-d0b2-dbdpg/">Асинхронность в DBD::Pg</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-15T01:14:02+04:00" pubdate data-updated="true">Jul 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Все мы привыкли работать с базой в стиле:</p>
-
-<ol>
-<li><p>выполнить запрос</p></li>
-<li><p>дождаться ответа</p></li>
-<li><p>продолжить выполнение</p></li>
-</ol>
-
-
-<p>Но пока работает длинный запрос, мы в приложении можем выполнить что-то полезное. Не простаивать же процессорному времени.</p>
-
-<p>Для PostgreSQL в DBD::Pg есть некоторое подобие асинхронности. И иногда оно таки нам помогает.</p>
-
-<p>Вы можете продолжить выполнять приложение, не дожидаясь выполнения запроса. Включается это параметром pg_async к prepare-запросу:</p>
-
-<pre><code>  use strict;
-  use warnings;
-  use Time::HiRes 'sleep';
-  use DBD::Pg ':async';
-
-  my $dbh = DBI-&gt;connect('dbi:Pg:dbname=postgres', 'postgres', '', {AutoCommit=&gt;0,RaiseError=&gt;1});
-
-  ## Запустить длинный запрос
-  my $sth = $dbh-&gt;prepare("SELECT pg_sleep(5)", {pg_async =&gt; PG_ASYNC});
-  $sth-&gt;execute(5);
-
-  ## Пока работает, мы можем что-то сделать
-  print "Your query is processing. Thanks for waiting\n";
-  check_on_the_kids();
-
-  while (!$dbh-&gt;pg_ready) {
-    check_on_the_kids();
-    ## и подождём чуть-чуть
-    sleep 0.1;
-  }
-
-  print "The query has finished. Gathering results\n";
-  my $result = $sth-&gt;pg_result;
-  print "Result: $result\n";
-  my $info = $sth-&gt;fetchall_arrayref();
-</code></pre>
-
-<p>Для pg_async есть три константы:</p>
-
-<ul>
-<li><p>PG_ASYNC - выполнение запроса в асинхронном режиме</p></li>
-<li><p>PG_OLDQUERY_CANCEL - если в этот момент работал предыдущий запроса, то он отменяется</p></li>
-<li><p>PG_OLDQUERY_WAIT - блокируемся для ожидания предыдущего запроса и только потом начинаем выполнять новый</p></li>
-</ul>
-
-
-<p>Так же есть три вспомогательных метода -
-<strong>pg_cancel</strong> - отменить запрос. Реально открывается ещё одно соединение, в котором посылается SELECT pg_cancel_backend(?);
-<strong>pg_ready</strong> - возвращает true, если запрос выполнился.
-<strong>pg_result</strong> - блокируется до момента выполнения запроса, после чего возвращает то же, что и ->execute в стандартном режиме.</p>
-
-<p>Из минусов - нельзя установить callback на момент исполнения запроса. Нужно постоянно проверять.
-Так же в один момент  времени в одном соединением можно выполнять только один запрос. Но что мешает открыть десяток соединений и по очереди посылать в них запросы?)</p>
-
-<p>Попробую рассказать о применениях этой технологии:</p>
-
-<ul>
-<li><p>тяжёлые запросы + сложная логика. Равномерно загружаем свой сервер и сервер БД.</p>
-
-<p>while (){
-my $foo = compute_foo();#тяжёлая функция</p>
-
-<h1>блокируемся до тех пор, пока не выполнится предыдущий</h1>
-
-<p>$dbh->do(&#8216;UPDATE stats SET foo=foo+1&#8217;, { pg_async => PG_ASYNC + PG_OLDQUERY_WAIT });
-}</p></li>
-<li><p>работа с несколькими серверами БД</p>
-
-<p>$first_dbh->do(&#8216;DELETE FROM old_data&#8217;, { pg_async => PG_ASYNC });
-$second_dbh->do(&#8216;UPDATE new_data SET status=0&#8217;, { pg_async => PG_ASYNC })</p></li>
-<li><p>таймауты. вы можете убить запрос по таймауту, если он ещё не отработал</p></li>
-<li><p>конкуррентные запросы. посылаем один и тот же запрос двум серверам и отдаём данные с того сервера, который ответил быстрее.</p></li>
-<li><p>запросы, результат выполнения которых вам абсолютно безразличен</p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/18/">&larr; Older</a>
@@ -972,6 +897,10 @@ $second_dbh->do(&#8216;UPDATE new_data SET status=0&#8217;, { pg_async => PG_ASY
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/15/vpn/">VPN</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
       </li>
     
@@ -985,10 +914,6 @@ $second_dbh->do(&#8216;UPDATE new_data SET status=0&#8217;, { pg_async => PG_ASY
     
       <li class="post">
         <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
       </li>
     
   </ul>

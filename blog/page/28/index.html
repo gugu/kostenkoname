@@ -9,7 +9,10 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Авторизация у меня везде по ключикам, а вот создавать туннели я не умею :-[ clipped from habrahabr.ru vi ~/.ssh/config Если у вас на машине Linux и &hellip;">
+  <meta name="description" content="Вот такой скрипт у меня запускается каждую полночь: #!/bin/bash cd /tmp
+# Качаем последнюю версию wordpress
+wget http://wordpress.org/latest.zip
+rm - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +79,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/09/09/wordpress-autoupdate/">Wordpress Autoupdate</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-09-09T14:41:09+04:00" pubdate data-updated="true">Sep 9<span>th</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Вот такой скрипт у меня запускается каждую полночь:</p>
+
+<pre><code>#!/bin/bash
+
+cd /tmp
+# Качаем последнюю версию wordpress
+wget http://wordpress.org/latest.zip
+rm -rf /tmp/wordpress
+#Распаковываем
+unzip latest.zip
+cp -rf /tmp/wordpress/* /var/www/kostenko.name/
+#Можно ещё дописать расстановку привилегий для файлов. Но мне лень это делать
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -561,56 +612,6 @@ more here:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/08/10/privatbank-phishing/">&#8230;пришёл в аську вот такой весёлый спам</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-08-10T14:17:33+04:00" pubdate data-updated="true">Aug 10<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>Вас приветствует icq-информер Приват Банка!</p></blockquote>
-
-<p>Предлагаем Вам оценить возможности и преимущества новых банковских технологий, популярного, удобного и комфортного продукта. Сегодня свой выбор в пользу
-Кредитки ПриватБанка сделали уже более 7 000 000 человек.</p>
-
-<p>Кредитку  может получить любой желающий, для этого Вам необходимо указать всего лишь Ваше Ф.И.О, город проживания, телефон (мобильный или домашний).
-Присылайте Ваши заявки на номер icq: 371597970 (круглосуточно).</p>
-
-<p>Подробности Вы можете узнать на нашем веб-сайте <a href="http://privat-bank24.at.ua">Privat-Bank24.at.ua</a></p>
-
-<p>Ещё бы на narod.ru сайт захостили. Придурки)</p>
-
-<p>И дизайн такой же нужно было делать&#8230; и SSL сертификат купить&#8230; И какая нахер реклама по ICQ&#8230; на спам по email &#8220;Вашу кредитку заблокируют в течении N дней люди велись, ведутся и будут вестись&#8221;</p>
-
-<p>Но в этом есть и какой-то плюс для приватбанка&#8230; он уже стал настолько большой, что им начали интересоваться фишеры&#8230; пусть и такие бездарные, как этот</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/29/">&larr; Older</a>
@@ -628,6 +629,10 @@ more here:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/15/vpn/">VPN</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
       </li>
     
@@ -641,10 +646,6 @@ more here:
     
       <li class="post">
         <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
       </li>
     
   </ul>

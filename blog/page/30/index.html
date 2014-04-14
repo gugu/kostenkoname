@@ -9,8 +9,8 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="Новость 1: Рамблер продал Бегуна гуглу. Получил неплохую денежную сумму для инвестиций в другие проеты
-Новость 2: Рамблер подписал договор о &hellip;">
+  <meta name="description" content="memcached очень интересная и быстрая вещь, но попытки реализовать на нём очередь/стек терпели неудачу из-за ситуации гонок.
+Я должен получить &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2008/07/23/memcached-queue/">Очередь на Memcached</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2008-07-23T22:28:35+04:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2008</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>memcached очень интересная и быстрая вещь, но попытки реализовать на нём очередь/стек терпели неудачу из-за ситуации гонок.
+Я должен получить последний элемент (А) и дописать следующий. Но я не уверен, будет ли элемент А последним на момент записи следующего.
+Получалась такая ситуация:</p>
+
+<p>(1-й процесс) $m->get(&#8216;last&#8217;);
+(2-й процесс) $m->get(&#8216;last&#8217;);
+&#8230;
+(1-й процесс) $m->set(&#8216;last&#8217;=>$modified_last);
+(2-й процесс) $m->set(&#8216;last&#8217;=>$modified_last); #превед!!</p>
+
+<p>Вариант решения проблемы</p>
+
+<h1>добавление в очередь</h1>
+
+<p>my $tail=$m->incr(&#8216;tail&#8217;);
+$m->set(&#8220;queue_$tail&#8221;=>$data);</p>
+
+<h1>удаление из неё:</h1>
+
+<p>my $head=$m->incr(&#8216;head&#8217;)-1;
+$m->get(&#8220;queue_$tail&#8221;);</p>
+
+<p>Может быть я перепутал с голову с хвостом, но этот вариан не боится ситуации гонок.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -434,48 +492,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/06/17/mysql-nested-set/">Дерево каталогов средствами MySQL с использованием Nested Sets</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-06-17T11:07:28+04:00" pubdate data-updated="true">Jun 17<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>О проблемах хранения деревьев в SQL базах данных вопрос можно не поднимать, просто сказать, что они есть.</p>
-
-<p>Прежде всего посмотрим, как выглядят деревья Nested Sets, как они организованы и в чем удобство их использования.</p>
-
-<p><img src="http://www.getinfo.ru/photos/610-1.gif" alt="" /></p>
-
-<p><a href="http://www.getinfo.ru/article610.html">&#8230;читать</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/31/">&larr; Older</a>
@@ -493,6 +509,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/15/vpn/">VPN</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
       </li>
     
@@ -506,10 +526,6 @@
     
       <li class="post">
         <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
       </li>
     
   </ul>

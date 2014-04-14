@@ -9,8 +9,8 @@
   <meta name="author" content="Andrii Kostenko">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="Раньше была геморройным делом. До того как я узнал про &#8220;make upload&#8221;.
+Для начала установим модуль: cpan -f LEOCHARRE::Dev # устанавливает &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/01/13/d0b7d0b0d0bbd0b8d0b2d0bad0b0-cpan-d0bed0b2d181d0bad0b8d185-d0bcd0bed0b4d183d0bbd0b5d0b9-d0bdd0b0-pause/">Заливка CPAN-овских модулей на PAUSE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-01-13T13:13:30+03:00" pubdate data-updated="true">Jan 13<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Раньше была геморройным делом. До того как я узнал про &#8220;make upload&#8221;.
+Для начала установим модуль:</p>
+
+<pre><code>cpan -f LEOCHARRE::Dev # устанавливает этот глючный модуль с кучей зависимостей
+cat &gt; ~/.pause
+user gugu
+password #ваш пароль
+^D
+</code></pre>
+
+<p>Заходим в директорию с модулем, который юзает Module::Install и пишем:</p>
+
+<pre><code>make upload #вот так заливается модуль
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -498,99 +547,6 @@ DROP TABLE expected_values,found_values;
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/12/05/ppp/">И ещё перед тем как пойти спать</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-12-05T02:32:54+03:00" pubdate data-updated="true">Dec 5<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Расскажу вам про очень полезную вешь. Которую я даже сам редко использую. Прочёл я о ней в книге Стива Макконнела &#8220;Совершенный код&#8221;. Это Библия программиста. Советую прочесть всем.</p>
-
-<h3>Псевдокод</h3>
-
-<p>Когда вам нужно создать метод, не нужно торопиться и писать кучу кода. Попробуйте начать работать по такой схеме:</p>
-
-<ul>
-<li><p>Обдумайте назначение метода, его название, параметры и то, что он будет возвращать</p></li>
-<li><p>Напишите к нему документацию</p></li>
-<li><p>Создайте каркас метода.</p></li>
-<li><p>В этот каркас на РОДНОМ для вас языке наиболее детально опишите то, что делает этот метод. Это описание должно отвечать на вопрос <strong>&#8220;Что делает этот метод?&#8221;</strong> а не &#8220;Каким образом?&#8221;. Например:</p>
-
-<ul>
-<li><p>проверяем параметры</p>
-
-<ul>
-<li>если нет логина или пароля, то выходим</li>
-</ul>
-</li>
-<li><p>получаем из базы пользователя с таким логином</p>
-
-<ul>
-<li>если пользователь не найден, по выходим</li>
-</ul>
-</li>
-<li><p>&#8230;</p></li>
-</ul>
-</li>
-<li><p>После этого превращаем это описание в комментарии</p></li>
-<li><p>И в соответствии с этими комментариями пишем код метода</p></li>
-</ul>
-
-
-<p>То что получилось бы, если бы я писал такой метод:</p>
-
-<pre><code>=head2 authenticate_user( login =&gt; $login, password =&gt; $password )
-
-Авторизация пользователя. Возвращает 1 в случае успеха.
-
-=cut
-
-sub authenticate_user {
-    my $self = shift;
-#проверяем параметры
-    my %params = validate( login =&gt; { type =&gt; SCALAR }, password =&gt; { type =&gt; SCALAR } );
-#если нет логина или пароля, то выходим
-    if ( ! $params{ login } || ! $params{ password } ) {
-         return;
-    }
-#получаем из базы пользователя с таким логином
-    my $user = Database-&gt;;instance-&gt;get_user( @params{ qw/login password/ } );
-#...
-}
-</code></pre>
-
-<p>Итого: мы получаем грамотный изначально документированный код</p>
-
-<p>OFFTOPIC: я спать. обещаю прийти на работу пораньше.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/24/">&larr; Older</a>
@@ -608,6 +564,10 @@ sub authenticate_user {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/04/15/vpn/">VPN</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/29/otlichnaia-infoghrafika-ob-obshchiestviennom-transportie/">Отличная инфографика об общественном транспорте</a>
       </li>
     
@@ -621,10 +581,6 @@ sub authenticate_user {
     
       <li class="post">
         <a href="/blog/2012/08/23/samolietostroitieli/">Самолетопоклонники</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/16/pochiemu-ia-nie-liubliu-iandieks/">Почему я не люблю Яндекс</a>
       </li>
     
   </ul>
