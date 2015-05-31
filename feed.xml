@@ -6,13 +6,17 @@
 </description>
     <link>http://kostenko.name/</link>
     <atom:link href="http://kostenko.name/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 May 2015 20:44:12 +0300</pubDate>
-    <lastBuildDate>Sun, 31 May 2015 20:44:12 +0300</lastBuildDate>
+    <pubDate>Sun, 31 May 2015 20:55:33 +0300</pubDate>
+    <lastBuildDate>Sun, 31 May 2015 20:55:33 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Hello World</title>
-        <description>&lt;p&gt;Всем привет. Давно не писал сюда. Внезапно выяснилось, что я проебал исходиники блога на старом ноуте, так что начинаю вести блог заново. Ничего особо полезного в старом не было (да и в новом не предвидится)&lt;/p&gt;
+        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting on the old blog, and there are will be nothing anteresting on new blog).&lt;/p&gt;
+
+&lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.koeksworld.com/wp-content/uploads/2014/04/Data-loss.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 May 2015 20:24:18 +0300</pubDate>
         <link>http://kostenko.name/2015/05/31/hello-world.html</link>
