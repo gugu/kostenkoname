@@ -6,8 +6,8 @@
 </description>
     <link>http://kostenko.name/</link>
     <atom:link href="http://kostenko.name/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Jun 2015 13:24:00 +0300</pubDate>
-    <lastBuildDate>Mon, 01 Jun 2015 13:24:00 +0300</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2015 13:26:03 +0300</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2015 13:26:03 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -18,21 +18,21 @@
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://hetzner.de&quot;&gt;Hetzner&lt;/a&gt;&lt;/strong&gt; — it is fucking cheap. Mostly this is because they use desktop grade hardware. &lt;strong&gt;You almost don’t need server hardware untill you have a lot of users&lt;/strong&gt;. VDS with 24Gb RAM, 8 cores for €41 is really cheaper, than any amazon&lt;/p&gt;
 
-&lt;p&gt;But you &lt;em&gt;should&lt;/em&gt; make backups. I had no problems for a near four years, but other people had. That is hint from Captain Obvious — you should always make backups&lt;/p&gt;
+&lt;p&gt;But you &lt;em&gt;should&lt;/em&gt; make backups. I had no problems for a near four years, but other people had. It is hint from Captain Obvious — you should always make backups, with any hadware&lt;/p&gt;
 
-&lt;p&gt;Also, everything is located in Germany. Not the best choice if all your clients are located in USA. But for Europe and Russia this is good choice.&lt;/p&gt;
+&lt;p&gt;Also, everything is located in Germany. Not the best choice if all your clients are located in USA. But for Europe and Russia this is a good choice.&lt;/p&gt;
 
 &lt;h1 id=&quot;code-hosting&quot;&gt;Code hosting&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://bitbucket.org&quot;&gt;Bitbucket&lt;/a&gt; — unlimimited private repos with 5 collaborators for free. You have shitty bugtracker and some wiki here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://bitbucket.org&quot;&gt;Bitbucket&lt;/a&gt;&lt;/strong&gt; — unlimimited private repos with 5 collaborators for free. You have shitty bugtracker and some wiki here.&lt;/p&gt;
 
 &lt;h1 id=&quot;domain-name-registration&quot;&gt;Domain name registration&lt;/h1&gt;
 
-&lt;p&gt;Yesterday found &lt;a href=&quot;http://freenom.com&quot;&gt;Freenom&lt;/a&gt; — free of change domain names for first year. Free zones are: &lt;code&gt;.tk&lt;/code&gt;, &lt;code&gt;.ml&lt;/code&gt;, &lt;code&gt;.ga&lt;/code&gt;, &lt;code&gt;.cf&lt;/code&gt;, &lt;code&gt;.gq&lt;/code&gt;. I believe second year will cost you triple price, but if you want to play, you can try this service&lt;/p&gt;
+&lt;p&gt;Yesterday found &lt;strong&gt;&lt;a href=&quot;http://freenom.com&quot;&gt;Freenom&lt;/a&gt;&lt;/strong&gt; — free of change domain names for first year. Free zones are: &lt;code&gt;.tk&lt;/code&gt;, &lt;code&gt;.ml&lt;/code&gt;, &lt;code&gt;.ga&lt;/code&gt;, &lt;code&gt;.cf&lt;/code&gt;, &lt;code&gt;.gq&lt;/code&gt;. I believe second year will cost you triple price, but if you want to play, you can try this service&lt;/p&gt;
 
 &lt;h1 id=&quot;ssl-certificate&quot;&gt;SSL Certificate&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://startssl.com&quot;&gt;StartSSL&lt;/a&gt; — domain level validation certificate, free to register for one year, free to renew. Does not support wildcards and multiple domais.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://startssl.com&quot;&gt;StartSSL&lt;/a&gt;&lt;/strong&gt; — domain level validation certificate, free to register for one year, free to renew. Does not support wildcards and multiple domais.&lt;/p&gt;
 
 &lt;h1 id=&quot;continuous-integration&quot;&gt;Continuous Integration&lt;/h1&gt;
 
