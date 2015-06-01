@@ -6,8 +6,8 @@
 </description>
     <link>http://kostenko.name/</link>
     <atom:link href="http://kostenko.name/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Jun 2015 13:47:29 +0300</pubDate>
-    <lastBuildDate>Mon, 01 Jun 2015 13:47:29 +0300</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2015 13:49:55 +0300</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2015 13:49:55 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -38,7 +38,7 @@
 
 &lt;p&gt;There is a problem here. Actually, I don’t know anything free or cheap (as for me, even $25/month is too expensive).&lt;/p&gt;
 
-&lt;p&gt;For my &lt;a href=&quot;http://devel.tools&quot;&gt;devel.tools&lt;/a&gt; project I just opened sources to use &lt;a href=&quot;http://travis-ci.com&quot;&gt;Travis CI&lt;/a&gt;. If you don’t care about your sorce code security, you can do the same.&lt;/p&gt;
+&lt;p&gt;For my &lt;a href=&quot;http://devel.tools&quot;&gt;devel.tools&lt;/a&gt; project I just opened sources to use &lt;a href=&quot;http://travis-ci.com&quot;&gt;Travis CI&lt;/a&gt;. If you don’t care about your source code security, you can do the same.&lt;/p&gt;
 
 &lt;p&gt;For other projects I use 50 free builds on &lt;a href=&quot;http://drone.io&quot;&gt;drone.io&lt;/a&gt;. As I see, they have 50 free builds/project, so you can try to recreate project to have another 50 free commits (:&lt;/p&gt;
 
