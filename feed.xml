@@ -6,9 +6,49 @@
 </description>
     <link>http://kostenko.name/</link>
     <atom:link href="http://kostenko.name/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 May 2015 21:38:28 +0300</pubDate>
-    <lastBuildDate>Sun, 31 May 2015 21:38:28 +0300</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2015 13:21:49 +0300</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2015 13:21:49 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>How to save money in IT</title>
+        <description>&lt;p&gt;If you don’t want to spend a lot if money on your small project, I can suggest you some services, which will help you to save.&lt;/p&gt;
+
+&lt;h1 id=&quot;hosting&quot;&gt;Hosting&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://hetzner.de&quot;&gt;Hetzner&lt;/a&gt; — it is fucking cheap. Mostly this is because they use desktop grade hardware. &lt;em&gt;You almost don’t need server hardware untill you have a lot of users&lt;/em&gt;. VDS with 24Gb RAM, 8 cores for €41 is really cheaper, than any amazon&lt;/p&gt;
+
+&lt;p&gt;But you &lt;em&gt;should&lt;/em&gt; make backups. I had no problems for a near four years, but other people had. That is hint from Captain Obvious — you should always make backups&lt;/p&gt;
+
+&lt;p&gt;Also, everything is located in Germany. Not the best choice if all your clients are located in USA. But for Europe and Russia this is good choice.&lt;/p&gt;
+
+&lt;h1 id=&quot;code-hosting&quot;&gt;Code hosting&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bitbucket.org&quot;&gt;Bitbucket&lt;/a&gt; — unlimimited private repos with 5 collaborators for free. You have shitty bugtracker and some wiki here.&lt;/p&gt;
+
+&lt;h1 id=&quot;domain-name-registration&quot;&gt;Domain name registration&lt;/h1&gt;
+
+&lt;p&gt;Yesterday found &lt;a href=&quot;http://freenom.com&quot;&gt;Freenom&lt;/a&gt; — free of change domain names for first year. Free zones are: &lt;code&gt;.tk&lt;/code&gt;, &lt;code&gt;.ml&lt;/code&gt;, &lt;code&gt;.ga&lt;/code&gt;, &lt;code&gt;.cf&lt;/code&gt;, &lt;code&gt;.gq&lt;/code&gt;. I believe second year will cost you triple price, but if you want to play, you can try this service&lt;/p&gt;
+
+&lt;h1 id=&quot;ssl-certificate&quot;&gt;SSL Certificate&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://startssl.com&quot;&gt;StartSSL&lt;/a&gt; — domain level validation certificate, free to register for one year, free to renew. Does not support wildcards and multiple domais.&lt;/p&gt;
+
+&lt;h1 id=&quot;continuous-integration&quot;&gt;Continuous Integration&lt;/h1&gt;
+
+&lt;p&gt;There is a problem here. Actually, I don’t know anything free or cheap (as for me, even $25/month is too expensive).&lt;/p&gt;
+
+&lt;p&gt;For my &lt;a href=&quot;http://devel.tools&quot;&gt;devel.tools&lt;/a&gt; project I just opened sources to use &lt;a href=&quot;http://travis-ci.com&quot;&gt;Travis CI&lt;/a&gt;. If you don’t care about your sorce code security, you can do the same.&lt;/p&gt;
+
+&lt;p&gt;For other projects I use 50 free builds on &lt;a href=&quot;http://drone.io&quot;&gt;drone.io&lt;/a&gt;. As I see, they have 50 free builds/project, so you can try to recreate project to have another 50 free commits (:&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 01 Jun 2015 12:46:54 +0300</pubDate>
+        <link>http://kostenko.name/2015/06/01/freenom.html</link>
+        <guid isPermaLink="true">http://kostenko.name/2015/06/01/freenom.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Hello World</title>
