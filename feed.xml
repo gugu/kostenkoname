@@ -6,8 +6,8 @@
 </description>
     <link>http://kostenko.name/</link>
     <atom:link href="http://kostenko.name/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Jun 2015 13:31:41 +0300</pubDate>
-    <lastBuildDate>Mon, 01 Jun 2015 13:31:41 +0300</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2015 13:33:39 +0300</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2015 13:33:39 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -52,7 +52,7 @@
     
       <item>
         <title>Hello World</title>
-        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing anteresting on new blog).&lt;/p&gt;
+        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
 
 &lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English.&lt;/p&gt;
 
