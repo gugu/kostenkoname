@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+
+    <title>@’s Andrii Kostenko - Andrii Kostenko</title>
+    <link>http://kostenko.name/index.xml</link>
+    <description>All entries in Andrii Kostenko on Andrii Kostenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Wed, 15 Mar 2017 21:56:14 +0200</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>Hello World</title>
+        <link>http://kostenko.name/posts/hello-world/</link>
+        <pubDate>Wed, 15 Mar 2017 21:56:14 +0200</pubDate>
+        <author> ( )</author>
+        <guid>http://kostenko.name/posts/hello-world/</guid>
+        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
+
+&lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.koeksworld.com/wp-content/uploads/2014/04/Data-loss.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>How to save money in IT</title>
+        <link>http://kostenko.name/posts/halyava/</link>
+        <pubDate>Mon, 01 Jun 2015 12:46:54 +0300</pubDate>
+        <author> ( )</author>
+        <guid>http://kostenko.name/posts/halyava/</guid>
+        <description>
+
+&lt;h1 id=&#34;hosting&#34;&gt;Hosting&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://hetzner.de&#34;&gt;Hetzner&lt;/a&gt;&lt;/strong&gt; — it is fucking cheap. Mostly this is because they use desktop grade hardware. &lt;strong&gt;You almost don&amp;rsquo;t need server hardware untill you have a lot of users&lt;/strong&gt;. VDS with 24Gb RAM, 8 cores for €41 is really cheaper, than any amazon&lt;/p&gt;
+
+&lt;p&gt;But you &lt;em&gt;should&lt;/em&gt; make backups. I had no problems for a near four years, but other people had. It is hint from Captain Obvious — you should always make backups, with any hadware&lt;/p&gt;
+
+&lt;p&gt;Also, everything is located in Germany. Not the best choice if all your clients are located in USA. But for Europe and Russia this is a good choice.&lt;/p&gt;
+
+&lt;h1 id=&#34;code-hosting&#34;&gt;Code hosting&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://bitbucket.org&#34;&gt;Bitbucket&lt;/a&gt;&lt;/strong&gt; — unlimimited private repos with 5 collaborators for free. You have shitty bugtracker and some wiki here.&lt;/p&gt;
+
+&lt;h1 id=&#34;domain-name-registration&#34;&gt;Domain name registration&lt;/h1&gt;
+
+&lt;p&gt;Yesterday found &lt;strong&gt;&lt;a href=&#34;http://freenom.com&#34;&gt;Freenom&lt;/a&gt;&lt;/strong&gt; — free of charge domain names for first year. Free zones are: &lt;code&gt;.tk&lt;/code&gt;, &lt;code&gt;.ml&lt;/code&gt;, &lt;code&gt;.ga&lt;/code&gt;, &lt;code&gt;.cf&lt;/code&gt;, &lt;code&gt;.gq&lt;/code&gt;. I believe second year will cost you triple price, but if you want to play, you can try this service&lt;/p&gt;
+
+&lt;h1 id=&#34;ssl-certificate&#34;&gt;SSL Certificate&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://startssl.com&#34;&gt;StartSSL&lt;/a&gt;&lt;/strong&gt; — domain level validation certificate, free to register for one year, free to renew. Does not support wildcards and multiple domais.&lt;/p&gt;
+
+&lt;h1 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h1&gt;
+
+&lt;p&gt;There is a problem here. Actually, I don&amp;rsquo;t know anything free or cheap (as for me, even $25/month is too expensive).&lt;/p&gt;
+
+&lt;p&gt;For my &lt;a href=&#34;http://devel.tools&#34;&gt;devel.tools&lt;/a&gt; project I just opened sources to use &lt;a href=&#34;http://travis-ci.com&#34;&gt;Travis CI&lt;/a&gt;. If you don&amp;rsquo;t care about your source code security, you can do the same.&lt;/p&gt;
+
+&lt;p&gt;For other projects I use 50 free builds on &lt;a href=&#34;http://drone.io&#34;&gt;drone.io&lt;/a&gt;. As I see, they have 50 free builds/project, so you can try to recreate project to have another 50 free commits (:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://kostenko.name/images/31971606_018_plakat.jpg&#34; alt=&#34;KDPV&#34; /&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+  </channel>
+</rss>

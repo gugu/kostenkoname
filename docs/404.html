@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content=" ">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    
+    <title>404 Page not found &middot; @’s Andrii Kostenko</title>
+
+    <link rel="stylesheet" href="http://kostenko.name/css/weblog.css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/css/lightgallery.min.css" type="text/css" />
+    
+
+
+    
+  </head>
+  <body class="site">
+
+<header>
+  <nav>
+    <h1><a href="/">@</a>’s Andrii Kostenko.</h1>
+    <div class="menu">
+      
+      <ul>
+        
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<main class="content">
+  <article class="post">
+    404. Not Found. Try again.
+
+If you don't like this, create a partial called `not_found.html`.  
+
+  </article>
+</main>
+
+<footer>
+  <div class="footer_text">
+      <div>
+        <h3>Hi, <a href="">I'm </a></h3>
+        <p>
+          Here you can place a short bio about yourself. Place a `bio.html` file in your
+project directory under `layout/partials`. That will override this message.
+
+        </p>
+      </div>
+      
+  </div>
+
+  
+</footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.14/js/lightgallery-all.min.js" charset="utf-8"></script>
+    <script src="/js/weblog.js" charset="utf-8"></script>
+    
+
+    <script type="text/javascript">
+
+  
+  $(function() {
+    
+    $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?id=&format=json&jsoncallback=?", function(data) {
+      iweblog.application.displayImages(data, 8);
+    });
+  });
+
+</script>
+
+    
+  </body>
+</html>
+

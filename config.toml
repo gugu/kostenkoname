@@ -1,0 +1,5 @@
+languageCode = "en-us"
+theme = "internet-weblog"
+title = "Andrii Kostenko"
+baseurl = "http://kostenko.name/"
+publishDir = "docs"
