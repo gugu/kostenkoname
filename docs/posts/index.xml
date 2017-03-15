@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 
-    <title>@gugu’s Andrii Kostenko - Posts</title>
+    <title>@gugu’s Personal blog - Posts</title>
     <link>http://kostenko.name/posts/index.xml</link>
-    <description>All entries in Posts on Andrii Kostenko</description>
+    <description>All entries in Posts on Personal blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

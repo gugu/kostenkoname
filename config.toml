@@ -1,6 +1,6 @@
 languageCode = "en-us"
 theme = "internet-weblog"
-title = "Andrii Kostenko"
+title = "Personal blog"
 baseurl = "http://kostenko.name/"
 publishDir = "docs"
 [author]
