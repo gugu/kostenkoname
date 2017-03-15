@@ -1,0 +1,3 @@
+[submodule "libfoo"]
+path = themes/internet-weblog
+url = https://github.com/jnjosh/internet-weblog.git
