@@ -3,3 +3,8 @@ theme = "internet-weblog"
 title = "Andrii Kostenko"
 baseurl = "http://kostenko.name/"
 publishDir = "docs"
+[author]
+    Handle = "gugu"
+    FirstName = "Andrii"
+    LastName = "Kostenko"
+    Location = "Helsinki, Finland"
