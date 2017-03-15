@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 
-    <title>@’s Andrii Kostenko - Andrii Kostenko</title>
+    <title>@gugu’s Andrii Kostenko - Andrii Kostenko</title>
     <link>http://kostenko.name/index.xml</link>
     <description>All entries in Andrii Kostenko on Andrii Kostenko</description>
     <generator>Hugo -- gohugo.io</generator>
@@ -16,7 +16,7 @@
         <title>How to save money in IT</title>
         <link>http://kostenko.name/posts/halyava/</link>
         <pubDate>Mon, 01 Jun 2015 12:46:54 +0300</pubDate>
-        <author> ( )</author>
+        <author> (Andrii Kostenko)</author>
         <guid>http://kostenko.name/posts/halyava/</guid>
         <description>
 
@@ -58,7 +58,7 @@
         <title>Hello World</title>
         <link>http://kostenko.name/posts/hello-world/</link>
         <pubDate>Sun, 15 Mar 2015 21:56:14 +0200</pubDate>
-        <author> ( )</author>
+        <author> (Andrii Kostenko)</author>
         <guid>http://kostenko.name/posts/hello-world/</guid>
         <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
 
