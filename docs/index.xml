@@ -8,24 +8,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 15 Mar 2017 21:56:14 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2015 12:46:54 +0300</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-      
-      <item>
-        <title>Hello World</title>
-        <link>http://kostenko.name/posts/hello-world/</link>
-        <pubDate>Wed, 15 Mar 2017 21:56:14 +0200</pubDate>
-        <author> ( )</author>
-        <guid>http://kostenko.name/posts/hello-world/</guid>
-        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
-
-&lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English..&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://www.koeksworld.com/wp-content/uploads/2014/04/Data-loss.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
-</description>
-      </item>
-      
     
       
       <item>
@@ -65,6 +49,22 @@
 &lt;p&gt;For other projects I use 50 free builds on &lt;a href=&#34;http://drone.io&#34;&gt;drone.io&lt;/a&gt;. As I see, they have 50 free builds/project, so you can try to recreate project to have another 50 free commits (:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://kostenko.name/images/31971606_018_plakat.jpg&#34; alt=&#34;KDPV&#34; /&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>Hello World</title>
+        <link>http://kostenko.name/posts/hello-world/</link>
+        <pubDate>Sun, 15 Mar 2015 21:56:14 +0200</pubDate>
+        <author> ( )</author>
+        <guid>http://kostenko.name/posts/hello-world/</guid>
+        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
+
+&lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English..&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.koeksworld.com/wp-content/uploads/2014/04/Data-loss.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 </description>
       </item>
       

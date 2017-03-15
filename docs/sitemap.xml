@@ -2,24 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://kostenko.name/posts/hello-world/</loc>
-    <lastmod>2017-03-15T21:56:14+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://kostenko.name/posts/halyava/</loc>
     <lastmod>2015-06-01T12:46:54+03:00</lastmod>
   </url>
   
   <url>
+    <loc>http://kostenko.name/posts/hello-world/</loc>
+    <lastmod>2015-03-15T21:56:14+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://kostenko.name/</loc>
-    <lastmod>2017-03-15T21:56:14+02:00</lastmod>
+    <lastmod>2015-06-01T12:46:54+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://kostenko.name/posts/</loc>
-    <lastmod>2017-03-15T21:56:14+02:00</lastmod>
+    <lastmod>2015-06-01T12:46:54+03:00</lastmod>
     <priority>0</priority>
   </url>
   
