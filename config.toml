@@ -8,3 +8,5 @@ publishDir = "docs"
     FirstName = "Andrii"
     LastName = "Kostenko"
     Location = "Helsinki, Finland"
+[blockfriday]
+    extansions = ["hardLineBreak", "autolinking"]
