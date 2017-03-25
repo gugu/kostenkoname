@@ -8,8 +8,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-    <lastBuildDate>Wed, 15 Mar 2017 21:55:38 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 25 Mar 2017 15:44:36 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+      
+      <item>
+        <title>FB import for 2017-03-25T15:44:36&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154718950262851/</link>
+        <pubDate>Sat, 25 Mar 2017 15:44:36 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154718950262851/</guid>
+        <description>&lt;p&gt;Гугл сделал платформу для кроссплатформенных приложений Google Apps, дождался набора критической массы и сейчас убирает поддержку всех ОС, кроме Chrome OS&lt;/p&gt;
+
+&lt;p&gt;Если вы все еще считаете Google хорошей компанией, то я вам пришлю по почте открытку со слоупоком)&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-03-24T20:48:19&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154716915502851/</link>
+        <pubDate>Fri, 24 Mar 2017 20:48:19 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154716915502851/</guid>
+        <description>&lt;p&gt;На вырученные деньги прикупил базку во Франкфурте. Скоро shortcm станет еще быстрей&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-03-23T18:36:42&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154713894497851/</link>
+        <pubDate>Thu, 23 Mar 2017 18:36:42 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154713894497851/</guid>
+        <description>&lt;p&gt;Сегодня написал ezy-chord – независимую от celery реализацию chord в redis, которая позволяет отключить ту хуйню, которую наворотили авторы celery в четвертой версии&lt;/p&gt;
+
+&lt;p&gt;Скоро на github&lt;/p&gt;
+</description>
+      </item>
+      
     
       
       <item>
@@ -25,58 +65,652 @@
     
       
       <item>
-        <title>How to save money in IT</title>
-        <link>http://kostenko.name/posts/halyava/</link>
-        <pubDate>Mon, 01 Jun 2015 12:46:54 +0300</pubDate>
+        <title>FB import for 2017-03-12T16:24:28&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154682502222851/</link>
+        <pubDate>Sun, 12 Mar 2017 16:24:28 +0000</pubDate>
         <author> (Andrii Kostenko)</author>
-        <guid>http://kostenko.name/posts/halyava/</guid>
-        <description>
-
-&lt;h1 id=&#34;hosting&#34;&gt;Hosting&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://hetzner.de&#34;&gt;Hetzner&lt;/a&gt;&lt;/strong&gt; — it is fucking cheap. Mostly this is because they use desktop grade hardware. &lt;strong&gt;You almost don&amp;rsquo;t need server hardware untill you have a lot of users&lt;/strong&gt;. VDS with 24Gb RAM, 8 cores for €41 is really cheaper, than any amazon&lt;/p&gt;
-
-&lt;p&gt;But you &lt;em&gt;should&lt;/em&gt; make backups. I had no problems for a near four years, but other people had. It is hint from Captain Obvious — you should always make backups, with any hadware&lt;/p&gt;
-
-&lt;p&gt;Also, everything is located in Germany. Not the best choice if all your clients are located in USA. But for Europe and Russia this is a good choice.&lt;/p&gt;
-
-&lt;h1 id=&#34;code-hosting&#34;&gt;Code hosting&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://bitbucket.org&#34;&gt;Bitbucket&lt;/a&gt;&lt;/strong&gt; — unlimimited private repos with 5 collaborators for free. You have shitty bugtracker and some wiki here.&lt;/p&gt;
-
-&lt;h1 id=&#34;domain-name-registration&#34;&gt;Domain name registration&lt;/h1&gt;
-
-&lt;p&gt;Yesterday found &lt;strong&gt;&lt;a href=&#34;http://freenom.com&#34;&gt;Freenom&lt;/a&gt;&lt;/strong&gt; — free of charge domain names for first year. Free zones are: &lt;code&gt;.tk&lt;/code&gt;, &lt;code&gt;.ml&lt;/code&gt;, &lt;code&gt;.ga&lt;/code&gt;, &lt;code&gt;.cf&lt;/code&gt;, &lt;code&gt;.gq&lt;/code&gt;. I believe second year will cost you triple price, but if you want to play, you can try this service&lt;/p&gt;
-
-&lt;h1 id=&#34;ssl-certificate&#34;&gt;SSL Certificate&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://startssl.com&#34;&gt;StartSSL&lt;/a&gt;&lt;/strong&gt; — domain level validation certificate, free to register for one year, free to renew. Does not support wildcards and multiple domais.&lt;/p&gt;
-
-&lt;h1 id=&#34;continuous-integration&#34;&gt;Continuous Integration&lt;/h1&gt;
-
-&lt;p&gt;There is a problem here. Actually, I don&amp;rsquo;t know anything free or cheap (as for me, even $25/month is too expensive).&lt;/p&gt;
-
-&lt;p&gt;For my &lt;a href=&#34;http://devel.tools&#34;&gt;devel.tools&lt;/a&gt; project I just opened sources to use &lt;a href=&#34;http://travis-ci.com&#34;&gt;Travis CI&lt;/a&gt;. If you don&amp;rsquo;t care about your source code security, you can do the same.&lt;/p&gt;
-
-&lt;p&gt;For other projects I use 50 free builds on &lt;a href=&#34;http://drone.io&#34;&gt;drone.io&lt;/a&gt;. As I see, they have 50 free builds/project, so you can try to recreate project to have another 50 free commits (:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://kostenko.name/images/31971606_018_plakat.jpg&#34; alt=&#34;KDPV&#34; /&gt;&lt;/p&gt;
+        <guid>http://kostenko.name/posts/630817850_10154682502222851/</guid>
+        <description>&lt;p&gt;По всей Украине летают дешевые pegasus airlines и belavia. И только в Днепр, ебать его в сраку, можно попасть из Лондона минимум за $300 в одну сторону(&lt;/p&gt;
 </description>
       </item>
       
     
       
       <item>
-        <title>Hello World</title>
-        <link>http://kostenko.name/posts/hello-world/</link>
-        <pubDate>Sun, 15 Mar 2015 21:56:14 +0200</pubDate>
+        <title>FB import for 2017-03-09T16:24:36&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154670487677851/</link>
+        <pubDate>Thu, 09 Mar 2017 16:24:36 +0000</pubDate>
         <author> (Andrii Kostenko)</author>
-        <guid>http://kostenko.name/posts/hello-world/</guid>
-        <description>&lt;p&gt;Did not write here for a long time. I fucked up content from my old blog (there was nothing interesting here, and there are will be nothing interesting here :).&lt;/p&gt;
+        <guid>http://kostenko.name/posts/630817850_10154670487677851/</guid>
+        <description>&lt;p&gt;Когда я стану президентом, все въезжающие в Украину люди из Британии и Штатов будут заполнять анкету из сотни никому не нужных вопросов в стиле &amp;ldquo;Как зовут ваше домашнее животное?&amp;rdquo;, &amp;ldquo;Какого цвета у вас ботинки?&amp;rdquo; и &amp;ldquo;Являетесь (являлись) ли вы Адольфом Гитлером? (да/нет)&amp;rdquo;.&lt;/p&gt;
 
-&lt;p&gt;Also it is good time to switch blog from Russian to Pidgin English..&lt;/p&gt;
+&lt;p&gt;После проверки правильности заполнения анкеты пограничник будет рвать ее, выбрасывать в мусорное ведро и пропускать туриста.&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-02-20T21:56:53&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154624393052851/</link>
+        <pubDate>Mon, 20 Feb 2017 21:56:53 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154624393052851/</guid>
+        <description>&lt;p&gt;Где у вас та грань, которая отделяет правительство, которое вы поддерживаете, от кровавого режима?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://www.koeksworld.com/wp-content/uploads/2014/04/Data-loss.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Цензура интернета? Цензура видео? Нагнетание атмосферы страха? Нападение на оппозиционеров?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-02-17T19:58:32&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154615856432851/</link>
+        <pubDate>Fri, 17 Feb 2017 19:58:32 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154615856432851/</guid>
+        <description>&lt;p&gt;Этот неловкий момент, когда в комменты приходит чувак, начинает крыть меня матом, а потом обижается, удаляет комменты и банит меня)&lt;/p&gt;
+
+&lt;p&gt;PS: мне целых 27 лет, а забанило меня всего два человека за это время. Наверное, потому что я добрый&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-02-14T13:57:11&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154604542827851/</link>
+        <pubDate>Tue, 14 Feb 2017 13:57:11 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154604542827851/</guid>
+        <description>&lt;p&gt;TIL, that average Ukrainian salary is $6 less, than average salary in Somalia. Source: &lt;a href=&#34;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine&amp;amp;displayCurrency=USD&#34;&gt;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine&amp;amp;displayCurrency=USD&lt;/a&gt; and &lt;a href=&#34;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Somalia&#34;&gt;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Somalia&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine&amp;displayCurrency=USD&#34;&gt;https://www.numbeo.com/cost-of-living/country_result.jsp?country=Ukraine&amp;displayCurrency=USD&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-02-06T19:58:07&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154584610437851/</link>
+        <pubDate>Mon, 06 Feb 2017 19:58:07 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154584610437851/</guid>
+        <description>&lt;p&gt;Первый шаг пройден&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154584610442851&amp;set=a.10150579276797851.388577.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154584610442851&amp;set=a.10150579276797851.388577.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-01-30T23:47:19&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154565875847851/</link>
+        <pubDate>Mon, 30 Jan 2017 23:47:19 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154565875847851/</guid>
+        <description>&lt;p&gt;Кто знает норм снотворное, но не транквилизаторы, от которых тупеют?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2017-01-10T17:43:47&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154502841722851/</link>
+        <pubDate>Tue, 10 Jan 2017 17:43:47 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154502841722851/</guid>
+        <description>&lt;p&gt;Посмотрел на рейсы в Днепр - из Днепра&amp;hellip; Можно Коломойский еще и аэропорт за гривну продаст?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-27T21:43:42&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154462754592851/</link>
+        <pubDate>Tue, 27 Dec 2016 21:43:42 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154462754592851/</guid>
+        <description>&lt;p&gt;Простой способ отшить надоедливого собеседника - перевести разговор в политическое русло и сказать что-то, что противоречит ожиданиям собеседника:
+- ты в Европе живешь? У вас там куча арабов на пособиях?
+- да нет, в Европе хорошо
+(Уходит)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Россия катится в бездну, до чего Путин страну довёл&lt;/li&gt;
+&lt;li&gt;да нет, все норм у вас. И многие вещи правительство делает правильно
+(уходит)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-26T16:13:48&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154458474347851/</link>
+        <pubDate>Mon, 26 Dec 2016 16:13:48 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154458474347851/</guid>
+        <description>&lt;p&gt;А посоветуйте хороший коворкинг в Москвабаде. Чтобы туда на пару дней запилиться&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-23T21:34:54&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154448497322851/</link>
+        <pubDate>Fri, 23 Dec 2016 21:34:54 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154448497322851/</guid>
+        <description>&lt;p&gt;Вот еще из курсеры. В какую степень по модулю 13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084171 нужно возвести число 11717829880366207009516117596335367088558084999998952205599979459063929499736583746670572176471460312928594829675428279466566527115212748467589894601965568, чтобы получить число 3239475104050450443565264378728065788649097520952449527834792452971981976143292558073856937958553180532878928001494706097394108577585732452307673444020333?&lt;/p&gt;
+
+&lt;p&gt;Если известно, что эта степень меньше, чем 2^40&lt;/p&gt;
+
+&lt;p&gt;PS: причем рассказывается все доступно и понятно (для задрота, во всяком случае)&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-22T10:40:26&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154443954562851/</link>
+        <pubDate>Thu, 22 Dec 2016 10:40:26 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154443954562851/</guid>
+        <description>&lt;p&gt;Интересно, когда приватбанк откроет вакансию &amp;ldquo;выпиливальщик corezoid&amp;rdquo; с окладом в 2000 гривен?)&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-19T20:31:52&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154436400937851/</link>
+        <pubDate>Mon, 19 Dec 2016 20:31:52 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154436400937851/</guid>
+        <description>&lt;p&gt;А вот точка зрения Бершидского, что вы оплатите долги привата, корезоид и кредитки, которые выдали всем алкашам, со своих налогов &lt;a href=&#34;https://www.bloomberg.com/view/articles/2016-12-19/ukraine-tries-to-clean-up-its-banking-mess&#34;&gt;https://www.bloomberg.com/view/articles/2016-12-19/ukraine-tries-to-clean-up-its-banking-mess&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-18T21:20:08&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154433315062851/</link>
+        <pubDate>Sun, 18 Dec 2016 21:20:08 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154433315062851/</guid>
+        <description>&lt;p&gt;Если вы тоже не хотите читать фейсбук, а только писать в него - рекомендую News Feed Eradicator Plugin. &lt;a href=&#34;https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en&#34;&gt;https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Без чтения пропаганды, бреда и без прокрастинации ваша жизнь станет лучше.&lt;/p&gt;
+
+&lt;p&gt;PS: а пару-тройку друзей можно отметить и получать нотификации, когда они что-то пишут&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en&#34;&gt;https://chrome.google.com/webstore/detail/news-feed-eradicator-for/fjcldmjmjhkklehbacihaiopjklihlgg?hl=en&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-14T07:46:05&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154419390032851/</link>
+        <pubDate>Wed, 14 Dec 2016 07:46:05 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154419390032851/</guid>
+        <description>&lt;p&gt;И хорошие новости. Плагин для слака ShortCm доступен для установки в Slack: &lt;a href=&#34;https://slack.com/apps/A3929QF8W-shortcm&#34;&gt;https://slack.com/apps/A3929QF8W-shortcm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;После установки достаточно написать /shorten &lt;a href=&#34;http://longlink.com&#34;&gt;http://longlink.com&lt;/a&gt; и вы получите короткую ссылку&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://slack.com/apps/A3929QF8W-shortcm&#34;&gt;https://slack.com/apps/A3929QF8W-shortcm&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-09T22:39:32&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154402346497851/</link>
+        <pubDate>Fri, 09 Dec 2016 22:39:32 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154402346497851/</guid>
+        <description>&lt;p&gt;Всем привет угадайте откуда&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154402346297851&amp;set=a.55141327850.66510.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154402346297851&amp;set=a.55141327850.66510.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-08T11:04:08&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154394416657851/</link>
+        <pubDate>Thu, 08 Dec 2016 11:04:08 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154394416657851/</guid>
+        <description>&lt;p&gt;Так, стартовая готовность. Если Украина в первый день совершит марш-бросок на Германию, ЕС закрыть доступ не успеет.&lt;/p&gt;
+
+&lt;p&gt;PS: отбой, это independent решила попугать британцев очередным наплывом мигрантов. Визу отменят хуй знает когда и отменят ли. Но теперь это хуй знает когда чуть раньше, чем хуй знает когда предыдущее&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;http://www.independent.co.uk/news/world/europe/eu-visa-free-travel-ukraine-georgia-a7462631.html&#34;&gt;http://www.independent.co.uk/news/world/europe/eu-visa-free-travel-ukraine-georgia-a7462631.html&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-04T13:15:26&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154380058912851/</link>
+        <pubDate>Sun, 04 Dec 2016 13:15:26 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154380058912851/</guid>
+        <description>&lt;p&gt;А вас тоже бесит дефолтное ограничение на 1024 открытых файлов?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-03T20:14:04&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154377895187851/</link>
+        <pubDate>Sat, 03 Dec 2016 20:14:04 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154377895187851/</guid>
+        <description>&lt;p&gt;Я думал, что криптография - это какие-то адские непонятные функции, а пока - это танцы с бубном вокруг xor (может дальше будет что-то новое, конечно, я только до DES дошел)&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-12-01T22:51:11&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154372543682851/</link>
+        <pubDate>Thu, 01 Dec 2016 22:51:11 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154372543682851/</guid>
+        <description>&lt;p&gt;8 лет прошло, так и не начал&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/630817850/posts/37694078500&#34;&gt;https://www.facebook.com/630817850/posts/37694078500&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-30T20:55:33&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154369421582851/</link>
+        <pubDate>Wed, 30 Nov 2016 20:55:33 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154369421582851/</guid>
+        <description>&lt;p&gt;А у facebook еще более легендарный саппорт, чем у google&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-28T21:03:07&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154364374542851/</link>
+        <pubDate>Mon, 28 Nov 2016 21:03:07 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154364374542851/</guid>
+        <description>&lt;p&gt;r[i] = (r[i-3] + r[i-31]) % 2^32. Вот это и вся стандартная функция random() в glibc. А я ломал голову, как она работает. Хотя не вся, аутпут на бит влево сдвигается&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-27T13:23:06&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154361094107851/</link>
+        <pubDate>Sun, 27 Nov 2016 13:23:06 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154361094107851/</guid>
+        <description>&lt;p&gt;Как спиздить данные у тупых параноиков? Делаешь сайт, который удаляет твои неиспользуемые аккаунты, но при этом получает доступ ко всей твоей переписке:&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.deseat.me/&#34;&gt;https://www.deseat.me/&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-26T14:39:15&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154358644227851/</link>
+        <pubDate>Sat, 26 Nov 2016 14:39:15 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154358644227851/</guid>
+        <description>&lt;p&gt;тестирую FB API&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154358644227851&amp;set=a.435160167850.218860.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154358644227851&amp;set=a.435160167850.218860.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-26T14:38:59&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154358643707851/</link>
+        <pubDate>Sat, 26 Nov 2016 14:38:59 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154358643707851/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://scontent.xx.fbcdn.net/v/t1.0-0/s130x130/15220043_10154358643707851_955393907666095986_n.jpg?oh=9421fc17f3a06a6493e34228b1964aec&amp;oe=59574EDD&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154358643707851&amp;set=a.10150543381542851.384646.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154358643707851&amp;set=a.10150543381542851.384646.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-22T09:26:40&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154347856407851/</link>
+        <pubDate>Tue, 22 Nov 2016 09:26:40 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154347856407851/</guid>
+        <description>&lt;p&gt;Этот неловкий момент, когда FB показывает, что новость расшарили 400 раз, а The Next Web говорит, что 40 (никакого читерства и накрутки голосов не было)&lt;/p&gt;
+
+&lt;p&gt;А новость из топа расшарили 300 раз, а The Next Web говорит, что больше 1000&lt;/p&gt;
+
+&lt;p&gt;Как говорит Trump, crooked american media :(&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-21T14:25:09&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154345817987851/</link>
+        <pubDate>Mon, 21 Nov 2016 14:25:09 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154345817987851/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://external.xx.fbcdn.net/safe_image.php?d=AQBi8gjloBB9iAmW&amp;w=130&amp;h=130&amp;url=https%3A%2F%2Fcdn1.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2016%2F11%2FTrial-Google-Photo-Design.png&amp;cfs=1&amp;_nc_hash=AQDVHGn_A26olHzT&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://tnw.to/2fkxLZt&#34;&gt;https://tnw.to/2fkxLZt&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-18T18:54:29&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154338199987851/</link>
+        <pubDate>Fri, 18 Nov 2016 18:54:29 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154338199987851/</guid>
+        <description>&lt;p&gt;Почитал таки определения политического строя &amp;ldquo;Фашизм&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Если вычеркнуть изначальное отношение к другим идеологиям, то основные критерии остаются:
+1. Национализм (давайте спасем нашу страну)
+2. Реваншизм (покажем врагам кузькину мать)
+3. Замена политической и частично рыночной конкуренции на пропаганду
+4. Пропаганда при обучении детей
+5. Контроль одной партии над всей политической системой
+6. Преследования инакомыслящих
+7. Контроль политическими руководителями подавляющего большинства СМИ&lt;/p&gt;
+
+&lt;p&gt;То есть основным двигателем прогресса становится пропаганда, а не конкуренция&lt;/p&gt;
+
+&lt;p&gt;Если с такой стороны посмотреть на Украину и Россию, то обе страны сейчас подходят под эту идеологию. Я не знаю, хорошо ли это, плохо ли. Лучше ли этот строй демократии или нет.&lt;/p&gt;
+
+&lt;p&gt;Главное не путать этот строй с демократией (при которой есть свобода СМИ и нет травли политических оппонентов) и национал-социализмом (который евреев в печках жег)&lt;/p&gt;
+
+&lt;p&gt;PS: у финнов отличные транквилизаторы)&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-14T22:54:47&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154328176827851/</link>
+        <pubDate>Mon, 14 Nov 2016 22:54:47 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154328176827851/</guid>
+        <description>&lt;p&gt;Посоветую сервис вьетнамских товарищей. Cron as a service. Очень удобно. setcronjob.com&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-13T21:53:47&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154324100397851/</link>
+        <pubDate>Sun, 13 Nov 2016 21:53:47 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154324100397851/</guid>
+        <description>&lt;p&gt;&lt;a href=&#34;http://assets.amuniversal.com/34339c9067f90134cb84005056a9545d&#34;&gt;http://assets.amuniversal.com/34339c9067f90134cb84005056a9545d&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;http://assets.amuniversal.com/34339c9067f90134cb84005056a9545d&#34;&gt;http://assets.amuniversal.com/34339c9067f90134cb84005056a9545d&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-09T05:36:37&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154311136967851/</link>
+        <pubDate>Wed, 09 Nov 2016 05:36:37 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154311136967851/</guid>
+        <description>&lt;p&gt;Я рад, что победил Трамп. Политики от любой партии - кусок говна, но он хотя бы смешной&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-04T13:13:33&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154297734402851/</link>
+        <pubDate>Fri, 04 Nov 2016 13:13:33 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154297734402851/</guid>
+        <description>&lt;p&gt;Чуваки, очень важно, пойдите по ссылке и лайкните. А то конкуренты из Иерусалима 200 лайков выцыганили где-то&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.producthunt.com/posts/short-cm&#34;&gt;https://www.producthunt.com/posts/short-cm&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-11-02T15:35:32&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154292534087851/</link>
+        <pubDate>Wed, 02 Nov 2016 15:35:32 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154292534087851/</guid>
+        <description>&lt;p&gt;Очень про Днепропетровск&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;http://drugoigorod.ru/citycentersthrash/&#34;&gt;http://drugoigorod.ru/citycentersthrash/&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-10-29T19:10:07&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154280614912851/</link>
+        <pubDate>Sat, 29 Oct 2016 19:10:07 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154280614912851/</guid>
+        <description>&lt;p&gt;Арендовал тачку с ручной коробкой (впервые) и заглох посреди перекрестка. Учитывая, что Осло - мелкий город, ожидаю новость в местных сми о придурке, парализовавшем движение в городе&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-10-28T09:13:22&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154276427932851/</link>
+        <pubDate>Fri, 28 Oct 2016 09:13:22 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154276427932851/</guid>
+        <description>&lt;p&gt;Веселая штука - пропаганда. Один чувак из хостела в Москве сказал, что хочет придушить меня во сне, потому что я украинский националист и бандеровец&lt;/p&gt;
+
+&lt;p&gt;А у этого пользователя вот пригорел пукан потому что я ватник&lt;/p&gt;
+
+&lt;p&gt;Буду и дальше держать баланс)&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154276420342851&amp;set=a.55141327850.66510.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154276420342851&amp;set=a.55141327850.66510.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-10-26T18:33:37&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154272158577851/</link>
+        <pubDate>Wed, 26 Oct 2016 18:33:37 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154272158577851/</guid>
+        <description>&lt;p&gt;Ну спасибо, prom.ua, за пароль в открытом тексте. Надеюсь, хоть не храните его в таком виде?&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154272155662851&amp;set=a.55141327850.66510.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154272155662851&amp;set=a.55141327850.66510.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-10-25T16:57:07&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154269337512851/</link>
+        <pubDate>Tue, 25 Oct 2016 16:57:07 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154269337512851/</guid>
+        <description>&lt;p&gt;Только что нашел первый закон дилберта. Есть еще второй&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Dilbert_principle&#34;&gt;https://en.wikipedia.org/wiki/Dilbert_principle&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154269974842851&amp;set=a.55141327850.66510.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154269974842851&amp;set=a.55141327850.66510.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-10-06T12:50:37&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154212213097851/</link>
+        <pubDate>Thu, 06 Oct 2016 12:50:37 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154212213097851/</guid>
+        <description>&lt;p&gt;Смотрите, какое мне письмо пришло. Локализация, епта&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/photo.php?fbid=10154212212467851&amp;set=a.55141327850.66510.630817850&amp;type=3&#34;&gt;https://www.facebook.com/photo.php?fbid=10154212212467851&amp;set=a.55141327850.66510.630817850&amp;type=3&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-23T21:19:20&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154178329562851/</link>
+        <pubDate>Fri, 23 Sep 2016 21:19:20 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154178329562851/</guid>
+        <description>&lt;p&gt;Водитель, стоявший рядом на светофоре, посмотрел на меня взглядом &amp;ldquo;что за еблан за рулём&amp;rdquo;. Когда он повернул голову к проезжей части - увидел лексус, едущий задом посреди перекрёстка. Выматерился. Попытался стартануть - чуть не задавил бабку, перебегавшую восьмиполосное шоссе на красный.&lt;/p&gt;
+
+&lt;p&gt;Не повезло водиле сегодня&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-17T14:14:35&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154161113277851/</link>
+        <pubDate>Sat, 17 Sep 2016 14:14:35 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154161113277851/</guid>
+        <description>&lt;p&gt;Товарищи граждане РФ, как изменилась ваша страна после забаненного порнхаба? Удаленщики стали чаще выходить работать в офис? На улице ботаны пикапят прохожих?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-16T20:08:30&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154159410672851/</link>
+        <pubDate>Fri, 16 Sep 2016 20:08:30 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154159410672851/</guid>
+        <description>&lt;p&gt;А в Риге по телевизору вовсю запрещенку российскую показывают: ТНТ, СТС, первый канал. Завидуете мне?&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-12T15:38:51&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154148486542851/</link>
+        <pubDate>Mon, 12 Sep 2016 15:38:51 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154148486542851/</guid>
+        <description>&lt;p&gt;Самое главное в #highload – не забывать добавлять уникальные индексы. А то потом заебешься говно разгребать&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-10T17:42:57&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154143217727851/</link>
+        <pubDate>Sat, 10 Sep 2016 17:42:57 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154143217727851/</guid>
+        <description>&lt;p&gt;А лайкните pls кто не лайкнул. Это очень важно. Надеюсь)&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.producthunt.com/tech/short-cm&#34;&gt;https://www.producthunt.com/tech/short-cm&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-06T10:46:49&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154132101062851/</link>
+        <pubDate>Tue, 06 Sep 2016 10:46:49 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154132101062851/</guid>
+        <description>&lt;p&gt;Зарелизили REST для Tornado в опенсорс. Теперь админку к торнаде прикрутить как никогда просто&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://github.com/EzyInsights/tornado-alchemy-rest&#34;&gt;https://github.com/EzyInsights/tornado-alchemy-rest&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-09-06T06:54:28&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154131806882851/</link>
+        <pubDate>Tue, 06 Sep 2016 06:54:28 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154131806882851/</guid>
+        <description>&lt;p&gt;Andrey Shetukhin вы чо, реально пароли в plain text хранили?&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;http://www.zdnet.com/article/russian-portal-email-provider-rambler-hacked-98-million-accounts-leaked/&#34;&gt;http://www.zdnet.com/article/russian-portal-email-provider-rambler-hacked-98-million-accounts-leaked/&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+      
+    
+      
+      <item>
+        <title>FB import for 2016-08-22T20:05:45&#43;00:00</title>
+        <link>http://kostenko.name/posts/630817850_10154092231827851/</link>
+        <pubDate>Mon, 22 Aug 2016 20:05:45 +0000</pubDate>
+        <author> (Andrii Kostenko)</author>
+        <guid>http://kostenko.name/posts/630817850_10154092231827851/</guid>
+        <description>&lt;p&gt;переслушиваю книгу&lt;/p&gt;
+
+&lt;p&gt;Link: &lt;a href=&#34;https://www.facebook.com/pages/Brave-New-World/111804805503429&#34;&gt;https://www.facebook.com/pages/Brave-New-World/111804805503429&lt;/a&gt;&lt;/p&gt;
 </description>
       </item>
       
