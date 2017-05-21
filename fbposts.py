@@ -12,7 +12,7 @@ date = "%(created_time)s"
 %(link_block)s
 """
 token = json.load(open('private.json'))["token"]
-url = 'https://graph.facebook.com/v2.7/me/posts?fields=message,created_time,picture,privacy,link&date_format=U&limit=200&access_token=' + token
+url = 'https://graph.facebook.com/v2.7/630817850/posts?fields=message,created_time,picture,privacy,link&date_format=U&limit=200&access_token=' + token
 while url:
     posts = requests.get(url).json()
     for post in posts["data"]:
